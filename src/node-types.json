@@ -880,6 +880,10 @@
           "named": true
         },
         {
+          "type": "formalParameterModifier",
+          "named": true
+        },
+        {
           "type": "identifier",
           "named": true
         },
@@ -1488,6 +1492,10 @@
   {
     "type": "foreach",
     "named": false
+  },
+  {
+    "type": "formalParameterModifier",
+    "named": true
   },
   {
     "type": "if",

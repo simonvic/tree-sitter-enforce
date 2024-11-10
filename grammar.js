@@ -184,7 +184,21 @@ module.exports = grammar({
       'private',
     )),
 
-    formalParameter: $ => seq($.type, $.identifier, optional(seq('=', $._expression))),
+    formalParameter: $ => seq(
+      $.formalParameterModifier,
+      $.type,
+      $.identifier,
+      optional(seq('=', $._expression))
+    ),
+
+    formalParameterModifier: $ => token(choice(
+      'const',
+      'autoptr',
+      'out',
+      'inout',
+      'protected', // see quirk 5
+      'private',
+    )),
 
     declVariable: $ => seq(
       repeat($.variableModifier),
@@ -199,8 +213,6 @@ module.exports = grammar({
       'static',
       'autoptr',
       'proto',
-      'out',
-      'inout',
       'protected',
       'private',
     )),
@@ -334,7 +346,9 @@ module.exports = grammar({
  * 3. Given the 2., array and enum entries can be on different lines without
  * being separated by a comma
  *
+ * 4. Instantiation can be done without parameters `new SomeType;`
  *
+ * 5. Visibility modifiers are allowed (but unused?) for formal parameters
  *
  *
  */

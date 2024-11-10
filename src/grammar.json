@@ -907,6 +907,10 @@
       "members": [
         {
           "type": "SYMBOL",
+          "name": "formalParameterModifier"
+        },
+        {
+          "type": "SYMBOL",
           "name": "type"
         },
         {
@@ -935,6 +939,38 @@
           ]
         }
       ]
+    },
+    "formalParameterModifier": {
+      "type": "TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "STRING",
+            "value": "const"
+          },
+          {
+            "type": "STRING",
+            "value": "autoptr"
+          },
+          {
+            "type": "STRING",
+            "value": "out"
+          },
+          {
+            "type": "STRING",
+            "value": "inout"
+          },
+          {
+            "type": "STRING",
+            "value": "protected"
+          },
+          {
+            "type": "STRING",
+            "value": "private"
+          }
+        ]
+      }
     },
     "declVariable": {
       "type": "SEQ",
@@ -1010,14 +1046,6 @@
           {
             "type": "STRING",
             "value": "proto"
-          },
-          {
-            "type": "STRING",
-            "value": "out"
-          },
-          {
-            "type": "STRING",
-            "value": "inout"
           },
           {
             "type": "STRING",
