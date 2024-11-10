@@ -251,11 +251,12 @@ module.exports = grammar({
       optional(field("default", seq('=', $._expression)))
     ),
 
-    formalParameterModifier: $ => token(choice(
+    formalParameterModifier: _ => token(choice(
       'const',
       'autoptr',
       'out',
       'inout',
+      'notnull',
       'protected', // see quirk 5
       'private',
     )),

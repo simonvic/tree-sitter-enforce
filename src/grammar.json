@@ -1248,6 +1248,10 @@
           },
           {
             "type": "STRING",
+            "value": "notnull"
+          },
+          {
+            "type": "STRING",
             "value": "protected"
           },
           {
