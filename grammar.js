@@ -248,6 +248,7 @@ module.exports = grammar({
       'float',
       'string',
       'typename',
+      'vector',
     ),
 
     typeRef: $ => seq('ref', $.identifier),

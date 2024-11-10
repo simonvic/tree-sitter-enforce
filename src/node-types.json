@@ -1337,6 +1337,10 @@
     "named": true
   },
   {
+    "type": "vector",
+    "named": false
+  },
+  {
     "type": "void",
     "named": false
   },

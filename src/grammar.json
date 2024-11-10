@@ -1556,6 +1556,10 @@
         {
           "type": "STRING",
           "value": "typename"
+        },
+        {
+          "type": "STRING",
+          "value": "vector"
         }
       ]
     },
