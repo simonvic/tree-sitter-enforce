@@ -10,6 +10,9 @@
 const EXPONENT = seq('e', choice('+', '-'), /[0-9]+/);
 
 const PREC = {
+  DOC: 1,
+  COMMENT: 0,
+
   INVOKATION: 18,
   DOT: 18,
   POSTFIX: 18,
@@ -35,10 +38,16 @@ module.exports = grammar({
     $.type,
   ],
 
-  conflicts: $ => [
+  extras: $ => [
+    /\s/, // whitespaces do matters, but whatever
+    $.commentLine,
+    $.commentBlock,
+    $.docLine,
+    $.docBlock,
   ],
 
   rules: {
+
     compilationUnit: $ => repeat(choice(
       $.declClass,
       $.declEnum,
@@ -46,6 +55,24 @@ module.exports = grammar({
       $.declVariable,
       $.typedef,
     )),
+
+    docLine: _ => token(prec(PREC.DOC, seq('//', choice('!', '?'), /[^\n]*/))),
+
+    // kindly borrowed from https://github.com/tree-sitter/tree-sitter-java/blob/master/grammar.js#L1291C5-L1297C8
+    docBlock: _ => token(prec(PREC.DOC, seq(
+      '/**',
+      /[^*]*\*+([^/*][^*]*\*+)*/,
+      '/',
+    ))),
+
+    commentLine: _ => token(prec(PREC.COMMENT, seq('//', /[^\n]*/))),
+
+    // kindly borrowed from https://github.com/tree-sitter/tree-sitter-java/blob/master/grammar.js#L1291C5-L1297C8
+    commentBlock: _ => token(prec(PREC.COMMENT, seq(
+      '/*',
+      /[^*]*\*+([^/*][^*]*\*+)*/,
+      '/',
+    ))),
 
     _statementOrBlock: $ => choice($.statement, $.block),
     block: $ => seq('{', repeat($.statement), '}'),

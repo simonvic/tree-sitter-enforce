@@ -2073,6 +2073,14 @@
     "named": true
   },
   {
+    "type": "commentBlock",
+    "named": true
+  },
+  {
+    "type": "commentLine",
+    "named": true
+  },
+  {
     "type": "continue",
     "named": false
   },
@@ -2083,6 +2091,14 @@
   {
     "type": "delete",
     "named": false
+  },
+  {
+    "type": "docBlock",
+    "named": true
+  },
+  {
+    "type": "docLine",
+    "named": true
   },
   {
     "type": "else",
