@@ -1,0 +1,27 @@
+================================================================================
+new instance
+================================================================================
+void foo() {
+	new Foo();
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod (typePrimitive) (identifier) (block
+	(statementExpression (new (identifier))))))
+
+
+================================================================================
+new instance with parameters
+================================================================================
+void foo() {
+	new Foo(69, 420);
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod (typePrimitive) (identifier) (block
+	(statementExpression
+		(new
+			(identifier)
+			(actualParameters
+				(literalInt)
+				(literalInt)))))))
+
+

@@ -252,6 +252,7 @@ module.exports = grammar({
       $.expressionBinary,
       $.expressionPrefix,
       $.expressionSuffix,
+      $.new,
       $.literal,
       $.identifier,
       $.super,
@@ -299,6 +300,14 @@ module.exports = grammar({
       $._expression,
       choice('++', '--',)
     )),
+
+    new: $ => seq('new', $.identifier, '(', optional($.actualParameters), ')'),
+
+    actualParameters: $ => seq(
+      $._expression,
+      repeat(seq(',', $._expression)),
+      optional(','),
+    ),
 
     type: $ => choice(
       $.typePrimitive,

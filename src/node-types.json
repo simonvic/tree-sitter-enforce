@@ -106,6 +106,49 @@
     ]
   },
   {
+    "type": "actualParameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expressionBinary",
+          "named": true
+        },
+        {
+          "type": "expressionPrefix",
+          "named": true
+        },
+        {
+          "type": "expressionSuffix",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "new",
+          "named": true
+        },
+        {
+          "type": "super",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "assignment",
     "named": true,
     "fields": {},
@@ -131,6 +174,10 @@
         },
         {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "new",
           "named": true
         },
         {
@@ -345,6 +392,10 @@
           "named": true
         },
         {
+          "type": "new",
+          "named": true
+        },
+        {
           "type": "super",
           "named": true
         },
@@ -426,6 +477,10 @@
           "named": true
         },
         {
+          "type": "new",
+          "named": true
+        },
+        {
           "type": "super",
           "named": true
         },
@@ -490,6 +545,10 @@
         },
         {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "new",
           "named": true
         },
         {
@@ -618,6 +677,10 @@
             "named": true
           },
           {
+            "type": "new",
+            "named": true
+          },
+          {
             "type": "super",
             "named": true
           },
@@ -657,6 +720,10 @@
           },
           {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "new",
             "named": true
           },
           {
@@ -700,6 +767,10 @@
           "named": true
         },
         {
+          "type": "new",
+          "named": true
+        },
+        {
           "type": "super",
           "named": true
         },
@@ -736,6 +807,10 @@
         },
         {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "new",
           "named": true
         },
         {
@@ -791,6 +866,10 @@
             "named": true
           },
           {
+            "type": "new",
+            "named": true
+          },
+          {
             "type": "super",
             "named": true
           },
@@ -840,6 +919,10 @@
           },
           {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "new",
             "named": true
           },
           {
@@ -902,6 +985,10 @@
           },
           {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "new",
             "named": true
           },
           {
@@ -983,6 +1070,10 @@
           "named": true
         },
         {
+          "type": "new",
+          "named": true
+        },
+        {
           "type": "super",
           "named": true
         },
@@ -1035,6 +1126,10 @@
           "named": true
         },
         {
+          "type": "new",
+          "named": true
+        },
+        {
           "type": "statement",
           "named": true
         },
@@ -1084,6 +1179,25 @@
     }
   },
   {
+    "type": "new",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "actualParameters",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "return",
     "named": true,
     "fields": {},
@@ -1109,6 +1223,10 @@
         },
         {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "new",
           "named": true
         },
         {
@@ -1148,6 +1266,10 @@
         },
         {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "new",
           "named": true
         },
         {
@@ -1216,6 +1338,10 @@
             "named": true
           },
           {
+            "type": "new",
+            "named": true
+          },
+          {
             "type": "super",
             "named": true
           },
@@ -1255,6 +1381,10 @@
           },
           {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "new",
             "named": true
           },
           {
@@ -1368,6 +1498,10 @@
         },
         {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "new",
           "named": true
         },
         {
@@ -1624,6 +1758,10 @@
   {
     "type": "methodModifier",
     "named": true
+  },
+  {
+    "type": "new",
+    "named": false
   },
   {
     "type": "ref",
