@@ -46,6 +46,10 @@
         "named": true
       },
       {
+        "type": "delete",
+        "named": true
+      },
+      {
         "type": "emptyStatement",
         "named": true
       },
@@ -297,6 +301,21 @@
         },
         {
           "type": "variableModifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "delete",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -1200,6 +1219,10 @@
   },
   {
     "type": "continue",
+    "named": false
+  },
+  {
+    "type": "delete",
     "named": false
   },
   {

@@ -68,6 +68,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "delete"
+        },
+        {
+          "type": "SYMBOL",
           "name": "break"
         },
         {
@@ -120,6 +124,23 @@
     "emptyStatement": {
       "type": "STRING",
       "value": ";"
+    },
+    "delete": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "delete"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": ";"
+        }
+      ]
     },
     "break": {
       "type": "SEQ",

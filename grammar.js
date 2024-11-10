@@ -48,6 +48,7 @@ module.exports = grammar({
     statement: $ => choice(
       $.statementExpression,
       $.emptyStatement,
+      $.delete,
       $.break,
       $.continue,
       $.return,
@@ -60,6 +61,8 @@ module.exports = grammar({
     ),
     statementExpression: $ => seq($._expression, ';'),
     emptyStatement: _ => ';',
+
+    delete: $ => seq('delete', $.identifier, ';'), // TODO: check if other expressions are allowed
 
     break: _ => seq('break', ';'),
     continue: _ => seq('continue', ';'),
