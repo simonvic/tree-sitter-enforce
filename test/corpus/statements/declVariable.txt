@@ -54,3 +54,18 @@ int x, y = 69, z;
 		(literalInt)
 		(identifier)))
 
+================================================================================
+array declaration
+================================================================================
+int x[];
+int x[69];
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declVariableArray
+		(typePrimitive)
+		(identifier))
+	(declVariableArray
+		(typePrimitive)
+		(identifier)
+		initSize: (literalInt)))
+

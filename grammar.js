@@ -62,7 +62,7 @@ module.exports = grammar({
       $.declClass,
       $.declEnum,
       $.declMethod,
-      $.declVariable,
+      $._declVariable,
       $.typedef,
     )),
 
@@ -99,7 +99,7 @@ module.exports = grammar({
       $.while,
       $.for,
       $.foreach,
-      $.declVariable,
+      $._declVariable,
       $.assignment,
     ),
     statementExpression: $ => seq($._expression, ';'),
@@ -276,11 +276,31 @@ module.exports = grammar({
       'private',
     ),
 
+    _declVariable: $ => choice(
+      $.declVariable,
+      $.declVariableArray,
+    ),
+
     declVariable: $ => seq(
       repeat($.variableModifier),
       choice($.type, 'auto'),
       $.identifier, optional(seq('=', $._expression)),
       repeat(seq(',', $.identifier, optional(seq('=', $._expression)))),
+      ';'
+    ),
+
+    declVariableArray: $ => seq(
+      repeat($.variableModifier),
+      $.type,
+      $.identifier,
+      '[', optional(field("initSize", $._expression)), ']',
+      optional(seq('=', $._expression)),
+      repeat(seq(
+        ',',
+        $.identifier,
+        optional(seq('[', optional(field("initSize", $._expression)), ']')),
+        optional(seq('=', $._expression))
+      )),
       ';'
     ),
 
