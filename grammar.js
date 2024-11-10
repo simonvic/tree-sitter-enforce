@@ -135,18 +135,48 @@ module.exports = grammar({
     ),
 
     declClass: $ => seq(
+      repeat($.classModifier),
       'class', field("typename", $.identifier),
       // TODO: generics
       optional(seq(choice(':', 'extends'), field("superTypename", $.identifier))),
       // TODO: generics
       '{',
       repeat(choice(
-        // $.declConstructor,
-        // $.declDeconstructor,
+        $.declEnum, // see quirk 6
+        $.declField,
+        $.declDeconstructor,
         $.declMethod,
-        //$.declField,
       )),
       '}',
+    ),
+
+    classModifier: _ => token('modded'),
+
+    declField: $ => seq(
+      repeat($.fieldModifier),
+      $.type,
+      $.identifier,
+      optional(seq('=', $._expression)),
+      ';'
+    ),
+
+    fieldModifier: _ => token(choice(
+      'const',
+      'static',
+      'autoptr',
+      'proto',
+      'protected',
+      'private',
+    )),
+
+    declDeconstructor: $ => seq(
+      'void',
+      '~',
+      $.identifier,
+      '(',
+      repeat($.formalParameter),
+      ')',
+      $.block
     ),
 
     declEnum: $ => seq(
@@ -350,5 +380,6 @@ module.exports = grammar({
  *
  * 5. Visibility modifiers are allowed (but unused?) for formal parameters
  *
+ * 6. enum can be nested in classes, but not be used?
  *
  */

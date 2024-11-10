@@ -231,7 +231,46 @@
       "required": false,
       "types": [
         {
+          "type": "classModifier",
+          "named": true
+        },
+        {
+          "type": "declDeconstructor",
+          "named": true
+        },
+        {
+          "type": "declEnum",
+          "named": true
+        },
+        {
+          "type": "declField",
+          "named": true
+        },
+        {
           "type": "declMethod",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "declDeconstructor",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "block",
+          "named": true
+        },
+        {
+          "type": "formalParameter",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -268,6 +307,53 @@
       "types": [
         {
           "type": "enumMember",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "declField",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expressionBinary",
+          "named": true
+        },
+        {
+          "type": "expressionPrefix",
+          "named": true
+        },
+        {
+          "type": "expressionSuffix",
+          "named": true
+        },
+        {
+          "type": "fieldModifier",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "super",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
+        },
+        {
+          "type": "type",
           "named": true
         }
       ]
@@ -662,6 +748,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "fieldModifier",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "for",
@@ -1243,6 +1334,11 @@
     }
   },
   {
+    "type": "variableModifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "while",
     "named": true,
     "fields": {},
@@ -1454,6 +1550,10 @@
     "named": false
   },
   {
+    "type": "classModifier",
+    "named": true
+  },
+  {
     "type": "continue",
     "named": false
   },
@@ -1556,10 +1656,6 @@
   {
     "type": "typename",
     "named": false
-  },
-  {
-    "type": "variableModifier",
-    "named": true
   },
   {
     "type": "vector",

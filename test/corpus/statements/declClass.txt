@@ -1,0 +1,73 @@
+================================================================================
+class declaration
+================================================================================
+class Foo {}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declClass
+		typename: (identifier)))
+
+
+================================================================================
+class declaration with inheritance
+================================================================================
+class Foo : Bar {}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declClass
+		typename: (identifier)
+		superTypename: (identifier)))
+
+================================================================================
+modded class declaration
+================================================================================
+modded class Foo {}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declClass
+		(classModifier)
+		typename: (identifier)))
+
+
+================================================================================
+modded class declaration with inheritance
+================================================================================
+modded class Foo : Bar {}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declClass
+		(classModifier)
+		typename: (identifier)
+		superTypename: (identifier)))
+
+
+================================================================================
+class declaration with fields and methods
+================================================================================
+class Foo : Bar {
+	int foo;
+	void Foo() {}
+	void ~Foo() {}
+	void foo() {}
+}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declClass
+		typename: (identifier)
+		superTypename: (identifier)
+		(declField
+			(typePrimitive)
+			(identifier))
+		(declMethod
+			returnType: (typePrimitive)
+			(identifier)
+			(block))
+		(declDeconstructor
+			(identifier)
+			(block))
+		(declMethod
+			returnType: (typePrimitive)
+			(identifier)
+			(block))))
+
+
