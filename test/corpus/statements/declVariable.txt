@@ -29,3 +29,28 @@ auto x = 69;
 		(identifier)
 		(literalInt)))
 
+================================================================================
+multiple variables declaration
+================================================================================
+int x, y, z;
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declVariable
+		(typePrimitive)
+		(identifier)
+		(identifier)
+		(identifier)))
+
+================================================================================
+multiple variables declaration with initialization
+================================================================================
+int x, y = 69, z;
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declVariable
+		(typePrimitive)
+		(identifier)
+		(identifier)
+		(literalInt)
+		(identifier)))
+

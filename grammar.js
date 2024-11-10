@@ -271,8 +271,8 @@ module.exports = grammar({
     declVariable: $ => seq(
       repeat($.variableModifier),
       choice($.type, 'auto'),
-      $.identifier,
-      optional(seq('=', $._expression)),
+      $.identifier, optional(seq('=', $._expression)),
+      repeat(seq(',', $.identifier, optional(seq('=', $._expression)))),
       ';'
     ),
 
