@@ -1275,6 +1275,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "typePrimitive"
+        },
+        {
+          "type": "SYMBOL",
           "name": "identifier"
         },
         {

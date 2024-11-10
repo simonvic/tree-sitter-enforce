@@ -3,7 +3,9 @@ member access
 ================================================================================
 void foo() {
 	bar.baz;
+	int.MAX;
 	bar.baz();
+	int.Floor();
 	bar.bar.baz();
 }
 --------------------------------------------------------------------------------
@@ -11,9 +13,16 @@ void foo() {
 	(statementExpression (memberAccess
 		accessed: (identifier)
 		member: (identifier)))
+	(statementExpression (memberAccess
+		accessed: (typePrimitive)
+		member: (identifier)))
 	(statementExpression (invokation
 		(memberAccess
 			accessed: (identifier)
+			member: (identifier))))
+	(statementExpression (invokation
+		(memberAccess
+			accessed: (typePrimitive)
 			member: (identifier))))
 	(statementExpression (invokation
 		(memberAccess

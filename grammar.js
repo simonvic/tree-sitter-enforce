@@ -258,6 +258,7 @@ module.exports = grammar({
       $.invokation,
       $.memberAccess,
       $.literal,
+      $.typePrimitive, // NOTE: types are first class citizens
       $.identifier,
       $.super,
       $.this,
