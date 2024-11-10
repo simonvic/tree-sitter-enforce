@@ -92,6 +92,10 @@
     "named": true,
     "subtypes": [
       {
+        "type": "identifier",
+        "named": true
+      },
+      {
         "type": "typeArray",
         "named": true
       },
@@ -423,10 +427,6 @@
           "named": true
         },
         {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "invokation",
           "named": true
         },
@@ -513,10 +513,6 @@
         },
         {
           "type": "expressionSuffix",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         },
         {
@@ -1259,10 +1255,6 @@
           "named": true
         },
         {
-          "type": "identifier",
-          "named": true
-        },
-        {
           "type": "type",
           "named": true
         }
@@ -1414,10 +1406,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
         {
           "type": "type",
           "named": true
@@ -1822,7 +1810,7 @@
       "required": true,
       "types": [
         {
-          "type": "identifier",
+          "type": "type",
           "named": true
         }
       ]
@@ -1836,10 +1824,6 @@
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "identifier",
-          "named": true
-        },
         {
           "type": "type",
           "named": true

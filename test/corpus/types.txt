@@ -1,0 +1,30 @@
+================================================================================
+types
+================================================================================
+int x;
+Foo x;
+ref Foo x;
+
+int[] x;
+Foo[] x;
+ref Foo[] x;
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declVariable
+		(typePrimitive)
+		(identifier))
+	(declVariable
+		(identifier)
+		(identifier))
+	(declVariable
+		(typeRef (identifier))
+		(identifier))
+	(declVariable
+		(typeArray (typePrimitive))
+		(identifier))
+	(declVariable
+		(typeArray (identifier))
+		(identifier))
+	(declVariable
+		(typeArray (typeRef (identifier)))
+		(identifier)))

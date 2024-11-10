@@ -359,7 +359,8 @@ module.exports = grammar({
     type: $ => choice(
       $.typePrimitive,
       $.typeRef,
-      $.typeArray
+      $.typeArray,
+      $.identifier,
     ),
 
     typePrimitive: _ => choice(
@@ -372,7 +373,11 @@ module.exports = grammar({
       'vector',
     ),
 
-    typeRef: $ => seq('ref', $.identifier),
+    // TODO: request some info on precedence
+    // ref Foo[]
+    // is it [ref Foo]?
+    // is it ref [Foo]?
+    typeRef: $ => prec(1, seq('ref', $.type)),
     typeArray: $ => seq($.type, '[', ']'),
 
     super: _ => 'super',
