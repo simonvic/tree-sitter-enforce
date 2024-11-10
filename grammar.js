@@ -40,6 +40,11 @@ module.exports = grammar({
 
   word: $ => $.identifier,
 
+  conflicts: $ => [
+    [$.methodModifier, $.variableModifier],
+    [$.methodModifier, $.fieldModifier]
+  ],
+
   extras: $ => [
     /\s/, // whitespaces do matters, but whatever
     $.commentLine,
@@ -181,7 +186,7 @@ module.exports = grammar({
       '}',
     ),
 
-    classModifier: _ => token('modded'),
+    classModifier: _ => 'modded',
 
     declField: $ => seq(
       repeat($.fieldModifier),
@@ -191,14 +196,14 @@ module.exports = grammar({
       ';'
     ),
 
-    fieldModifier: _ => token(choice(
+    fieldModifier: _ => choice(
       'const',
       'static',
       'autoptr',
       'proto',
       'protected',
       'private',
-    )),
+    ),
 
     declDeconstructor: $ => seq(
       'void', '~', $.identifier, '(', optional($.formalParameters), ')', $.block
@@ -231,14 +236,14 @@ module.exports = grammar({
       )
     ),
 
-    methodModifier: _ => token(choice(
+    methodModifier: _ => choice(
       'override',
       'proto',
       'native',
       'static',
       'protected',
       'private',
-    )),
+    ),
 
     formalParameters: $ => seq(
       $.formalParameter,
@@ -253,7 +258,7 @@ module.exports = grammar({
       optional(field("default", seq('=', $._expression)))
     ),
 
-    formalParameterModifier: _ => token(choice(
+    formalParameterModifier: _ => choice(
       'const',
       'autoptr',
       'out',
@@ -261,7 +266,7 @@ module.exports = grammar({
       'notnull',
       'protected', // see quirk 5
       'private',
-    )),
+    ),
 
     declVariable: $ => seq(
       repeat($.variableModifier),
@@ -271,13 +276,13 @@ module.exports = grammar({
       ';'
     ),
 
-    variableModifier: _ => token(choice(
+    variableModifier: _ => choice(
       'const',
       'static',
       'autoptr',
       'protected',
       'private',
-    )),
+    ),
 
     _expression: $ => choice(
       $._expressionParenthesized,

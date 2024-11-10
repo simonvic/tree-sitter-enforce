@@ -936,6 +936,11 @@
     }
   },
   {
+    "type": "fieldModifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "for",
     "named": true,
     "fields": {
@@ -1262,6 +1267,11 @@
     }
   },
   {
+    "type": "formalParameterModifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "formalParameters",
     "named": true,
     "fields": {},
@@ -1501,6 +1511,11 @@
         ]
       }
     }
+  },
+  {
+    "type": "methodModifier",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "new",
@@ -1832,6 +1847,11 @@
     }
   },
   {
+    "type": "variableModifier",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "while",
     "named": true,
     "fields": {},
@@ -2047,6 +2067,10 @@
     "named": false
   },
   {
+    "type": "autoptr",
+    "named": false
+  },
+  {
     "type": "bool",
     "named": false
   },
@@ -2073,6 +2097,10 @@
   {
     "type": "commentLine",
     "named": true
+  },
+  {
+    "type": "const",
+    "named": false
   },
   {
     "type": "continue",
@@ -2111,10 +2139,6 @@
     "named": false
   },
   {
-    "type": "fieldModifier",
-    "named": true
-  },
-  {
     "type": "float",
     "named": false
   },
@@ -2127,15 +2151,15 @@
     "named": false
   },
   {
-    "type": "formalParameterModifier",
-    "named": true
-  },
-  {
     "type": "identifier",
     "named": true
   },
   {
     "type": "if",
+    "named": false
+  },
+  {
+    "type": "inout",
     "named": false
   },
   {
@@ -2159,11 +2183,35 @@
     "named": true
   },
   {
-    "type": "methodModifier",
-    "named": true
+    "type": "native",
+    "named": false
   },
   {
     "type": "new",
+    "named": false
+  },
+  {
+    "type": "notnull",
+    "named": false
+  },
+  {
+    "type": "out",
+    "named": false
+  },
+  {
+    "type": "override",
+    "named": false
+  },
+  {
+    "type": "private",
+    "named": false
+  },
+  {
+    "type": "protected",
+    "named": false
+  },
+  {
+    "type": "proto",
     "named": false
   },
   {
@@ -2172,6 +2220,10 @@
   },
   {
     "type": "return",
+    "named": false
+  },
+  {
+    "type": "static",
     "named": false
   },
   {
@@ -2197,10 +2249,6 @@
   {
     "type": "typename",
     "named": false
-  },
-  {
-    "type": "variableModifier",
-    "named": true
   },
   {
     "type": "vector",
