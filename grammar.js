@@ -340,10 +340,12 @@ module.exports = grammar({
     )),
 
     actualParameters: $ => seq(
-      $._expression,
-      repeat(seq(',', $._expression)),
+      $.actualParameter,
+      repeat(seq(',', $.actualParameter)),
       optional(','),
     ),
+
+    actualParameter: $ => $._expression,
 
     memberAccess: $ => prec(PREC.DOT, seq(
       field("accessed", $._expression),

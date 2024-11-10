@@ -106,11 +106,11 @@
     ]
   },
   {
-    "type": "actualParameters",
+    "type": "actualParameter",
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
         {
@@ -155,6 +155,21 @@
         },
         {
           "type": "typePrimitive",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "actualParameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "actualParameter",
           "named": true
         }
       ]

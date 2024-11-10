@@ -2147,7 +2147,7 @@
       "members": [
         {
           "type": "SYMBOL",
-          "name": "_expression"
+          "name": "actualParameter"
         },
         {
           "type": "REPEAT",
@@ -2160,7 +2160,7 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "_expression"
+                "name": "actualParameter"
               }
             ]
           }
@@ -2178,6 +2178,10 @@
           ]
         }
       ]
+    },
+    "actualParameter": {
+      "type": "SYMBOL",
+      "name": "_expression"
     },
     "memberAccess": {
       "type": "PREC",
