@@ -19,6 +19,6 @@ void foo() {
 	(statementExpression (invokation
 		(identifier)
 		(actualParameters
-			(literalInt)
-			(literalInt)))))))
+			(actualParameter (literalInt))
+			(actualParameter (literalInt))))))))
 

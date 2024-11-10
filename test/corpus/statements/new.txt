@@ -21,7 +21,7 @@ void foo() {
 		(new
 			(identifier)
 			(actualParameters
-				(literalInt)
-				(literalInt)))))))
+				(actualParameter (literalInt))
+				(actualParameter (literalInt))))))))
 
 
