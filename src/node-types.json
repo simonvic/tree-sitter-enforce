@@ -1285,11 +1285,6 @@
     }
   },
   {
-    "type": "identifier",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "if",
     "named": true,
     "fields": {},
@@ -2149,6 +2144,10 @@
   },
   {
     "type": "formalParameterModifier",
+    "named": true
+  },
+  {
+    "type": "identifier",
     "named": true
   },
   {

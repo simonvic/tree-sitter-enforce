@@ -376,8 +376,6 @@ module.exports = grammar({
     super: _ => 'super',
     this: _ => 'this',
 
-    identifier: _ => seq(/[a-zA-Z_]/, repeat(/[a-zA-Z0-9_]/)),
-
     literal: $ => choice(
       $.literalNull,
       $.literalBool,
@@ -412,6 +410,8 @@ module.exports = grammar({
       /[^"\\\n]/,
       /\\[^"\\nrt]/,
     )),
+
+    identifier: _ => token(/[a-zA-Z_][a-zA-Z0-9_]*/),
 
   }
 });

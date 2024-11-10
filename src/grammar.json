@@ -2304,22 +2304,6 @@
       "type": "STRING",
       "value": "this"
     },
-    "identifier": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "PATTERN",
-          "value": "[a-zA-Z_]"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "PATTERN",
-            "value": "[a-zA-Z0-9_]"
-          }
-        }
-      ]
-    },
     "literal": {
       "type": "CHOICE",
       "members": [
@@ -2545,6 +2529,13 @@
             "value": "\\\\[^\"\\\\nrt]"
           }
         ]
+      }
+    },
+    "identifier": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[a-zA-Z_][a-zA-Z0-9_]*"
       }
     }
   },
