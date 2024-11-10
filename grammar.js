@@ -39,6 +39,7 @@ module.exports = grammar({
   rules: {
     compilationUnit: $ => repeat(choice(
       $.declClass,
+      $.declEnum,
       $.declMethod,
       $.declVariable,
       $.typedef,
@@ -139,6 +140,20 @@ module.exports = grammar({
       )),
       '}',
     ),
+
+    declEnum: $ => seq(
+      'enum', field("typename", $.identifier),
+      optional(seq(choice(':', 'extends'), field("superTypename", $.identifier))),
+      '{',
+      optional(seq(
+        $.enumMember,
+        repeat(seq(',', $.enumMember)),
+        optional(',')
+      )),
+      '}',
+    ),
+
+    enumMember: $ => seq($.identifier, optional(seq('=', $._expression))),
 
     declMethod: $ => seq(
       repeat($.methodModifier),
@@ -303,11 +318,13 @@ module.exports = grammar({
  *
  * 2. Whitespaces are not ignored
  *  - function split is not possible
- *  -
+ *  - these are two statements
  *    ```
  *    return // empty return
  *    69; // statement expression
  *    ```
+ * 3. Given the 2., array and enum entries can be on different lines without
+ * being separated by a comma
  *
  *
  *

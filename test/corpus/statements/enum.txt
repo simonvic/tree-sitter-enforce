@@ -1,0 +1,45 @@
+================================================================================
+empty enum
+================================================================================
+enum Foo {}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declEnum
+		typename: (identifier)))
+
+================================================================================
+simple enum
+================================================================================
+enum Foo { A, B, C, }
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declEnum
+		typename: (identifier)
+		(enumMember (identifier))
+		(enumMember (identifier))
+		(enumMember (identifier))))
+
+================================================================================
+simple enum with initiliazers
+================================================================================
+enum Foo { A, B = 69, C, }
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declEnum
+		typename: (identifier)
+		(enumMember (identifier))
+		(enumMember (identifier) (literalInt))
+		(enumMember (identifier))))
+
+================================================================================
+extended enum
+================================================================================
+enum Foo : Bar { A, B = 69, C, }
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declEnum
+		typename: (identifier)
+		superTypename: (identifier)
+		(enumMember (identifier))
+		(enumMember (identifier) (literalInt))
+		(enumMember (identifier))))
