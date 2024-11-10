@@ -226,7 +226,7 @@ module.exports = grammar({
     declMethod: $ => seq(
       repeat($.methodModifier),
       field("returnType", $.type),
-      $.identifier,
+      field("name", $.identifier),
       '(',
       optional($.formalParameters),
       ')',

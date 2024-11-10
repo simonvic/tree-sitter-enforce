@@ -60,14 +60,14 @@ class Foo : Bar {
 			(identifier))
 		(declMethod
 			returnType: (typePrimitive)
-			(identifier)
+			name: (identifier)
 			(block))
 		(declDeconstructor
 			(identifier)
 			(block))
 		(declMethod
 			returnType: (typePrimitive)
-			(identifier)
+			name: (identifier)
 			(block))))
 
 

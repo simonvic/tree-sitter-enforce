@@ -5,7 +5,7 @@ void foo() {
 	switch (69) {}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
 	(switch
 		subject: (literalInt)))))
 
@@ -18,7 +18,7 @@ void foo() {
 	}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
 	(switch
 		subject: (literalInt)
 		label: (literalInt)))))
@@ -34,7 +34,7 @@ void foo() {
 	}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
 	(switch
 		subject: (literalInt)
 		label: (literalInt)
@@ -50,7 +50,7 @@ void foo() {
 	}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
 	(switch
 		subject: (literalInt)
 		label: (literalInt)
@@ -75,7 +75,7 @@ void foo() {
 	}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
 	(switch
 		subject: (literalInt)
 

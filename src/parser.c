@@ -11,7 +11,7 @@
 #define ALIAS_COUNT 0
 #define TOKEN_COUNT 95
 #define EXTERNAL_TOKEN_COUNT 0
-#define FIELD_COUNT 17
+#define FIELD_COUNT 18
 #define MAX_ALIAS_SEQUENCE_LENGTH 10
 #define PRODUCTION_ID_COUNT 23
 
@@ -1125,13 +1125,14 @@ enum ts_field_identifiers {
   field_label = 8,
   field_lhs = 9,
   field_member = 10,
-  field_returnType = 11,
-  field_rhs = 12,
-  field_subject = 13,
-  field_superTypename = 14,
-  field_typename = 15,
-  field_update = 16,
-  field_value = 17,
+  field_name = 11,
+  field_returnType = 12,
+  field_rhs = 13,
+  field_subject = 14,
+  field_superTypename = 15,
+  field_typename = 16,
+  field_update = 17,
+  field_value = 18,
 };
 
 static const char * const ts_field_names[] = {
@@ -1146,6 +1147,7 @@ static const char * const ts_field_names[] = {
   [field_label] = "label",
   [field_lhs] = "lhs",
   [field_member] = "member",
+  [field_name] = "name",
   [field_returnType] = "returnType",
   [field_rhs] = "rhs",
   [field_subject] = "subject",
@@ -1157,96 +1159,98 @@ static const char * const ts_field_names[] = {
 
 static const TSFieldMapSlice ts_field_map_slices[PRODUCTION_ID_COUNT] = {
   [1] = {.index = 0, .length = 1},
-  [2] = {.index = 1, .length = 1},
-  [3] = {.index = 2, .length = 1},
-  [4] = {.index = 3, .length = 3},
-  [5] = {.index = 6, .length = 2},
-  [6] = {.index = 8, .length = 2},
-  [7] = {.index = 10, .length = 1},
-  [8] = {.index = 11, .length = 2},
-  [9] = {.index = 13, .length = 2},
-  [10] = {.index = 15, .length = 2},
-  [11] = {.index = 17, .length = 1},
-  [12] = {.index = 18, .length = 2},
-  [13] = {.index = 20, .length = 2},
-  [14] = {.index = 22, .length = 2},
-  [15] = {.index = 24, .length = 2},
-  [16] = {.index = 26, .length = 1},
-  [17] = {.index = 27, .length = 3},
-  [18] = {.index = 30, .length = 3},
-  [19] = {.index = 33, .length = 4},
-  [20] = {.index = 37, .length = 4},
-  [21] = {.index = 41, .length = 3},
-  [22] = {.index = 44, .length = 5},
+  [2] = {.index = 1, .length = 2},
+  [3] = {.index = 3, .length = 1},
+  [4] = {.index = 4, .length = 3},
+  [5] = {.index = 7, .length = 2},
+  [6] = {.index = 9, .length = 2},
+  [7] = {.index = 11, .length = 2},
+  [8] = {.index = 13, .length = 2},
+  [9] = {.index = 15, .length = 2},
+  [10] = {.index = 17, .length = 2},
+  [11] = {.index = 19, .length = 1},
+  [12] = {.index = 20, .length = 2},
+  [13] = {.index = 22, .length = 2},
+  [14] = {.index = 24, .length = 2},
+  [15] = {.index = 26, .length = 2},
+  [16] = {.index = 28, .length = 1},
+  [17] = {.index = 29, .length = 3},
+  [18] = {.index = 32, .length = 3},
+  [19] = {.index = 35, .length = 4},
+  [20] = {.index = 39, .length = 4},
+  [21] = {.index = 43, .length = 3},
+  [22] = {.index = 46, .length = 5},
 };
 
 static const TSFieldMapEntry ts_field_map_entries[] = {
   [0] =
     {field_typename, 1},
   [1] =
+    {field_name, 1},
     {field_returnType, 0},
-  [2] =
-    {field_typename, 2},
   [3] =
+    {field_typename, 2},
+  [4] =
     {field_bop, 1},
     {field_lhs, 0},
     {field_rhs, 2},
-  [6] =
+  [7] =
     {field_accessed, 0},
     {field_member, 2},
-  [8] =
+  [9] =
     {field_superTypename, 3},
     {field_typename, 1},
-  [10] =
-    {field_returnType, 1},
   [11] =
+    {field_name, 2},
+    {field_returnType, 1},
+  [13] =
     {field_default, 2},
     {field_default, 3},
-  [13] =
+  [15] =
     {field_superTypename, 4},
     {field_typename, 2},
-  [15] =
+  [17] =
     {field_default, 3},
     {field_default, 4},
-  [17] =
-    {field_subject, 2},
-  [18] =
-    {field_label, 5, .inherited = true},
+  [19] =
     {field_subject, 2},
   [20] =
+    {field_label, 5, .inherited = true},
+    {field_subject, 2},
+  [22] =
     {field_label, 0, .inherited = true},
     {field_label, 1, .inherited = true},
-  [22] =
+  [24] =
     {field_condition, 3},
     {field_init, 2},
-  [24] =
+  [26] =
     {field_iterated, 4},
     {field_key, 2},
-  [26] =
+  [28] =
     {field_label, 1},
-  [27] =
+  [29] =
     {field_default, 5},
     {field_default, 6},
     {field_subject, 2},
-  [30] =
+  [32] =
     {field_condition, 3},
     {field_init, 2},
     {field_update, 5},
-  [33] =
+  [35] =
     {field_default, 5},
     {field_default, 6},
     {field_default, 7},
     {field_subject, 2},
-  [37] =
+  [39] =
     {field_default, 6},
     {field_default, 7},
     {field_label, 5, .inherited = true},
     {field_subject, 2},
-  [41] =
+  [43] =
     {field_iterated, 6},
     {field_key, 2},
     {field_value, 4},
-  [44] =
+  [46] =
     {field_default, 6},
     {field_default, 7},
     {field_default, 8},

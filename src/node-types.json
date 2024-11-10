@@ -461,6 +461,16 @@
     "type": "declMethod",
     "named": true,
     "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
       "returnType": {
         "multiple": false,
         "required": true,
@@ -474,7 +484,7 @@
     },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "block",
@@ -482,10 +492,6 @@
         },
         {
           "type": "formalParameters",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         },
         {
