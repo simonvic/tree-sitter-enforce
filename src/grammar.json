@@ -735,6 +735,55 @@
               "type": "SEQ",
               "members": [
                 {
+                  "type": "STRING",
+                  "value": "<"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "type"
+                },
+                {
+                  "type": "SYMBOL",
+                  "name": "identifier"
+                },
+                {
+                  "type": "REPEAT",
+                  "content": {
+                    "type": "SEQ",
+                    "members": [
+                      {
+                        "type": "STRING",
+                        "value": ","
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "type"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "identifier"
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "STRING",
+                  "value": ">"
+                }
+              ]
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SEQ",
+              "members": [
+                {
                   "type": "CHOICE",
                   "members": [
                     {
@@ -2116,7 +2165,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "identifier"
+          "name": "type"
         },
         {
           "type": "STRING",
@@ -2260,6 +2309,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "typeGeneric"
+        },
+        {
+          "type": "SYMBOL",
           "name": "identifier"
         }
       ]
@@ -2328,6 +2381,43 @@
         {
           "type": "STRING",
           "value": "]"
+        }
+      ]
+    },
+    "typeGeneric": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "STRING",
+                "value": ","
+              },
+              {
+                "type": "SYMBOL",
+                "name": "type"
+              }
+            ]
+          }
+        },
+        {
+          "type": "STRING",
+          "value": ">"
         }
       ]
     },
@@ -2604,6 +2694,10 @@
     [
       "methodModifier",
       "fieldModifier"
+    ],
+    [
+      "typeGeneric",
+      "_expression"
     ]
   ],
   "precedences": [],

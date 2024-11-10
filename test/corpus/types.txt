@@ -8,6 +8,14 @@ ref Foo x;
 int[] x;
 Foo[] x;
 ref Foo[] x;
+
+array<int> x;
+array<Foo> x;
+array<ref Foo> x;
+
+map<int, int> x;
+map<int, Foo> x;
+map<int, ref array<int>> x;
 --------------------------------------------------------------------------------
 (compilationUnit
 	(declVariable
@@ -27,4 +35,39 @@ ref Foo[] x;
 		(identifier))
 	(declVariable
 		(typeArray (typeRef (identifier)))
+		(identifier))
+	(declVariable
+		(typeGeneric
+			(identifier)
+			(typePrimitive))
+		(identifier))
+	(declVariable
+		(typeGeneric
+			(identifier)
+			(identifier))
+		(identifier))
+	(declVariable
+		(typeGeneric
+			(identifier)
+			(typeRef (identifier)))
+		(identifier))
+	(declVariable
+		(typeGeneric
+			(identifier)
+			(typePrimitive)
+			(typePrimitive))
+		(identifier))
+	(declVariable
+		(typeGeneric
+			(identifier)
+			(typePrimitive)
+			(identifier))
+		(identifier))
+	(declVariable
+		(typeGeneric
+			(identifier)
+			(typePrimitive)
+			(typeRef (typeGeneric
+				(identifier)
+				(typePrimitive))))
 		(identifier)))

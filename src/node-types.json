@@ -100,6 +100,10 @@
         "named": true
       },
       {
+        "type": "typeGeneric",
+        "named": true
+      },
+      {
         "type": "typePrimitive",
         "named": true
       },
@@ -338,6 +342,10 @@
         },
         {
           "type": "declMethod",
+          "named": true
+        },
+        {
+          "type": "type",
           "named": true
         }
       ]
@@ -1536,7 +1544,7 @@
           "named": true
         },
         {
-          "type": "identifier",
+          "type": "type",
           "named": true
         }
       ]
@@ -1808,6 +1816,21 @@
     "fields": {},
     "children": {
       "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "typeGeneric",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
       "required": true,
       "types": [
         {

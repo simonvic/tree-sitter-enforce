@@ -42,7 +42,8 @@ module.exports = grammar({
 
   conflicts: $ => [
     [$.methodModifier, $.variableModifier],
-    [$.methodModifier, $.fieldModifier]
+    [$.methodModifier, $.fieldModifier],
+    [$.typeGeneric, $._expression],
   ],
 
   extras: $ => [
@@ -173,7 +174,12 @@ module.exports = grammar({
     declClass: $ => seq(
       repeat($.classModifier),
       'class', field("typename", $.identifier),
-      // TODO: generics
+      optional(seq(
+        '<',
+        $.type, $.identifier,
+        repeat(seq(',', $.type, $.identifier)),
+        '>'
+      )),
       optional(seq(choice(':', 'extends'), field("superTypename", $.identifier))),
       // TODO: generics
       '{',
@@ -341,7 +347,7 @@ module.exports = grammar({
       choice('++', '--',)
     )),
 
-    new: $ => seq('new', $.identifier, '(', optional($.actualParameters), ')'),
+    new: $ => seq('new', $.type, '(', optional($.actualParameters), ')'),
 
     invokation: $ => prec(PREC.INVOKATION, seq(
       $._expression, '(', optional($.actualParameters), ')'
@@ -365,6 +371,7 @@ module.exports = grammar({
       $.typePrimitive,
       $.typeRef,
       $.typeArray,
+      $.typeGeneric,
       $.identifier,
     ),
 
@@ -384,6 +391,10 @@ module.exports = grammar({
     // is it ref [Foo]?
     typeRef: $ => prec(1, seq('ref', $.type)),
     typeArray: $ => seq($.type, '[', ']'),
+
+    typeGeneric: $ => seq(
+      $.identifier, '<', $.type, repeat(seq(',', $.type)), '>'
+    ),
 
     super: _ => 'super',
     this: _ => 'this',
@@ -447,5 +458,11 @@ module.exports = grammar({
  * 5. Visibility modifiers are allowed (but unused?) for formal parameters
  *
  * 6. enum can be nested in classes, but not be used?
+ *
+ * 7. generic types can be upper bounded by native only types, but no visible
+ * difference is noticed
+ *
+ * 7.1. generic type with primitive upper bound, cannot be instantiated without
+ * a "wrong number of template parameters" compile error
  *
  */

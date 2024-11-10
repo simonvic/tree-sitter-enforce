@@ -1,0 +1,29 @@
+================================================================================
+generic class declaration
+================================================================================
+class Foo<Class T> {}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declClass
+		typename: (identifier)
+		(identifier)
+		(identifier)))
+
+================================================================================
+generic instantiation
+================================================================================
+Foo<ref Bar> foo = new Foo<ref Bar>(); 
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declVariable
+		(typeGeneric
+			(identifier)
+			(typeRef (identifier)))
+		(identifier)
+		(new
+			(typeGeneric
+				(identifier)
+				(typeRef (identifier))))))
+
+
+
