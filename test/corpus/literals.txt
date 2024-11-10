@@ -1,0 +1,87 @@
+================================================================================
+null
+================================================================================
+void foo() {
+	null;
+	NULL;
+}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declMethod (typePrimitive) (identifier) (block
+		(statementExpression (literalNull))
+		(statementExpression (literalNull)))))
+
+================================================================================
+bool
+================================================================================
+void foo() {
+	true;
+	false;
+}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declMethod (typePrimitive) (identifier) (block
+		(statementExpression (literalBool))
+		(statementExpression (literalBool)))))
+
+================================================================================
+integer
+================================================================================
+void foo() {
+	0;
+	69;
+	1e+69;
+	1e-69;
+}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declMethod (typePrimitive) (identifier) (block
+		(statementExpression (literalInt))
+		(statementExpression (literalInt))
+		(statementExpression (literalInt))
+		(statementExpression (literalInt)))))
+
+================================================================================
+float
+================================================================================
+void foo() {
+	0.0;
+	69.69;
+	1.0e+69;
+	1.0e-69;
+}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declMethod (typePrimitive) (identifier) (block
+		(statementExpression (literalFloat))
+		(statementExpression (literalFloat))
+		(statementExpression (literalFloat))
+		(statementExpression (literalFloat)))))
+
+================================================================================
+string
+================================================================================
+void foo() {
+	"";
+	" ";
+	"hello world";
+	"\n\r\t";
+	"\\";
+	"\"";
+	"C:\some\path";
+}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declMethod (typePrimitive) (identifier) (block
+		(statementExpression (literalString))
+		(statementExpression (literalString))
+		(statementExpression (literalString))
+		(statementExpression (literalString
+			(escapeSequence)
+			(escapeSequence)
+			(escapeSequence)))
+		(statementExpression (literalString
+			(escapeSequence)))
+		(statementExpression (literalString
+			(escapeSequence)))
+		(statementExpression (literalString)))))

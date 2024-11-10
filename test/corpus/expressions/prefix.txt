@@ -1,0 +1,24 @@
+================================================================================
+simple
+================================================================================
+void foo() {
+	+a;
+	-a;
+	!a;
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod (typePrimitive) (identifier) (block
+	(statementExpression (expressionPrefix (identifier)))
+	(statementExpression (expressionPrefix (identifier)))
+	(statementExpression (expressionPrefix (identifier))))))
+
+================================================================================
+double negation
+================================================================================
+void foo() {
+	!!a;
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod (typePrimitive) (identifier) (block
+	(statementExpression (expressionPrefix
+		(expressionPrefix (identifier)))))))

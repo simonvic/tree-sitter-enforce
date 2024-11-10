@@ -1,0 +1,87 @@
+================================================================================
+arithmetic
+================================================================================
+void foo() {
+	a ^ b;
+	a * b;
+	a / b;
+	a % b;
+	a + b;
+	a - b;
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod (typePrimitive) (identifier) (block
+	(statementExpression (expressionBinary (identifier) (identifier)))
+	(statementExpression (expressionBinary (identifier) (identifier)))
+	(statementExpression (expressionBinary (identifier) (identifier)))
+	(statementExpression (expressionBinary (identifier) (identifier)))
+	(statementExpression (expressionBinary (identifier) (identifier)))
+	(statementExpression (expressionBinary (identifier) (identifier))))))
+
+================================================================================
+relational
+================================================================================
+void foo() {
+	a < b;
+	a <= b;
+	a >= b;
+	a > b;
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod (typePrimitive) (identifier) (block
+	(statementExpression (expressionBinary (identifier) (identifier)))
+	(statementExpression (expressionBinary (identifier) (identifier)))
+	(statementExpression (expressionBinary (identifier) (identifier)))
+	(statementExpression (expressionBinary (identifier) (identifier))))))
+
+================================================================================
+equality
+================================================================================
+void foo() {
+	a == b;
+	a != b;
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod (typePrimitive) (identifier) (block
+	(statementExpression (expressionBinary (identifier) (identifier)))
+	(statementExpression (expressionBinary (identifier) (identifier))))))
+
+================================================================================
+boolean
+================================================================================
+void foo() {
+	a && b;
+	a || b;
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod (typePrimitive) (identifier) (block
+	(statementExpression (expressionBinary (identifier) (identifier)))
+	(statementExpression (expressionBinary (identifier) (identifier))))))
+
+================================================================================
+nested binary expression
+================================================================================
+void foo() {
+	a + b + c;
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+	(statementExpression (expressionBinary
+		lhs: (expressionBinary
+			lhs: (identifier)
+			rhs: (identifier))
+		rhs: (identifier))))))
+
+================================================================================
+parenthesized binary expression
+================================================================================
+void foo() {
+	(a + b) + c;
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+	(statementExpression (expressionBinary
+		lhs: (expressionBinary
+			lhs: (identifier)
+			rhs: (identifier))
+		rhs: (identifier))))))

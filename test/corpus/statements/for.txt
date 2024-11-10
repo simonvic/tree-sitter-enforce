@@ -1,0 +1,55 @@
+================================================================================
+for true do statement
+================================================================================
+void foo() {
+	for (;true;) a;
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+	(for
+		init: (emptyStatement)
+		condition: (literalBool)
+		(statementExpression (identifier))))))
+
+================================================================================
+for true do block
+================================================================================
+void foo() {
+	for (;true;) {}
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+	(for
+		init: (emptyStatement)
+		condition: (literalBool)
+		(block)))))
+
+================================================================================
+for
+================================================================================
+void foo() {
+	for (int i = 0; i < 69; i++) {}
+	for (i = 0; i < 69; i++) {}
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+	(for
+		init: (declVariable
+			(typePrimitive)
+			(identifier)
+			(literalInt))
+		condition: (expressionBinary
+			lhs: (identifier)
+			rhs: (literalInt))
+		update: (expressionSuffix (identifier))
+		(block))
+	(for
+		init: (assignment
+			(identifier)
+			(literalInt))
+		condition: (expressionBinary
+			lhs: (identifier)
+			rhs: (literalInt))
+		update: (expressionSuffix (identifier))
+		(block)))))
+

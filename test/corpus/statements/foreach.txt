@@ -1,0 +1,62 @@
+================================================================================
+foreach typed key do block
+================================================================================
+void foo() {
+	foreach (int k : m) {}
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+	(foreach
+		key: (iterator (typePrimitive) (identifier))
+		iterated: (identifier)
+		(block)))))
+
+
+================================================================================
+foreach inferred key do block
+================================================================================
+void foo() {
+	foreach (auto k : m) {}
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+	(foreach
+		key: (iterator (identifier))
+		iterated: (identifier)
+		(block)))))
+
+
+================================================================================
+foreach typed key, value do block
+================================================================================
+void foo() {
+	foreach (int k, int v : m) {}
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+	(foreach
+		key: (iterator
+			(typePrimitive)
+			(identifier))
+		value: (iterator
+			(typePrimitive)
+			(identifier))
+		iterated: (identifier)
+		(block)))))
+
+
+================================================================================
+foreach inferred key, value do block
+================================================================================
+void foo() {
+	foreach (auto k, auto v : m) {}
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+	(foreach
+		key: (iterator (identifier))
+		value: (iterator (identifier))
+		iterated: (identifier)
+		(block)))))
+
+
