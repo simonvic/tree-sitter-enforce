@@ -1,0 +1,52 @@
+================================================================================
+abstract method declaration
+================================================================================
+proto static native void foo();
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declMethod
+		(methodModifier)
+		(methodModifier)
+		(methodModifier)
+		returnType: (typePrimitive)
+		(identifier)))
+
+================================================================================
+concrete method declaration
+================================================================================
+void foo() {}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declMethod
+		returnType: (typePrimitive)
+		(identifier)
+		(block)))
+
+================================================================================
+method declaration with parameters
+================================================================================
+override void foo(const int x = 69, inout int y, out int y) {}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declMethod
+		(methodModifier)
+		returnType: (typePrimitive)
+		(identifier)
+		(formalParameters
+			(formalParameter
+				(formalParameterModifier)
+				(typePrimitive)
+				(identifier)
+				default: (literalInt))
+			(formalParameter
+				(formalParameterModifier)
+				(typePrimitive)
+				(identifier))
+			(formalParameter
+				(formalParameterModifier)
+				(typePrimitive)
+				(identifier)))
+		(block)))
+
+
+
