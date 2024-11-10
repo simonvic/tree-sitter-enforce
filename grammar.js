@@ -187,7 +187,7 @@ module.exports = grammar({
       '{',
       repeat(choice(
         $.declEnum, // see quirk 6
-        $.declField,
+        $._declField,
         $.declDeconstructor,
         $.declMethod,
       )),
@@ -196,10 +196,24 @@ module.exports = grammar({
 
     classModifier: _ => 'modded',
 
+    _declField: $ => choice(
+      $.declField,
+      $.declFieldArray,
+    ),
+
     declField: $ => seq(
       repeat($.fieldModifier),
       $.type,
       $.identifier,
+      optional(seq('=', $._expression)),
+      ';'
+    ),
+
+    declFieldArray: $ => seq(
+      repeat($.fieldModifier),
+      $.type,
+      $.identifier,
+      '[', optional(field("initSize", $._expression)), ']',
       optional(seq('=', $._expression)),
       ';'
     ),

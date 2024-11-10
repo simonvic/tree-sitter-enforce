@@ -46,6 +46,8 @@ class declaration with fields and methods
 ================================================================================
 class Foo : Bar {
 	int foo;
+	int foo[];
+	int foo[69];
 	void Foo() {}
 	void ~Foo() {}
 	void foo() {}
@@ -58,6 +60,13 @@ class Foo : Bar {
 		(declField
 			(typePrimitive)
 			(identifier))
+		(declFieldArray
+			(typePrimitive)
+			(identifier))
+		(declFieldArray
+			(typePrimitive)
+			(identifier)
+			initSize: (literalInt))
 		(declMethod
 			returnType: (typePrimitive)
 			name: (identifier)
