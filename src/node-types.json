@@ -313,7 +313,7 @@
           "named": true
         },
         {
-          "type": "formalParameter",
+          "type": "formalParameters",
           "named": true
         },
         {
@@ -434,7 +434,7 @@
           "named": true
         },
         {
-          "type": "formalParameter",
+          "type": "formalParameters",
           "named": true
         },
         {
@@ -825,11 +825,6 @@
     }
   },
   {
-    "type": "fieldModifier",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "for",
     "named": true,
     "fields": {
@@ -1040,23 +1035,62 @@
   {
     "type": "formalParameter",
     "named": true,
-    "fields": {},
+    "fields": {
+      "default": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": "expressionBinary",
+            "named": true
+          },
+          {
+            "type": "expressionPrefix",
+            "named": true
+          },
+          {
+            "type": "expressionSuffix",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "new",
+            "named": true
+          },
+          {
+            "type": "super",
+            "named": true
+          },
+          {
+            "type": "this",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
       "multiple": true,
       "required": true,
       "types": [
-        {
-          "type": "expressionBinary",
-          "named": true
-        },
-        {
-          "type": "expressionPrefix",
-          "named": true
-        },
-        {
-          "type": "expressionSuffix",
-          "named": true
-        },
         {
           "type": "formalParameterModifier",
           "named": true
@@ -1066,23 +1100,22 @@
           "named": true
         },
         {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "new",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
           "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "formalParameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "formalParameter",
           "named": true
         }
       ]
@@ -1464,11 +1497,6 @@
     }
   },
   {
-    "type": "variableModifier",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "while",
     "named": true,
     "fields": {},
@@ -1716,6 +1744,10 @@
     "named": false
   },
   {
+    "type": "fieldModifier",
+    "named": true
+  },
+  {
     "type": "float",
     "named": false
   },
@@ -1794,6 +1826,10 @@
   {
     "type": "typename",
     "named": false
+  },
+  {
+    "type": "variableModifier",
+    "named": true
   },
   {
     "type": "vector",

@@ -170,13 +170,7 @@ module.exports = grammar({
     )),
 
     declDeconstructor: $ => seq(
-      'void',
-      '~',
-      $.identifier,
-      '(',
-      repeat($.formalParameter),
-      ')',
-      $.block
+      'void', '~', $.identifier, '(', optional($.formalParameters), ')', $.block
     ),
 
     declEnum: $ => seq(
@@ -197,7 +191,9 @@ module.exports = grammar({
       repeat($.methodModifier),
       field("returnType", $.type),
       $.identifier,
-      seq('(', repeat($.formalParameter), ')'),
+      '(',
+      optional($.formalParameters),
+      ')',
       choice(
         $.block,
         ';'
@@ -205,7 +201,6 @@ module.exports = grammar({
     ),
 
     methodModifier: _ => token(choice(
-      'modded',
       'override',
       'proto',
       'native',
@@ -214,11 +209,17 @@ module.exports = grammar({
       'private',
     )),
 
+    formalParameters: $ => seq(
+      $.formalParameter,
+      repeat(seq(',', $.formalParameter)),
+      optional(',')
+    ),
+
     formalParameter: $ => seq(
-      $.formalParameterModifier,
+      repeat($.formalParameterModifier),
       $.type,
       $.identifier,
-      optional(seq('=', $._expression))
+      optional(field("default", seq('=', $._expression)))
     ),
 
     formalParameterModifier: $ => token(choice(
@@ -242,7 +243,6 @@ module.exports = grammar({
       'const',
       'static',
       'autoptr',
-      'proto',
       'protected',
       'private',
     )),
