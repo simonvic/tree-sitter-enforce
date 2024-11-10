@@ -1,0 +1,24 @@
+================================================================================
+simple invokation
+================================================================================
+void foo() {
+	bar();
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod (typePrimitive) (identifier) (block
+	(statementExpression (invokation (identifier))))))
+
+================================================================================
+invokation with parameters
+================================================================================
+void foo() {
+	bar(69, 420);
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod (typePrimitive) (identifier) (block
+	(statementExpression (invokation
+		(identifier)
+		(actualParameters
+			(literalInt)
+			(literalInt)))))))
+

@@ -1263,6 +1263,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "invokation"
+        },
+        {
+          "type": "SYMBOL",
           "name": "literal"
         },
         {
@@ -1970,6 +1974,35 @@
           "type": "STRING",
           "value": "new"
         },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "actualParameters"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
+    },
+    "invokation": {
+      "type": "SEQ",
+      "members": [
         {
           "type": "SYMBOL",
           "name": "identifier"

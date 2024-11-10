@@ -253,6 +253,7 @@ module.exports = grammar({
       $.expressionPrefix,
       $.expressionSuffix,
       $.new,
+      $.invokation,
       $.literal,
       $.identifier,
       $.super,
@@ -302,6 +303,8 @@ module.exports = grammar({
     )),
 
     new: $ => seq('new', $.identifier, '(', optional($.actualParameters), ')'),
+
+    invokation: $ => seq($.identifier, '(', optional($.actualParameters), ')'),
 
     actualParameters: $ => seq(
       $._expression,
