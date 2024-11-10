@@ -142,6 +142,10 @@
           "named": true
         },
         {
+          "type": "keyAccess",
+          "named": true
+        },
+        {
           "type": "literal",
           "named": true
         },
@@ -209,6 +213,10 @@
         },
         {
           "type": "invokation",
+          "named": true
+        },
+        {
+          "type": "keyAccess",
           "named": true
         },
         {
@@ -439,6 +447,10 @@
           "named": true
         },
         {
+          "type": "keyAccess",
+          "named": true
+        },
+        {
           "type": "literal",
           "named": true
         },
@@ -534,6 +546,10 @@
           "named": true
         },
         {
+          "type": "keyAccess",
+          "named": true
+        },
+        {
           "type": "literal",
           "named": true
         },
@@ -610,6 +626,10 @@
         },
         {
           "type": "invokation",
+          "named": true
+        },
+        {
+          "type": "keyAccess",
           "named": true
         },
         {
@@ -754,6 +774,10 @@
             "named": true
           },
           {
+            "type": "keyAccess",
+            "named": true
+          },
+          {
             "type": "literal",
             "named": true
           },
@@ -809,6 +833,10 @@
           },
           {
             "type": "invokation",
+            "named": true
+          },
+          {
+            "type": "keyAccess",
             "named": true
           },
           {
@@ -868,6 +896,10 @@
           "named": true
         },
         {
+          "type": "keyAccess",
+          "named": true
+        },
+        {
           "type": "literal",
           "named": true
         },
@@ -920,6 +952,10 @@
         },
         {
           "type": "invokation",
+          "named": true
+        },
+        {
+          "type": "keyAccess",
           "named": true
         },
         {
@@ -991,6 +1027,10 @@
             "named": true
           },
           {
+            "type": "keyAccess",
+            "named": true
+          },
+          {
             "type": "literal",
             "named": true
           },
@@ -1056,6 +1096,10 @@
           },
           {
             "type": "invokation",
+            "named": true
+          },
+          {
+            "type": "keyAccess",
             "named": true
           },
           {
@@ -1134,6 +1178,10 @@
           },
           {
             "type": "invokation",
+            "named": true
+          },
+          {
+            "type": "keyAccess",
             "named": true
           },
           {
@@ -1239,6 +1287,10 @@
             "named": true
           },
           {
+            "type": "keyAccess",
+            "named": true
+          },
+          {
             "type": "literal",
             "named": true
           },
@@ -1333,6 +1385,10 @@
           "named": true
         },
         {
+          "type": "keyAccess",
+          "named": true
+        },
+        {
           "type": "literal",
           "named": true
         },
@@ -1396,6 +1452,10 @@
           "named": true
         },
         {
+          "type": "keyAccess",
+          "named": true
+        },
+        {
           "type": "literal",
           "named": true
         },
@@ -1435,6 +1495,136 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "keyAccess",
+    "named": true,
+    "fields": {
+      "accessed": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "expressionBinary",
+            "named": true
+          },
+          {
+            "type": "expressionPrefix",
+            "named": true
+          },
+          {
+            "type": "expressionSuffix",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "invokation",
+            "named": true
+          },
+          {
+            "type": "keyAccess",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "memberAccess",
+            "named": true
+          },
+          {
+            "type": "new",
+            "named": true
+          },
+          {
+            "type": "super",
+            "named": true
+          },
+          {
+            "type": "this",
+            "named": true
+          },
+          {
+            "type": "typePrimitive",
+            "named": true
+          }
+        ]
+      },
+      "key": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "expressionBinary",
+            "named": true
+          },
+          {
+            "type": "expressionPrefix",
+            "named": true
+          },
+          {
+            "type": "expressionSuffix",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "invokation",
+            "named": true
+          },
+          {
+            "type": "keyAccess",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "memberAccess",
+            "named": true
+          },
+          {
+            "type": "new",
+            "named": true
+          },
+          {
+            "type": "super",
+            "named": true
+          },
+          {
+            "type": "this",
+            "named": true
+          },
+          {
+            "type": "typePrimitive",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -1486,6 +1676,10 @@
           },
           {
             "type": "invokation",
+            "named": true
+          },
+          {
+            "type": "keyAccess",
             "named": true
           },
           {
@@ -1579,6 +1773,10 @@
           "named": true
         },
         {
+          "type": "keyAccess",
+          "named": true
+        },
+        {
           "type": "literal",
           "named": true
         },
@@ -1631,6 +1829,10 @@
         },
         {
           "type": "invokation",
+          "named": true
+        },
+        {
+          "type": "keyAccess",
           "named": true
         },
         {
@@ -1715,6 +1917,10 @@
             "named": true
           },
           {
+            "type": "keyAccess",
+            "named": true
+          },
+          {
             "type": "literal",
             "named": true
           },
@@ -1770,6 +1976,10 @@
           },
           {
             "type": "invokation",
+            "named": true
+          },
+          {
+            "type": "keyAccess",
             "named": true
           },
           {
@@ -1910,6 +2120,10 @@
         },
         {
           "type": "invokation",
+          "named": true
+        },
+        {
+          "type": "keyAccess",
           "named": true
         },
         {

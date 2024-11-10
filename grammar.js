@@ -15,6 +15,7 @@ const PREC = {
 
   INVOKATION: 18,
   DOT: 18,
+  KEY_ACCESS: 18,
   POSTFIX: 18,
   PREFIX: 17,
   MULT: 13,
@@ -44,6 +45,7 @@ module.exports = grammar({
     [$.methodModifier, $.variableModifier],
     [$.methodModifier, $.fieldModifier],
     [$.typeGeneric, $._expression],
+    [$.type, $._expression],
   ],
 
   extras: $ => [
@@ -297,6 +299,7 @@ module.exports = grammar({
       $.expressionSuffix,
       $.new,
       $.invokation,
+      $.keyAccess,
       $.memberAccess,
       $.literal,
       $.typePrimitive, // NOTE: types are first class citizens
@@ -360,6 +363,13 @@ module.exports = grammar({
     ),
 
     actualParameter: $ => $._expression,
+
+    keyAccess: $ => prec(PREC.KEY_ACCESS, seq(
+      field("accessed", $._expression),
+      '[',
+      field("key", $._expression),
+      ']',
+    )),
 
     memberAccess: $ => prec(PREC.DOT, seq(
       field("accessed", $._expression),

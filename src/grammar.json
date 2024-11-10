@@ -1448,6 +1448,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "keyAccess"
+        },
+        {
+          "type": "SYMBOL",
           "name": "memberAccess"
         },
         {
@@ -2263,6 +2267,39 @@
       "type": "SYMBOL",
       "name": "_expression"
     },
+    "keyAccess": {
+      "type": "PREC",
+      "value": 18,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "FIELD",
+            "name": "accessed",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "["
+          },
+          {
+            "type": "FIELD",
+            "name": "key",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_expression"
+            }
+          },
+          {
+            "type": "STRING",
+            "value": "]"
+          }
+        ]
+      }
+    },
     "memberAccess": {
       "type": "PREC",
       "value": 18,
@@ -2697,6 +2734,10 @@
     ],
     [
       "typeGeneric",
+      "_expression"
+    ],
+    [
+      "type",
       "_expression"
     ]
   ],

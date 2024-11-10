@@ -1,0 +1,23 @@
+================================================================================
+key access
+================================================================================
+void foo() {
+	x[0];
+	x[i++];
+	x[row][col];
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
+	(statementExpression (keyAccess
+		accessed: (identifier)
+		key: (literalInt)))
+	(statementExpression (keyAccess
+		accessed: (identifier)
+		key: (expressionSuffix (identifier))))
+	(statementExpression (keyAccess
+		accessed: (keyAccess
+			accessed: (identifier)
+			key: (identifier))
+		key: (identifier))))))
+
+
