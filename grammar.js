@@ -393,6 +393,7 @@ module.exports = grammar({
       'string',
       'typename',
       'vector',
+      'func',
     ),
 
     // TODO: request some info on precedence
