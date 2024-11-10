@@ -1,0 +1,24 @@
+================================================================================
+member access
+================================================================================
+void foo() {
+	bar.baz;
+	bar.baz();
+	bar.bar.baz();
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+	(statementExpression (memberAccess
+		accessed: (identifier)
+		member: (identifier)))
+	(statementExpression (invokation
+		(memberAccess
+			accessed: (identifier)
+			member: (identifier))))
+	(statementExpression (invokation
+		(memberAccess
+			accessed: (memberAccess
+				accessed: (identifier)
+				member: (identifier))
+			member: (identifier)))))))
+

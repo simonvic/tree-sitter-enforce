@@ -10,6 +10,8 @@
 const EXPONENT = seq('e', choice('+', '-'), /[0-9]+/);
 
 const PREC = {
+  INVOKATION: 18,
+  DOT: 18,
   POSTFIX: 18,
   PREFIX: 17,
   MULT: 13,
@@ -254,6 +256,7 @@ module.exports = grammar({
       $.expressionSuffix,
       $.new,
       $.invokation,
+      $.memberAccess,
       $.literal,
       $.identifier,
       $.super,
@@ -304,13 +307,21 @@ module.exports = grammar({
 
     new: $ => seq('new', $.identifier, '(', optional($.actualParameters), ')'),
 
-    invokation: $ => seq($.identifier, '(', optional($.actualParameters), ')'),
+    invokation: $ => prec(PREC.INVOKATION, seq(
+      $._expression, '(', optional($.actualParameters), ')'
+    )),
 
     actualParameters: $ => seq(
       $._expression,
       repeat(seq(',', $._expression)),
       optional(','),
     ),
+
+    memberAccess: $ => prec(PREC.DOT, seq(
+      field("accessed", $._expression),
+      '.',
+      field("member", $.identifier),
+    )),
 
     type: $ => choice(
       $.typePrimitive,

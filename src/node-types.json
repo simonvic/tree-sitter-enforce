@@ -138,6 +138,10 @@
           "named": true
         },
         {
+          "type": "memberAccess",
+          "named": true
+        },
+        {
           "type": "new",
           "named": true
         },
@@ -182,6 +186,10 @@
         },
         {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "memberAccess",
           "named": true
         },
         {
@@ -404,6 +412,10 @@
           "named": true
         },
         {
+          "type": "memberAccess",
+          "named": true
+        },
+        {
           "type": "new",
           "named": true
         },
@@ -493,6 +505,10 @@
           "named": true
         },
         {
+          "type": "memberAccess",
+          "named": true
+        },
+        {
           "type": "new",
           "named": true
         },
@@ -565,6 +581,10 @@
         },
         {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "memberAccess",
           "named": true
         },
         {
@@ -701,6 +721,10 @@
             "named": true
           },
           {
+            "type": "memberAccess",
+            "named": true
+          },
+          {
             "type": "new",
             "named": true
           },
@@ -748,6 +772,10 @@
           },
           {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "memberAccess",
             "named": true
           },
           {
@@ -799,6 +827,10 @@
           "named": true
         },
         {
+          "type": "memberAccess",
+          "named": true
+        },
+        {
           "type": "new",
           "named": true
         },
@@ -843,6 +875,10 @@
         },
         {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "memberAccess",
           "named": true
         },
         {
@@ -898,6 +934,10 @@
           },
           {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "memberAccess",
             "named": true
           },
           {
@@ -958,6 +998,10 @@
           },
           {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "memberAccess",
             "named": true
           },
           {
@@ -1028,6 +1072,10 @@
           },
           {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "memberAccess",
             "named": true
           },
           {
@@ -1125,6 +1173,10 @@
             "named": true
           },
           {
+            "type": "memberAccess",
+            "named": true
+          },
+          {
             "type": "new",
             "named": true
           },
@@ -1215,6 +1267,10 @@
           "named": true
         },
         {
+          "type": "memberAccess",
+          "named": true
+        },
+        {
           "type": "new",
           "named": true
         },
@@ -1246,7 +1302,43 @@
           "named": true
         },
         {
+          "type": "expressionBinary",
+          "named": true
+        },
+        {
+          "type": "expressionPrefix",
+          "named": true
+        },
+        {
+          "type": "expressionSuffix",
+          "named": true
+        },
+        {
           "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "invokation",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "memberAccess",
+          "named": true
+        },
+        {
+          "type": "new",
+          "named": true
+        },
+        {
+          "type": "super",
+          "named": true
+        },
+        {
+          "type": "this",
           "named": true
         }
       ]
@@ -1284,6 +1376,76 @@
           "named": true
         }
       ]
+    }
+  },
+  {
+    "type": "memberAccess",
+    "named": true,
+    "fields": {
+      "accessed": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "expressionBinary",
+            "named": true
+          },
+          {
+            "type": "expressionPrefix",
+            "named": true
+          },
+          {
+            "type": "expressionSuffix",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "invokation",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "memberAccess",
+            "named": true
+          },
+          {
+            "type": "new",
+            "named": true
+          },
+          {
+            "type": "super",
+            "named": true
+          },
+          {
+            "type": "this",
+            "named": true
+          }
+        ]
+      },
+      "member": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
     }
   },
   {
@@ -1338,6 +1500,10 @@
           "named": true
         },
         {
+          "type": "memberAccess",
+          "named": true
+        },
+        {
           "type": "new",
           "named": true
         },
@@ -1382,6 +1548,10 @@
         },
         {
           "type": "literal",
+          "named": true
+        },
+        {
+          "type": "memberAccess",
           "named": true
         },
         {
@@ -1458,6 +1628,10 @@
             "named": true
           },
           {
+            "type": "memberAccess",
+            "named": true
+          },
+          {
             "type": "new",
             "named": true
           },
@@ -1505,6 +1679,10 @@
           },
           {
             "type": "literal",
+            "named": true
+          },
+          {
+            "type": "memberAccess",
             "named": true
           },
           {
@@ -1624,6 +1802,10 @@
           "named": true
         },
         {
+          "type": "memberAccess",
+          "named": true
+        },
+        {
           "type": "new",
           "named": true
         },
@@ -1712,6 +1894,10 @@
   },
   {
     "type": "-=",
+    "named": false
+  },
+  {
+    "type": ".",
     "named": false
   },
   {
