@@ -80,3 +80,20 @@ class Foo : Bar {
 			(block))))
 
 
+================================================================================
+class declaration if you want to see the world burn
+:skip
+================================================================================
+class Foo {
+	int foo, foo[], foo[69], foo;
+}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declClass
+		typename: (identifier)
+		(declMethod
+			returnType: (typePrimitive)
+			name: (identifier)
+			(block))))
+
+

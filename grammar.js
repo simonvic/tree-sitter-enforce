@@ -201,11 +201,14 @@ module.exports = grammar({
       $.declFieldArray,
     ),
 
+    // TODO: complete rewrite declField and declVariable
+
     declField: $ => seq(
       repeat($.fieldModifier),
       $.type,
       $.identifier,
       optional(seq('=', $._expression)),
+      repeat(seq(',', $.identifier, optional(seq('=', $._expression)))),
       ';'
     ),
 
@@ -215,6 +218,12 @@ module.exports = grammar({
       $.identifier,
       '[', optional(field("initSize", $._expression)), ']',
       optional(seq('=', $._expression)),
+      repeat(seq(
+        ',',
+        $.identifier,
+        optional(seq('[', optional(field("initSize", $._expression)), ']')),
+        optional(seq('=', $._expression))
+      )),
       ';'
     ),
 
