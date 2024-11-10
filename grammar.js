@@ -38,6 +38,8 @@ module.exports = grammar({
     $.type,
   ],
 
+  word: $ => $.identifier,
+
   extras: $ => [
     /\s/, // whitespaces do matters, but whatever
     $.commentLine,
