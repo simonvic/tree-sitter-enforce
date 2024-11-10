@@ -74,6 +74,10 @@
         "named": true
       },
       {
+        "type": "typedef",
+        "named": true
+      },
+      {
         "type": "while",
         "named": true
       }
@@ -175,6 +179,10 @@
         },
         {
           "type": "declVariable",
+          "named": true
+        },
+        {
+          "type": "typedef",
           "named": true
         }
       ]
@@ -1011,6 +1019,25 @@
     }
   },
   {
+    "type": "typedef",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "while",
     "named": true,
     "fields": {},
@@ -1296,6 +1323,10 @@
   {
     "type": "this",
     "named": true
+  },
+  {
+    "type": "typedef",
+    "named": false
   },
   {
     "type": "typename",

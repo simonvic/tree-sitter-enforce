@@ -18,6 +18,10 @@
           {
             "type": "SYMBOL",
             "name": "declVariable"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "typedef"
           }
         ]
       }
@@ -69,6 +73,10 @@
         {
           "type": "SYMBOL",
           "name": "delete"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "typedef"
         },
         {
           "type": "SYMBOL",
@@ -139,6 +147,23 @@
         {
           "type": "STRING",
           "value": ";"
+        }
+      ]
+    },
+    "typedef": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "typedef"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "type"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
         }
       ]
     },

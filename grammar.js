@@ -40,7 +40,8 @@ module.exports = grammar({
     compilationUnit: $ => repeat(choice(
       $.declClass,
       $.declMethod,
-      $.declVariable
+      $.declVariable,
+      $.typedef,
     )),
 
     _statementOrBlock: $ => choice($.statement, $.block),
@@ -49,6 +50,7 @@ module.exports = grammar({
       $.statementExpression,
       $.emptyStatement,
       $.delete,
+      $.typedef,
       $.break,
       $.continue,
       $.return,
@@ -63,6 +65,8 @@ module.exports = grammar({
     emptyStatement: _ => ';',
 
     delete: $ => seq('delete', $.identifier, ';'), // TODO: check if other expressions are allowed
+
+    typedef: $ => seq('typedef', $.type, $.identifier),
 
     break: _ => seq('break', ';'),
     continue: _ => seq('continue', ';'),
