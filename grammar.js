@@ -56,6 +56,7 @@ module.exports = grammar({
       $.continue,
       $.return,
       $.if,
+      $.switch,
       $.while,
       $.for,
       $.foreach,
@@ -78,6 +79,13 @@ module.exports = grammar({
       'if', '(', $._expression, ')', $._statementOrBlock,
       optional(seq('else', $._statementOrBlock))
     )),
+
+    switch: $ => seq(
+      'switch', '(', field("subject", $._expression), ')', '{',
+      repeat(seq('case', field("label", $._expression), ':', repeat($.statement))),
+      optional(field("default", seq('default', ':', repeat($.statement)))),
+      '}'
+    ),
 
     while: $ => seq('while', '(', $._expression, ')', $._statementOrBlock),
 

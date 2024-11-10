@@ -1,0 +1,90 @@
+================================================================================
+empty switch
+================================================================================
+void foo() {
+	switch (69) {}
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+	(switch
+		subject: (literalInt)))))
+
+================================================================================
+switch with one empty case
+================================================================================
+void foo() {
+	switch (69) {
+		case 1:
+	}
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+	(switch
+		subject: (literalInt)
+		label: (literalInt)))))
+
+================================================================================
+switch with multiple empty cases
+================================================================================
+void foo() {
+	switch (69) {
+		case 1:
+		case 2:
+		case 3:
+	}
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+	(switch
+		subject: (literalInt)
+		label: (literalInt)
+		label: (literalInt)
+		label: (literalInt)))))
+
+================================================================================
+switch with one case
+================================================================================
+void foo() {
+	switch (69) {
+		case 1: break;
+	}
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+	(switch
+		subject: (literalInt)
+		label: (literalInt)
+		(break)))))
+
+================================================================================
+switch with multiple case, fallthrough case and default branch
+================================================================================
+void foo() {
+	switch (69) {
+
+		case 1:
+		a++;
+
+		case 2:
+		b++;
+		break;
+
+		default:
+		c++;
+
+	}
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+	(switch
+		subject: (literalInt)
+
+		label: (literalInt)
+		(statementExpression (expressionSuffix (identifier)))
+
+		label: (literalInt)
+		(statementExpression (expressionSuffix (identifier)))
+		(break)
+
+		default:
+		(statementExpression (expressionSuffix (identifier)))))))
