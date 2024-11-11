@@ -1,0 +1,29 @@
+================================================================================
+preproc
+:skip
+================================================================================
+#include path/to/somefile.c
+#include "path/to/somefile.c"
+
+#define foo
+#define "foo"
+#define ""
+#define "foo#bar"
+
+#ifdef foo
+#ifdef "foo"
+#ifdef ""
+#ifdef "foo#bar"
+
+#ifndef foo
+#ifndef "foo"
+#ifndef ""
+#ifndef "foo#bar"
+
+#else
+
+#endif
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
+		))))
+

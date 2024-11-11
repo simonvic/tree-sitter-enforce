@@ -57,6 +57,7 @@ module.exports = grammar({
     $.commentBlock,
     $.docLine,
     $.docBlock,
+    // $.preprocDirective,
   ],
 
   rules: {
@@ -69,7 +70,24 @@ module.exports = grammar({
       $.typedef,
     )),
 
-    docLine: _ => token(prec(PREC.DOC, seq('//', choice('!', '?'), /[^\n]*/))),
+    // preprocDirective: $ => choice(
+    //   $.include,
+    //   $.define,
+    //   $.ifdef,
+    //   $.ifndef,
+    //   $.else,
+    //   $.endif
+    // ),
+    //
+    // // TODO: sort out why treesitter segfaults
+    // include: _ => /#include\s+([^\n#"]+|("[^\n"]*"))/,
+    // define: _ => /#define\s+([^\n#"]+|("[^\n"]*"))/,
+    // ifdef: _ => /#ifdef\s+([^\n#"]+|("[^\n"]*"))/,
+    // ifndef: _ => /#ifndef\s+([^\n#"]+|("[^\n"]*"))/,
+    // else: _ => /#else/,
+    // endif: _ => /#endif/,
+
+    docLine: _ => token(prec(PREC.DOC, seq(choice('//!', '//?'), /[^\n]*/))),
 
     // kindly borrowed from https://github.com/tree-sitter/tree-sitter-java/blob/master/grammar.js#L1291C5-L1297C8
     docBlock: _ => token(prec(PREC.DOC, seq(
