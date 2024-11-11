@@ -66,14 +66,14 @@ class Foo : Bar {
 			typename: (identifier))
 		body: (classBody
 			(declField
-				(typeInt)
-				(identifier))
-			(declFieldArray
-				(typeInt)
-				(identifier))
-			(declFieldArray
-				(typeInt)
-				(identifier)
+				type: (typeInt)
+				name: (identifier))
+			(declField
+				type: (typeInt)
+				name: (identifier))
+			(declField
+				type: (typeInt)
+				name: (identifier)
 				initSize: (literalInt))
 			(declMethod
 				returnType: (typeVoid)

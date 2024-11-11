@@ -46,10 +46,6 @@
         "named": true
       },
       {
-        "type": "declVariableArray",
-        "named": true
-      },
-      {
         "type": "delete",
         "named": true
       },
@@ -619,10 +615,6 @@
           "named": true
         },
         {
-          "type": "declFieldArray",
-          "named": true
-        },
-        {
           "type": "declMethod",
           "named": true
         }
@@ -652,10 +644,6 @@
         },
         {
           "type": "declVariable",
-          "named": true
-        },
-        {
-          "type": "declVariableArray",
           "named": true
         },
         {
@@ -788,78 +776,77 @@
   {
     "type": "declField",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "arrayCreation",
-          "named": true
-        },
-        {
-          "type": "cast",
-          "named": true
-        },
-        {
-          "type": "expressionBinary",
-          "named": true
-        },
-        {
-          "type": "expressionPrefix",
-          "named": true
-        },
-        {
-          "type": "expressionSuffix",
-          "named": true
-        },
-        {
-          "type": "fieldModifier",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "invokation",
-          "named": true
-        },
-        {
-          "type": "keyAccess",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "memberAccess",
-          "named": true
-        },
-        {
-          "type": "new",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "type",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "declFieldArray",
-    "named": true,
     "fields": {
+      "init": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arrayCreation",
+            "named": true
+          },
+          {
+            "type": "cast",
+            "named": true
+          },
+          {
+            "type": "expressionBinary",
+            "named": true
+          },
+          {
+            "type": "expressionPrefix",
+            "named": true
+          },
+          {
+            "type": "expressionSuffix",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "invokation",
+            "named": true
+          },
+          {
+            "type": "keyAccess",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "memberAccess",
+            "named": true
+          },
+          {
+            "type": "new",
+            "named": true
+          },
+          {
+            "type": "super",
+            "named": true
+          },
+          {
+            "type": "this",
+            "named": true
+          },
+          {
+            "type": "typePrimitive",
+            "named": true
+          }
+        ]
+      },
       "initSize": {
         "multiple": true,
         "required": false,
@@ -929,70 +916,34 @@
             "named": true
           }
         ]
+      },
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
       }
     },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
-          "type": "arrayCreation",
-          "named": true
-        },
-        {
-          "type": "cast",
-          "named": true
-        },
-        {
-          "type": "expressionBinary",
-          "named": true
-        },
-        {
-          "type": "expressionPrefix",
-          "named": true
-        },
-        {
-          "type": "expressionSuffix",
-          "named": true
-        },
-        {
           "type": "fieldModifier",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "invokation",
-          "named": true
-        },
-        {
-          "type": "keyAccess",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "memberAccess",
-          "named": true
-        },
-        {
-          "type": "new",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "type",
           "named": true
         }
       ]
@@ -1051,78 +1002,77 @@
   {
     "type": "declVariable",
     "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "arrayCreation",
-          "named": true
-        },
-        {
-          "type": "cast",
-          "named": true
-        },
-        {
-          "type": "expressionBinary",
-          "named": true
-        },
-        {
-          "type": "expressionPrefix",
-          "named": true
-        },
-        {
-          "type": "expressionSuffix",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "invokation",
-          "named": true
-        },
-        {
-          "type": "keyAccess",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "memberAccess",
-          "named": true
-        },
-        {
-          "type": "new",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "type",
-          "named": true
-        },
-        {
-          "type": "variableModifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "declVariableArray",
-    "named": true,
     "fields": {
+      "init": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "arrayCreation",
+            "named": true
+          },
+          {
+            "type": "cast",
+            "named": true
+          },
+          {
+            "type": "expressionBinary",
+            "named": true
+          },
+          {
+            "type": "expressionPrefix",
+            "named": true
+          },
+          {
+            "type": "expressionSuffix",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "invokation",
+            "named": true
+          },
+          {
+            "type": "keyAccess",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "memberAccess",
+            "named": true
+          },
+          {
+            "type": "new",
+            "named": true
+          },
+          {
+            "type": "super",
+            "named": true
+          },
+          {
+            "type": "this",
+            "named": true
+          },
+          {
+            "type": "typePrimitive",
+            "named": true
+          }
+        ]
+      },
       "initSize": {
         "multiple": true,
         "required": false,
@@ -1192,68 +1142,36 @@
             "named": true
           }
         ]
+      },
+      "name": {
+        "multiple": true,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "auto",
+            "named": false
+          },
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
       }
     },
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
-        {
-          "type": "arrayCreation",
-          "named": true
-        },
-        {
-          "type": "cast",
-          "named": true
-        },
-        {
-          "type": "expressionBinary",
-          "named": true
-        },
-        {
-          "type": "expressionPrefix",
-          "named": true
-        },
-        {
-          "type": "expressionSuffix",
-          "named": true
-        },
-        {
-          "type": "identifier",
-          "named": true
-        },
-        {
-          "type": "invokation",
-          "named": true
-        },
-        {
-          "type": "keyAccess",
-          "named": true
-        },
-        {
-          "type": "literal",
-          "named": true
-        },
-        {
-          "type": "memberAccess",
-          "named": true
-        },
-        {
-          "type": "new",
-          "named": true
-        },
-        {
-          "type": "super",
-          "named": true
-        },
-        {
-          "type": "this",
-          "named": true
-        },
-        {
-          "type": "type",
-          "named": true
-        },
         {
           "type": "variableModifier",
           "named": true

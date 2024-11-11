@@ -48,11 +48,11 @@ int x, y = 69, z;
 --------------------------------------------------------------------------------
 (compilationUnit
 	(declVariable
-		(typeInt)
-		(identifier)
-		(identifier)
-		(literalInt)
-		(identifier)))
+		type: (typeInt)
+		name: (identifier)
+		name: (identifier)
+		init: (literalInt)
+		name: (identifier)))
 
 ================================================================================
 array declaration
@@ -61,12 +61,12 @@ int x[];
 int x[69];
 --------------------------------------------------------------------------------
 (compilationUnit
-	(declVariableArray
-		(typeInt)
-		(identifier))
-	(declVariableArray
-		(typeInt)
-		(identifier)
+	(declVariable
+		type: (typeInt)
+		name: (identifier))
+	(declVariable
+		type: (typeInt)
+		name: (identifier)
 		initSize: (literalInt)))
 
 ================================================================================
@@ -76,18 +76,18 @@ int x[] = {1, 2, 3};
 int x[69] = {1, 2, 3};
 --------------------------------------------------------------------------------
 (compilationUnit
-	(declVariableArray
-		(typeInt)
-		(identifier)
-		(arrayCreation
+	(declVariable
+		type: (typeInt)
+		name: (identifier)
+		init: (arrayCreation
 			(literalInt)
 			(literalInt)
 			(literalInt)))
-	(declVariableArray
-		(typeInt)
-		(identifier)
+	(declVariable
+		type: (typeInt)
+		name: (identifier)
 		initSize: (literalInt)
-		(arrayCreation
+		init: (arrayCreation
 			(literalInt)
 			(literalInt)
 			(literalInt))))

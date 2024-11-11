@@ -68,7 +68,7 @@ module.exports = grammar({
       $.declClass,
       $.declEnum,
       $.declMethod,
-      $._declVariable,
+      $.declVariable,
       $.typedef,
     )),
 
@@ -122,7 +122,7 @@ module.exports = grammar({
       $.while,
       $.for,
       $.foreach,
-      $._declVariable,
+      $.declVariable,
       $.assignment,
     ),
     statementExpression: $ => seq($._expression, ';'),
@@ -256,42 +256,25 @@ module.exports = grammar({
       '{',
       repeat(choice(
         $.declEnum, // see quirk 6
-        $._declField,
+        $.declField,
         $.declDeconstructor,
         $.declMethod,
       )),
       '}',
     ),
 
-    _declField: $ => choice(
-      $.declField,
-      $.declFieldArray,
-    ),
-
-    // TODO: complete rewrite declField and declVariable
-
     declField: $ => seq(
       repeat($.fieldModifier),
-      $.type,
-      $.identifier,
-      optional(seq('=', $._expression)),
-      repeat(seq(',', $.identifier, optional(seq('=', $._expression)))),
+      field("type", $.type),
+      $._varDeclarator,
+      repeat(seq(',', $._varDeclarator)),
       ';'
     ),
 
-    declFieldArray: $ => seq(
-      repeat($.fieldModifier),
-      $.type,
-      $.identifier,
-      '[', optional(field("initSize", $._expression)), ']',
-      optional(seq('=', $._expression)),
-      repeat(seq(
-        ',',
-        $.identifier,
-        optional(seq('[', optional(field("initSize", $._expression)), ']')),
-        optional(seq('=', $._expression))
-      )),
-      ';'
+    _varDeclarator: $ => seq(
+      field("name", $.identifier),
+      optional(seq('[', optional(field("initSize", $._expression)), ']')),
+      optional(seq('=', field("init", $._expression))),
     ),
 
     fieldModifier: _ => choice(
@@ -384,31 +367,11 @@ module.exports = grammar({
       'private',
     ),
 
-    _declVariable: $ => choice(
-      $.declVariable,
-      $.declVariableArray,
-    ),
-
     declVariable: $ => seq(
       repeat($.variableModifier),
-      choice($.type, 'auto'),
-      $.identifier, optional(seq('=', $._expression)),
-      repeat(seq(',', $.identifier, optional(seq('=', $._expression)))),
-      ';'
-    ),
-
-    declVariableArray: $ => seq(
-      repeat($.variableModifier),
-      $.type,
-      $.identifier,
-      '[', optional(field("initSize", $._expression)), ']',
-      optional(seq('=', $._expression)),
-      repeat(seq(
-        ',',
-        $.identifier,
-        optional(seq('[', optional(field("initSize", $._expression)), ']')),
-        optional(seq('=', $._expression))
-      )),
+      field("type", choice($.type, 'auto')),
+      $._varDeclarator,
+      repeat(seq(',', $._varDeclarator)),
       ';'
     ),
 

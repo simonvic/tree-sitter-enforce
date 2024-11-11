@@ -35,9 +35,9 @@ void foo() {
 (compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
 	(for
 		init: (declVariable
-			(typeInt)
-			(identifier)
-			(literalInt))
+			type: (typeInt)
+			name: (identifier)
+			init: (literalInt))
 		condition: (expressionBinary
 			lhs: (identifier)
 			rhs: (literalInt))
