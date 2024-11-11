@@ -2525,17 +2525,24 @@
   {
     "type": "new",
     "named": true,
-    "fields": {},
+    "fields": {
+      "type": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      }
+    },
     "children": {
-      "multiple": true,
-      "required": true,
+      "multiple": false,
+      "required": false,
       "types": [
         {
           "type": "actualParameters",
-          "named": true
-        },
-        {
-          "type": "type",
           "named": true
         }
       ]

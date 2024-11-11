@@ -487,7 +487,13 @@ module.exports = grammar({
       '(', field("type", $.type), ')', field("value", $._expression)
     )),
 
-    new: $ => seq('new', $.type, '(', optional($.actualParameters), ')'),
+    new: $ => seq(
+      'new',
+      field("type", $.type),
+      '(',
+      optional($.actualParameters),
+      ')'
+    ),
 
     arrayCreation: $ => seq('{', repeat(seq($._expression, optional(','))), '}'),
 
