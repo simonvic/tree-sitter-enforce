@@ -5,7 +5,8 @@ class Foo {}
 --------------------------------------------------------------------------------
 (compilationUnit
 	(declClass
-		typename: (identifier)))
+		typename: (identifier)
+		body: (classBody)))
 
 
 ================================================================================
@@ -16,7 +17,9 @@ class Foo : Bar {}
 (compilationUnit
 	(declClass
 		typename: (identifier)
-		superTypename: (identifier)))
+		superclass: (superclass
+			typename: (identifier))
+		body: (classBody)))
 
 ================================================================================
 modded class declaration
@@ -26,7 +29,8 @@ modded class Foo {}
 (compilationUnit
 	(declClass
 		(classModifier)
-		typename: (identifier)))
+		typename: (identifier)
+		body: (classBody)))
 
 
 ================================================================================
@@ -38,7 +42,9 @@ modded class Foo : Bar {}
 	(declClass
 		(classModifier)
 		typename: (identifier)
-		superTypename: (identifier)))
+		superclass: (superclass
+			typename: (identifier))
+		body: (classBody)))
 
 
 ================================================================================
@@ -56,28 +62,30 @@ class Foo : Bar {
 (compilationUnit
 	(declClass
 		typename: (identifier)
-		superTypename: (identifier)
-		(declField
-			(typePrimitive)
-			(identifier))
-		(declFieldArray
-			(typePrimitive)
-			(identifier))
-		(declFieldArray
-			(typePrimitive)
-			(identifier)
-			initSize: (literalInt))
-		(declMethod
-			returnType: (typePrimitive)
-			name: (identifier)
-			(block))
-		(declDeconstructor
-			(identifier)
-			(block))
-		(declMethod
-			returnType: (typePrimitive)
-			name: (identifier)
-			(block))))
+		superclass: (superclass
+			typename: (identifier))
+		body: (classBody
+			(declField
+				(typePrimitive)
+				(identifier))
+			(declFieldArray
+				(typePrimitive)
+				(identifier))
+			(declFieldArray
+				(typePrimitive)
+				(identifier)
+				initSize: (literalInt))
+			(declMethod
+				returnType: (typePrimitive)
+				name: (identifier)
+				(block))
+			(declDeconstructor
+				(identifier)
+				(block))
+			(declMethod
+				returnType: (typePrimitive)
+				name: (identifier)
+				(block)))))
 
 
 ================================================================================
@@ -96,4 +104,26 @@ class Foo {
 			name: (identifier)
 			(block))))
 
+
+================================================================================
+generic class declaration
+================================================================================
+class Foo<Class T> {}
+class Bar : Foo<int> {}
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declClass
+		typename: (identifier)
+		typeParameters: (typeParameters
+			(typeParameter
+				bound: (identifier)
+				name: (identifier)))
+		body: (classBody))
+	(declClass
+		typename: (identifier)
+		superclass: (superclass
+			typename: (identifier)
+			types: (types
+				(typePrimitive)))
+		body: (classBody)))
 

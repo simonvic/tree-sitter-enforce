@@ -440,6 +440,37 @@
     }
   },
   {
+    "type": "classBody",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "declDeconstructor",
+          "named": true
+        },
+        {
+          "type": "declEnum",
+          "named": true
+        },
+        {
+          "type": "declField",
+          "named": true
+        },
+        {
+          "type": "declFieldArray",
+          "named": true
+        },
+        {
+          "type": "declMethod",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "compilationUnit",
     "named": true,
     "root": true,
@@ -484,12 +515,32 @@
     "type": "declClass",
     "named": true,
     "fields": {
-      "superTypename": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "classBody",
+            "named": true
+          }
+        ]
+      },
+      "superclass": {
         "multiple": false,
         "required": false,
         "types": [
           {
-            "type": "identifier",
+            "type": "superclass",
+            "named": true
+          }
+        ]
+      },
+      "typeParameters": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "typeParameters",
             "named": true
           }
         ]
@@ -511,30 +562,6 @@
       "types": [
         {
           "type": "classModifier",
-          "named": true
-        },
-        {
-          "type": "declDeconstructor",
-          "named": true
-        },
-        {
-          "type": "declEnum",
-          "named": true
-        },
-        {
-          "type": "declField",
-          "named": true
-        },
-        {
-          "type": "declFieldArray",
-          "named": true
-        },
-        {
-          "type": "declMethod",
-          "named": true
-        },
-        {
-          "type": "type",
           "named": true
         }
       ]
@@ -2464,6 +2491,32 @@
     }
   },
   {
+    "type": "superclass",
+    "named": true,
+    "fields": {
+      "typename": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "types": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "types",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "switch",
     "named": true,
     "fields": {
@@ -2668,6 +2721,47 @@
     }
   },
   {
+    "type": "typeParameter",
+    "named": true,
+    "fields": {
+      "bound": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "type",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "typeParameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "typeParameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "typePrimitive",
     "named": true,
     "fields": {}
@@ -2689,6 +2783,21 @@
   },
   {
     "type": "typedef",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "types",
     "named": true,
     "fields": {},
     "children": {

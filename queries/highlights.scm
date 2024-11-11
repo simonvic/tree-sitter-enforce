@@ -101,19 +101,23 @@
 ; Constructor and deconstructor (function with same name of the class)
 (declClass
   typename: (identifier) @_typename
-  (declMethod
-	  name: (identifier) @_name @constructor
-	  (#eq? @_name @_typename)
+  body: (classBody
+    (declMethod
+	    name: (identifier) @_name @constructor
+	    (#eq? @_name @_typename)
+      )
     )
   )
 
 ; TODO: mark invalid deconstructor as error?
 (declClass
   typename: (identifier) @_typename
-  (declDeconstructor
-	  "~" @constructor.deconstructor
-	  (identifier) @_name @constructor.deconstructor
-	  (#eq? @_name @_typename)
+  body: (classBody
+    (declDeconstructor
+	    "~" @constructor.deconstructor
+	    (identifier) @_name @constructor.deconstructor
+	    (#eq? @_name @_typename)
+      )
     )
   )
 

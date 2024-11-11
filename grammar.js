@@ -197,13 +197,34 @@ module.exports = grammar({
 
     declClass: $ => seq(
       repeat($.classModifier),
-      'class', field("typename", $.identifier),
-      optional(seq('<', $.type, $.identifier, repeat(seq(',', $.type, $.identifier)), '>')),
+      'class',
+      field("typename", $.identifier),
+      optional(field("typeParameters", $.typeParameters)),
       optional(seq(
         choice(':', 'extends'),
-        field("superTypename", $.identifier),
-        optional(seq('<', $.type, repeat(seq(',', $.type)), '>')),
+        field("superclass", $.superclass)
       )),
+      field("body", $.classBody),
+      optional(';'),
+    ),
+
+    classModifier: _ => 'modded',
+
+    typeParameters: $ => seq('<', $.typeParameter, repeat(seq(',', $.typeParameter)), '>'),
+
+    typeParameter: $ => seq(
+      field("bound", $.type),
+      field("name", $.identifier)
+    ),
+
+    superclass: $ => seq(
+      field("typename", $.identifier),
+      optional(field("types", $.types)),
+    ),
+
+    types: $ => seq('<', $.type, repeat(seq(',', $.type)), '>'),
+
+    classBody: $ => seq(
       '{',
       repeat(choice(
         $.declEnum, // see quirk 6
@@ -212,10 +233,7 @@ module.exports = grammar({
         $.declMethod,
       )),
       '}',
-      optional(';')
     ),
-
-    classModifier: _ => 'modded',
 
     _declField: $ => choice(
       $.declField,
