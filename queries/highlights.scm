@@ -14,19 +14,19 @@
 ; vectors
 ; TODO: what about arrays of vectors?
 (declVariable
-  ((typePrimitive) @_type (#eq? @_type "vector"))
+  (typeVector)
   (literalString) @vector
   )
 
 (formalParameter
-  ((typePrimitive) @_type (#eq? @_type "vector"))
+  type: (typeVector)
   default: (literalString) @vector
   )
 
 (identifier) @variable
 
-; ((identifier) @constant
-;               (#lua-match? @constant "^[A-Z_][A-Z%d_]+$"))
+((identifier) @constant
+              (#lua-match? @constant "^[A-Z_][A-Z%d_]+$"))
 
 [
  "+" "-" "*" "/" "%" "^"
@@ -121,9 +121,6 @@
     )
   )
 
-; TODO: add a rule for const modifier
-; TODO: add named fields
-
 ; Constant fields
 ; (declField
 ;   ((fieldModifier) @_modifier (#eq? @_modifier "const"))
@@ -138,11 +135,10 @@
 ;   (formalParameters
 ;   	(formalParameter
 ;   	  ((formalParameterModifier) @_modifier (#eq? @_modifier "const"))
-;   	  (_)
-;   	  (identifier) @_constantParam @constant
+;   	  name: (identifier) @_constantParam @constant
 ;   	  )
 ;   	)
-;   (block
+;   body: (block
 ;   	(_
 ;   	  ((identifier) @constant (#eq? @constant @_constantParam))
 ;   	  )
