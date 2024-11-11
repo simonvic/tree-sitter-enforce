@@ -69,3 +69,26 @@ int x[69];
 		(identifier)
 		initSize: (literalInt)))
 
+================================================================================
+array declaration with initialization
+================================================================================
+int x[] = {1, 2, 3};
+int x[69] = {1, 2, 3};
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declVariableArray
+		(typePrimitive)
+		(identifier)
+		(arrayCreation
+			(literalInt)
+			(literalInt)
+			(literalInt)))
+	(declVariableArray
+		(typePrimitive)
+		(identifier)
+		initSize: (literalInt)
+		(arrayCreation
+			(literalInt)
+			(literalInt)
+			(literalInt))))
+

@@ -46,6 +46,9 @@ module.exports = grammar({
     [$.methodModifier, $.fieldModifier],
     [$.typeGeneric, $._expression],
     [$.type, $._expression],
+
+    // TODO: allow blocks as statements (anonymous scope) and allow arrayCreation only where possible
+    [$.block, $.arrayCreation],
   ],
 
   extras: $ => [
@@ -341,6 +344,7 @@ module.exports = grammar({
       $.expressionPrefix,
       $.expressionSuffix,
       $.new,
+      $.arrayCreation,
       $.invokation,
       $.keyAccess,
       $.memberAccess,
@@ -394,6 +398,8 @@ module.exports = grammar({
     )),
 
     new: $ => seq('new', $.type, '(', optional($.actualParameters), ')'),
+
+    arrayCreation: $ => seq('{', repeat(seq($._expression, optional(','))), '}'),
 
     invokation: $ => prec(PREC.INVOKATION, seq(
       $._expression, '(', optional($.actualParameters), ')'
