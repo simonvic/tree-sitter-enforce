@@ -28,6 +28,13 @@
 ((identifier) @constant
               (#lua-match? @constant "^[A-Z_][A-Z%d_]+$"))
 
+; Constant fields
+(declField
+  ((fieldModifier) @_modifier (#eq? @_modifier "const"))
+  type: (_)
+  name: (identifier) @constant
+  )
+
 [
  "+" "-" "*" "/" "%" "^"
  "++" "--"
