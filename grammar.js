@@ -129,7 +129,12 @@ module.exports = grammar({
 
     delete: $ => seq('delete', $.identifier, ';'), // TODO: check if other expressions are allowed
 
-    typedef: $ => seq('typedef', $.type, $.identifier, ';'),
+    typedef: $ => seq(
+      'typedef',
+      field("type", $.type),
+      field("alias", $.identifier),
+      ';'
+    ),
 
     break: _ => seq('break', ';'),
     continue: _ => seq('continue', ';'),
@@ -148,7 +153,13 @@ module.exports = grammar({
       '}'
     ),
 
-    while: $ => seq('while', '(', $._expression, ')', $._statementOrBlock),
+    while: $ => seq(
+      'while',
+      '(',
+      field("condition", $._expression),
+      ')',
+      field("body", $._statementOrBlock),
+    ),
 
     for: $ => seq(
       'for',
@@ -158,7 +169,7 @@ module.exports = grammar({
       ';',
       field("update", optional($._expression)),
       ')',
-      $._statementOrBlock
+      field("body", $._statementOrBlock),
     ),
 
     foreach: $ => seq(
@@ -169,7 +180,7 @@ module.exports = grammar({
       ':',
       field("iterated", $._expression),
       ')',
-      $._statementOrBlock
+      field("body", $._statementOrBlock),
     ),
 
     iterator: $ => seq(

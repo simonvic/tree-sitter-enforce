@@ -9,7 +9,7 @@ void foo() {
 	(for
 		init: (emptyStatement)
 		condition: (literalBool)
-		(statementExpression (identifier))))))
+		body: (statementExpression (identifier))))))
 
 ================================================================================
 for true do block
@@ -22,7 +22,7 @@ void foo() {
 	(for
 		init: (emptyStatement)
 		condition: (literalBool)
-		(block)))))
+		body: (block)))))
 
 ================================================================================
 for
@@ -42,7 +42,7 @@ void foo() {
 			lhs: (identifier)
 			rhs: (literalInt))
 		update: (expressionSuffix (identifier))
-		(block))
+		body: (block))
 	(for
 		init: (assignment
 			(identifier)
@@ -51,5 +51,5 @@ void foo() {
 			lhs: (identifier)
 			rhs: (literalInt))
 		update: (expressionSuffix (identifier))
-		(block)))))
+		body: (block)))))
 

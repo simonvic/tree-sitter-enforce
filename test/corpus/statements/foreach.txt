@@ -9,7 +9,7 @@ void foo() {
 	(foreach
 		key: (iterator (typePrimitive) (identifier))
 		iterated: (identifier)
-		(block)))))
+		body: (block)))))
 
 
 ================================================================================
@@ -23,7 +23,7 @@ void foo() {
 	(foreach
 		key: (iterator (identifier))
 		iterated: (identifier)
-		(block)))))
+		body: (block)))))
 
 
 ================================================================================
@@ -42,7 +42,7 @@ void foo() {
 			(typePrimitive)
 			(identifier))
 		iterated: (identifier)
-		(block)))))
+		body: (block)))))
 
 
 ================================================================================
@@ -57,6 +57,6 @@ void foo() {
 		key: (iterator (identifier))
 		value: (iterator (identifier))
 		iterated: (identifier)
-		(block)))))
+		body: (block)))))
 
 

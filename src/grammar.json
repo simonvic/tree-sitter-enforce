@@ -273,12 +273,20 @@
           "value": "typedef"
         },
         {
-          "type": "SYMBOL",
-          "name": "type"
+          "type": "FIELD",
+          "name": "type",
+          "content": {
+            "type": "SYMBOL",
+            "name": "type"
+          }
         },
         {
-          "type": "SYMBOL",
-          "name": "identifier"
+          "type": "FIELD",
+          "name": "alias",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
         },
         {
           "type": "STRING",
@@ -495,16 +503,24 @@
           "value": "("
         },
         {
-          "type": "SYMBOL",
-          "name": "_expression"
+          "type": "FIELD",
+          "name": "condition",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_expression"
+          }
         },
         {
           "type": "STRING",
           "value": ")"
         },
         {
-          "type": "SYMBOL",
-          "name": "_statementOrBlock"
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_statementOrBlock"
+          }
         }
       ]
     },
@@ -560,8 +576,12 @@
           "value": ")"
         },
         {
-          "type": "SYMBOL",
-          "name": "_statementOrBlock"
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_statementOrBlock"
+          }
         }
       ]
     },
@@ -626,8 +646,12 @@
           "value": ")"
         },
         {
-          "type": "SYMBOL",
-          "name": "_statementOrBlock"
+          "type": "FIELD",
+          "name": "body",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_statementOrBlock"
+          }
         }
       ]
     },
