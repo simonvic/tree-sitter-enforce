@@ -91,7 +91,7 @@ module.exports = grammar({
 
     // kindly borrowed from https://github.com/tree-sitter/tree-sitter-java/blob/master/grammar.js#L1291C5-L1297C8
     docBlock: _ => token(prec(PREC.DOC, seq(
-      '/**',
+      choice('/**', '/*!'),
       /[^*]*\*+([^/*][^*]*\*+)*/,
       '/',
     ))),
@@ -128,7 +128,7 @@ module.exports = grammar({
 
     delete: $ => seq('delete', $.identifier, ';'), // TODO: check if other expressions are allowed
 
-    typedef: $ => seq('typedef', $.type, $.identifier),
+    typedef: $ => seq('typedef', $.type, $.identifier, ';'),
 
     break: _ => seq('break', ';'),
     continue: _ => seq('continue', ';'),
@@ -177,7 +177,7 @@ module.exports = grammar({
     ),
 
     assignment: $ => seq(
-      $.identifier,
+      $._expression,
       choice(
         '=',
         '+=',
@@ -213,6 +213,7 @@ module.exports = grammar({
         $.declMethod,
       )),
       '}',
+      optional(';')
     ),
 
     classModifier: _ => 'modded',
@@ -255,9 +256,14 @@ module.exports = grammar({
       'proto',
       'protected',
       'private',
+      'reference',
+
+      // TODO: ignored?
+      'owned',
     ),
 
     declDeconstructor: $ => seq(
+      // TODO: add methodModifier
       'void', '~', $.identifier, '(', optional($.formalParameters), ')', $.block
     ),
 
@@ -271,6 +277,7 @@ module.exports = grammar({
         optional(',')
       )),
       '}',
+      optional(';')
     ),
 
     enumMember: $ => seq($.identifier, optional(seq('=', $._expression))),
@@ -293,10 +300,15 @@ module.exports = grammar({
       'proto',
       'native',
       'static',
+      'external',
+      'volatile',
+      'owned',
+      'event',
       'protected',
       'private',
     ),
 
+    // TODO: add array
     formalParameters: $ => seq(
       $.formalParameter,
       repeat(seq(',', $.formalParameter)),
@@ -354,6 +366,10 @@ module.exports = grammar({
       'autoptr',
       'protected',
       'private',
+
+      // TODO: ignored?
+      'owned',
+      'reference',
     ),
 
     _expression: $ => choice(
@@ -371,6 +387,7 @@ module.exports = grammar({
       $.identifier,
       $.super,
       $.this,
+      // TODO: add cast
     ),
 
     _expressionParenthesized: $ => seq('(', $._expression, ')'),
@@ -488,7 +505,7 @@ module.exports = grammar({
     literalNull: _ => token(choice('null', 'NULL')),
     literalBool: _ => token(choice('false', 'true')),
     literalInt: _ => token(choice(
-      seq('0x', /[0-9A-F]+/),
+      seq('0x', /[0-9a-fA-F]+/),
       seq(/[0-9]+/, optional(EXPONENT)),
     )),
     literalFloat: _ => token(seq(

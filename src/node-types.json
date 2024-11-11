@@ -2805,7 +2805,15 @@
     "named": true
   },
   {
+    "type": "event",
+    "named": false
+  },
+  {
     "type": "extends",
+    "named": false
+  },
+  {
+    "type": "external",
     "named": false
   },
   {
@@ -2877,6 +2885,10 @@
     "named": false
   },
   {
+    "type": "owned",
+    "named": false
+  },
+  {
     "type": "private",
     "named": false
   },
@@ -2890,6 +2902,10 @@
   },
   {
     "type": "ref",
+    "named": false
+  },
+  {
+    "type": "reference",
     "named": false
   },
   {
@@ -2930,6 +2946,10 @@
   },
   {
     "type": "void",
+    "named": false
+  },
+  {
+    "type": "volatile",
     "named": false
   },
   {
