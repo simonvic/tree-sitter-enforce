@@ -35,17 +35,17 @@ override void foo(const int x = 69, inout int y, out int y) {}
 		(formalParameters
 			(formalParameter
 				(formalParameterModifier)
-				(typePrimitive)
-				(identifier)
+				type: (typePrimitive)
+				name: (identifier)
 				default: (literalInt))
 			(formalParameter
 				(formalParameterModifier)
-				(typePrimitive)
-				(identifier))
+				type: (typePrimitive)
+				name: (identifier))
 			(formalParameter
 				(formalParameterModifier)
-				(typePrimitive)
-				(identifier)))
+				type: (typePrimitive)
+				name: (identifier)))
 		body: (block)))
 
 
