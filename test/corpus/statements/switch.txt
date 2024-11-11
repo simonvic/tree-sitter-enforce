@@ -7,7 +7,8 @@ void foo() {
 --------------------------------------------------------------------------------
 (compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
 	(switch
-		subject: (literalInt)))))
+		subject: (literalInt)
+		body: (switchBody)))))
 
 ================================================================================
 switch with one empty case
@@ -21,7 +22,8 @@ void foo() {
 (compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
 	(switch
 		subject: (literalInt)
-		label: (literalInt)))))
+		body: (switchBody
+			(switchCase label: (literalInt)))))))
 
 ================================================================================
 switch with multiple empty cases
@@ -37,9 +39,10 @@ void foo() {
 (compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
 	(switch
 		subject: (literalInt)
-		label: (literalInt)
-		label: (literalInt)
-		label: (literalInt)))))
+		body: (switchBody
+			(switchCase label: (literalInt))
+			(switchCase label: (literalInt))
+			(switchCase label: (literalInt)))))))
 
 ================================================================================
 switch with one case
@@ -53,8 +56,10 @@ void foo() {
 (compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
 	(switch
 		subject: (literalInt)
-		label: (literalInt)
-		(break)))))
+		body: (switchBody
+			(switchCase
+				label: (literalInt)
+				(break)))))))
 
 ================================================================================
 switch with multiple case, fallthrough case and default branch
@@ -63,8 +68,6 @@ void foo() {
 	switch (69) {
 
 		case 1:
-		a++;
-
 		case 2:
 		b++;
 		break;
@@ -78,13 +81,11 @@ void foo() {
 (compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
 	(switch
 		subject: (literalInt)
+		body: (switchBody
+			(switchCase label: (literalInt))
+			(switchCase
+				label: (literalInt)
+				(statementExpression (expressionSuffix (identifier)))
+				(break))
+			defaultCase: (statementExpression (expressionSuffix (identifier))))))))
 
-		label: (literalInt)
-		(statementExpression (expressionSuffix (identifier)))
-
-		label: (literalInt)
-		(statementExpression (expressionSuffix (identifier)))
-		(break)
-
-		default:
-		(statementExpression (expressionSuffix (identifier)))))))

@@ -147,10 +147,26 @@ module.exports = grammar({
     )),
 
     switch: $ => seq(
-      'switch', '(', field("subject", $._expression), ')', '{',
-      repeat(seq('case', field("label", $._expression), ':', repeat($.statement))),
-      optional(field("default", seq('default', ':', repeat($.statement)))),
+      'switch',
+      '(',
+      field("subject", $._expression),
+      ')',
+      field("body", $.switchBody),
+    ),
+
+    switchBody: $ => seq(
+      '{',
+      repeat($.switchCase),
+      optional(field("defaultCase", seq('default', ':', repeat($.statement)))),
       '}'
+    ),
+
+    switchCase: $ => seq(
+      'case',
+      field("label", $._expression),
+      ':',
+      repeat($.statement),
+      // NOTE: fallthrough cases can't have statements, but we don't care
     ),
 
     while: $ => seq(

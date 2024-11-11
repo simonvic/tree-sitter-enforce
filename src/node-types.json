@@ -2558,27 +2558,19 @@
     "type": "switch",
     "named": true,
     "fields": {
-      "default": {
-        "multiple": true,
-        "required": false,
+      "body": {
+        "multiple": false,
+        "required": true,
         "types": [
           {
-            "type": ":",
-            "named": false
-          },
-          {
-            "type": "default",
-            "named": false
-          },
-          {
-            "type": "statement",
+            "type": "switchBody",
             "named": true
           }
         ]
       },
-      "label": {
+      "subject": {
         "multiple": true,
-        "required": false,
+        "required": true,
         "types": [
           {
             "type": "(",
@@ -2645,8 +2637,48 @@
             "named": true
           }
         ]
-      },
-      "subject": {
+      }
+    }
+  },
+  {
+    "type": "switchBody",
+    "named": true,
+    "fields": {
+      "defaultCase": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ":",
+            "named": false
+          },
+          {
+            "type": "default",
+            "named": false
+          },
+          {
+            "type": "statement",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "switchCase",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "switchCase",
+    "named": true,
+    "fields": {
+      "label": {
         "multiple": true,
         "required": true,
         "types": [
