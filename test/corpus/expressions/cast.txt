@@ -1,0 +1,13 @@
+================================================================================
+cast
+================================================================================
+void foo() {
+	(int) a;
+	(Foo) a;
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
+	(statementExpression (cast type: (typePrimitive) value: (identifier)))
+	(statementExpression (cast type: (identifier) value: (identifier))))))
+
+

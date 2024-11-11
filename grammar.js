@@ -17,6 +17,7 @@ const PREC = {
   DOT: 18,
   KEY_ACCESS: 18,
   POSTFIX: 18,
+  CAST: 17,
   PREFIX: 17,
   MULT: 13,
   ADD: 12,
@@ -377,6 +378,7 @@ module.exports = grammar({
       $.expressionBinary,
       $.expressionPrefix,
       $.expressionSuffix,
+      $.cast,
       $.new,
       $.arrayCreation,
       $.invokation,
@@ -387,7 +389,6 @@ module.exports = grammar({
       $.identifier,
       $.super,
       $.this,
-      // TODO: add cast
     ),
 
     _expressionParenthesized: $ => seq('(', $._expression, ')'),
@@ -430,6 +431,10 @@ module.exports = grammar({
     expressionSuffix: $ => prec(PREC.POSTFIX, seq(
       $._expression,
       choice('++', '--',)
+    )),
+
+    cast: $ => prec(PREC.CAST, seq(
+      '(', field("type", $.type), ')', field("value", $._expression)
     )),
 
     new: $ => seq('new', $.type, '(', optional($.actualParameters), ')'),
