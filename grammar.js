@@ -285,19 +285,26 @@ module.exports = grammar({
     ),
 
     declEnum: $ => seq(
-      'enum', field("typename", $.identifier),
-      optional(seq(choice(':', 'extends'), field("superTypename", $.identifier))),
-      '{',
+      'enum',
+      field("typename", $.identifier),
       optional(seq(
-        $.enumMember,
-        repeat(seq(',', $.enumMember)),
-        optional(',')
+        choice(':', 'extends'),
+        field("superenum", $.identifier)
       )),
-      '}',
+      field("body", $.enumBody),
       optional(';')
     ),
 
-    enumMember: $ => seq($.identifier, optional(seq('=', $._expression))),
+    enumBody: $ => seq(
+      '{',
+      optional(seq($.enumMember, repeat(seq(',', $.enumMember)), optional(','))),
+      '}',
+    ),
+
+    enumMember: $ => seq(
+      field("name", $.identifier),
+      field("value", optional(seq('=', $._expression)))
+    ),
 
     declMethod: $ => seq(
       repeat($.methodModifier),
