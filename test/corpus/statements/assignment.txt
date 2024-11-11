@@ -5,8 +5,7 @@ void foo() {
 	x = 69;
 }
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declMethod (typePrimitive) (identifier) (block
+(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
 		(assignment
-			(identifier)
-			(literalInt)))))
+			lhs: (identifier)
+			rhs: (literalInt)))))

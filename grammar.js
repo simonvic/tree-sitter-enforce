@@ -205,8 +205,8 @@ module.exports = grammar({
     ),
 
     assignment: $ => seq(
-      $._expression,
-      choice(
+      field("lhs", $._expression),
+      field("bop", choice(
         '=',
         '+=',
         '-=',
@@ -217,8 +217,8 @@ module.exports = grammar({
         '|=',
         '<<=',
         '>>=',
-      ),
-      $._expression,
+      )),
+      field("rhs", $._expression),
       ';'
     ),
 

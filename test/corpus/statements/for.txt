@@ -45,8 +45,8 @@ void foo() {
 		body: (block))
 	(for
 		init: (assignment
-			(identifier)
-			(literalInt))
+			lhs: (identifier)
+			rhs: (literalInt))
 		condition: (expressionBinary
 			lhs: (identifier)
 			rhs: (literalInt))
