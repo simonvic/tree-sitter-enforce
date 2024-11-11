@@ -35,6 +35,8 @@
   name: (identifier) @constant
   )
 
+(enumMember name: (identifier) @constant)
+
 [
  "+" "-" "*" "/" "%" "^"
  "++" "--"
