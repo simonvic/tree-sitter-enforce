@@ -7,7 +7,7 @@ void foo() {
 	x[row][col];
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
+(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
 	(statementExpression (keyAccess
 		accessed: (identifier)
 		key: (literalInt)))

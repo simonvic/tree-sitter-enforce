@@ -66,24 +66,24 @@ class Foo : Bar {
 			typename: (identifier))
 		body: (classBody
 			(declField
-				(typePrimitive)
+				(typeInt)
 				(identifier))
 			(declFieldArray
-				(typePrimitive)
+				(typeInt)
 				(identifier))
 			(declFieldArray
-				(typePrimitive)
+				(typeInt)
 				(identifier)
 				initSize: (literalInt))
 			(declMethod
-				returnType: (typePrimitive)
+				returnType: (typeVoid)
 				name: (identifier)
 				body: (block))
 			(declDeconstructor
 				(identifier)
 				(block))
 			(declMethod
-				returnType: (typePrimitive)
+				returnType: (typeVoid)
 				name: (identifier)
 				body: (block)))))
 
@@ -100,7 +100,7 @@ class Foo {
 	(declClass
 		typename: (identifier)
 		(declMethod
-			returnType: (typePrimitive)
+			returnType: (typeInt)
 			name: (identifier)
 			body: (block))))
 
@@ -116,7 +116,7 @@ class Bar : Foo<int> {}
 		typename: (identifier)
 		typeParameters: (typeParameters
 			(typeParameter
-				bound: (identifier)
+				bound: (typeIdentifier (identifier))
 				name: (identifier)))
 		body: (classBody))
 	(declClass
@@ -124,6 +124,6 @@ class Bar : Foo<int> {}
 		superclass: (superclass
 			typename: (identifier)
 			types: (types
-				(typePrimitive)))
+				(typeInt)))
 		body: (classBody)))
 

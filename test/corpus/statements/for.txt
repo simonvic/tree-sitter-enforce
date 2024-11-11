@@ -5,7 +5,7 @@ void foo() {
 	for (;true;) a;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
+(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
 	(for
 		init: (emptyStatement)
 		condition: (literalBool)
@@ -18,7 +18,7 @@ void foo() {
 	for (;true;) {}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
+(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
 	(for
 		init: (emptyStatement)
 		condition: (literalBool)
@@ -32,10 +32,10 @@ void foo() {
 	for (i = 0; i < 69; i++) {}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
+(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
 	(for
 		init: (declVariable
-			(typePrimitive)
+			(typeInt)
 			(identifier)
 			(literalInt))
 		condition: (expressionBinary

@@ -14,7 +14,7 @@ int a; //! this is another doc
 	(docLine)
 	(docLine)
 	(docLine)
-	(declVariable (typePrimitive) (identifier))
+	(declVariable (typeInt) (identifier))
 	(docLine)
 	(docLine)
 	(docLine))
@@ -84,7 +84,7 @@ int a;
 --------------------------------------------------------------------------------
 (compilationUnit
 	(docBlock)
-	(declVariable (typePrimitive) (identifier)))
+	(declVariable (typeInt) (identifier)))
 
 ================================================================================
 doc block after statement
@@ -97,7 +97,7 @@ block
 */
 --------------------------------------------------------------------------------
 (compilationUnit
-	(declVariable (typePrimitive) (identifier))
+	(declVariable (typeInt) (identifier))
 	(docBlock))
 
 ================================================================================
@@ -105,7 +105,7 @@ doc block inline statement
 ================================================================================
 int /** this is a doc block */ a;
 --------------------------------------------------------------------------------
-(compilationUnit (declVariable (typePrimitive) (docBlock) (identifier)))
+(compilationUnit (declVariable (typeInt) (docBlock) (identifier)))
 
 ================================================================================
 doc block with nested opening tag
@@ -113,7 +113,7 @@ doc block with nested opening tag
 int /** you open a doc with the '/*' token. */ a;
 --------------------------------------------------------------------------------
 (compilationUnit 
-	(declVariable (typePrimitive)
+	(declVariable (typeInt)
 		(docBlock)
 		(identifier)))
 

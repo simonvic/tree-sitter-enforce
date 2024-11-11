@@ -5,5 +5,5 @@ void foo() {
 	break;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typePrimitive) (identifier) (block
+(compilationUnit (declMethod (typeVoid) (identifier) (block
 	(break))))

@@ -7,7 +7,7 @@ void foo() {
 }
 --------------------------------------------------------------------------------
 (compilationUnit
-	(declMethod (typePrimitive) (identifier) (block
+	(declMethod (typeVoid) (identifier) (block
 		(statementExpression (literalNull))
 		(statementExpression (literalNull)))))
 
@@ -20,7 +20,7 @@ void foo() {
 }
 --------------------------------------------------------------------------------
 (compilationUnit
-	(declMethod (typePrimitive) (identifier) (block
+	(declMethod (typeVoid) (identifier) (block
 		(statementExpression (literalBool))
 		(statementExpression (literalBool)))))
 
@@ -35,7 +35,7 @@ void foo() {
 }
 --------------------------------------------------------------------------------
 (compilationUnit
-	(declMethod (typePrimitive) (identifier) (block
+	(declMethod (typeVoid) (identifier) (block
 		(statementExpression (literalInt))
 		(statementExpression (literalInt))
 		(statementExpression (literalInt))
@@ -52,7 +52,7 @@ void foo() {
 }
 --------------------------------------------------------------------------------
 (compilationUnit
-	(declMethod (typePrimitive) (identifier) (block
+	(declMethod (typeVoid) (identifier) (block
 		(statementExpression (literalFloat))
 		(statementExpression (literalFloat))
 		(statementExpression (literalFloat))
@@ -72,7 +72,7 @@ void foo() {
 }
 --------------------------------------------------------------------------------
 (compilationUnit
-	(declMethod (typePrimitive) (identifier) (block
+	(declMethod (typeVoid) (identifier) (block
 		(statementExpression (literalString))
 		(statementExpression (literalString))
 		(statementExpression (literalString))

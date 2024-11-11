@@ -5,7 +5,7 @@ int x;
 --------------------------------------------------------------------------------
 (compilationUnit
 	(declVariable
-		(typePrimitive)
+		(typeInt)
 		(identifier)))
 
 ================================================================================
@@ -15,7 +15,7 @@ int x = 69;
 --------------------------------------------------------------------------------
 (compilationUnit
 	(declVariable
-		(typePrimitive)
+		(typeInt)
 		(identifier)
 		(literalInt)))
 
@@ -36,7 +36,7 @@ int x, y, z;
 --------------------------------------------------------------------------------
 (compilationUnit
 	(declVariable
-		(typePrimitive)
+		(typeInt)
 		(identifier)
 		(identifier)
 		(identifier)))
@@ -48,7 +48,7 @@ int x, y = 69, z;
 --------------------------------------------------------------------------------
 (compilationUnit
 	(declVariable
-		(typePrimitive)
+		(typeInt)
 		(identifier)
 		(identifier)
 		(literalInt)
@@ -62,10 +62,10 @@ int x[69];
 --------------------------------------------------------------------------------
 (compilationUnit
 	(declVariableArray
-		(typePrimitive)
+		(typeInt)
 		(identifier))
 	(declVariableArray
-		(typePrimitive)
+		(typeInt)
 		(identifier)
 		initSize: (literalInt)))
 
@@ -77,14 +77,14 @@ int x[69] = {1, 2, 3};
 --------------------------------------------------------------------------------
 (compilationUnit
 	(declVariableArray
-		(typePrimitive)
+		(typeInt)
 		(identifier)
 		(arrayCreation
 			(literalInt)
 			(literalInt)
 			(literalInt)))
 	(declVariableArray
-		(typePrimitive)
+		(typeInt)
 		(identifier)
 		initSize: (literalInt)
 		(arrayCreation

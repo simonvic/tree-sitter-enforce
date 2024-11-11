@@ -1,9 +1,9 @@
 ================================================================================
-break
+continue
 ================================================================================
 void foo() {
 	continue;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typePrimitive) (identifier) (block
+(compilationUnit (declMethod (typeVoid) (identifier) (block
 	(continue))))

@@ -96,15 +96,11 @@
     "named": true,
     "subtypes": [
       {
-        "type": "identifier",
-        "named": true
-      },
-      {
         "type": "typeArray",
         "named": true
       },
       {
-        "type": "typeGeneric",
+        "type": "typeIdentifier",
         "named": true
       },
       {
@@ -113,6 +109,44 @@
       },
       {
         "type": "typeRef",
+        "named": true
+      }
+    ]
+  },
+  {
+    "type": "typePrimitive",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "typeBool",
+        "named": true
+      },
+      {
+        "type": "typeFloat",
+        "named": true
+      },
+      {
+        "type": "typeFunc",
+        "named": true
+      },
+      {
+        "type": "typeInt",
+        "named": true
+      },
+      {
+        "type": "typeString",
+        "named": true
+      },
+      {
+        "type": "typeTypename",
+        "named": true
+      },
+      {
+        "type": "typeVector",
+        "named": true
+      },
+      {
+        "type": "typeVoid",
         "named": true
       }
     ]
@@ -784,6 +818,10 @@
           "named": true
         },
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "invokation",
           "named": true
         },
@@ -922,6 +960,10 @@
           "named": true
         },
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "invokation",
           "named": true
         },
@@ -1032,6 +1074,10 @@
         },
         {
           "type": "expressionSuffix",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         },
         {
@@ -1170,6 +1216,10 @@
         },
         {
           "type": "expressionSuffix",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         },
         {
@@ -2264,6 +2314,10 @@
       "required": true,
       "types": [
         {
+          "type": "identifier",
+          "named": true
+        },
+        {
           "type": "type",
           "named": true
         }
@@ -2930,7 +2984,7 @@
     }
   },
   {
-    "type": "typeGeneric",
+    "type": "typeIdentifier",
     "named": true,
     "fields": {},
     "children": {
@@ -2938,7 +2992,11 @@
       "required": true,
       "types": [
         {
-          "type": "type",
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "types",
           "named": true
         }
       ]
@@ -2986,11 +3044,6 @@
     }
   },
   {
-    "type": "typePrimitive",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "typeRef",
     "named": true,
     "fields": {},
@@ -3004,6 +3057,11 @@
         }
       ]
     }
+  },
+  {
+    "type": "typeVoid",
+    "named": true,
+    "fields": {}
   },
   {
     "type": "typedef",
@@ -3298,10 +3356,6 @@
     "named": false
   },
   {
-    "type": "bool",
-    "named": false
-  },
-  {
     "type": "break",
     "named": false
   },
@@ -3374,19 +3428,11 @@
     "named": false
   },
   {
-    "type": "float",
-    "named": false
-  },
-  {
     "type": "for",
     "named": false
   },
   {
     "type": "foreach",
-    "named": false
-  },
-  {
-    "type": "func",
     "named": false
   },
   {
@@ -3399,10 +3445,6 @@
   },
   {
     "type": "inout",
-    "named": false
-  },
-  {
-    "type": "int",
     "named": false
   },
   {
@@ -3474,10 +3516,6 @@
     "named": false
   },
   {
-    "type": "string",
-    "named": false
-  },
-  {
     "type": "super",
     "named": true
   },
@@ -3490,15 +3528,35 @@
     "named": true
   },
   {
+    "type": "typeBool",
+    "named": true
+  },
+  {
+    "type": "typeFloat",
+    "named": true
+  },
+  {
+    "type": "typeFunc",
+    "named": true
+  },
+  {
+    "type": "typeInt",
+    "named": true
+  },
+  {
+    "type": "typeString",
+    "named": true
+  },
+  {
+    "type": "typeTypename",
+    "named": true
+  },
+  {
+    "type": "typeVector",
+    "named": true
+  },
+  {
     "type": "typedef",
-    "named": false
-  },
-  {
-    "type": "typename",
-    "named": false
-  },
-  {
-    "type": "vector",
     "named": false
   },
   {

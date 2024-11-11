@@ -14,7 +14,7 @@ int a; // this is another comment
 	(commentLine)
 	(commentLine)
 	(commentLine)
-	(declVariable (typePrimitive) (identifier))
+	(declVariable (typeInt) (identifier))
 	(commentLine)
 	(commentLine)
 	(commentLine))
@@ -84,7 +84,7 @@ int a;
 --------------------------------------------------------------------------------
 (compilationUnit
 	(commentBlock)
-	(declVariable (typePrimitive) (identifier)))
+	(declVariable (typeInt) (identifier)))
 
 ================================================================================
 comment block after statement
@@ -97,7 +97,7 @@ block
 */
 --------------------------------------------------------------------------------
 (compilationUnit
-	(declVariable (typePrimitive) (identifier))
+	(declVariable (typeInt) (identifier))
 	(commentBlock))
 
 ================================================================================
@@ -105,7 +105,7 @@ comment block inline statement
 ================================================================================
 int /* this is a comment block */ a;
 --------------------------------------------------------------------------------
-(compilationUnit (declVariable (typePrimitive) (commentBlock) (identifier)))
+(compilationUnit (declVariable (typeInt) (commentBlock) (identifier)))
 
 ================================================================================
 comment block with nested opening tag
@@ -113,7 +113,7 @@ comment block with nested opening tag
 int /* you open a comment with the '/*' token. */ a;
 --------------------------------------------------------------------------------
 (compilationUnit 
-	(declVariable (typePrimitive)
+	(declVariable (typeInt)
 		(commentBlock)
 		(identifier)))
 

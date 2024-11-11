@@ -1,11 +1,11 @@
 ================================================================================
-break
+return
 ================================================================================
 void foo() {
 	return;
 	return x;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typePrimitive) (identifier) (block
+(compilationUnit (declMethod (typeVoid) (identifier) (block
 	(return)
 	(return (identifier)))))

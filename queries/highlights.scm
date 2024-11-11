@@ -44,7 +44,7 @@
  ] @punctuation.bracket
 
 ; TODO: <> in declClass
-(typeGeneric [ "<" ">" ] @punctuation.bracket)
+(types [ "<" ">" ] @punctuation.bracket)
 
 [
  "," "." ":" ";"
@@ -80,7 +80,7 @@
 ["ref"] @type
 (declClass typename: (identifier) @type)
 (declEnum typename: (identifier) @type)
-(typeGeneric (identifier) @type)
+(typeIdentifier (identifier) @type)
 
 (typePrimitive) @type.builtin
 

@@ -9,12 +9,12 @@ void foo() {
 	bar.bar.baz();
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
+(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
 	(statementExpression (memberAccess
 		accessed: (identifier)
 		member: (identifier)))
 	(statementExpression (memberAccess
-		accessed: (typePrimitive)
+		accessed: (typeInt)
 		member: (identifier)))
 	(statementExpression (invokation
 		(memberAccess
@@ -22,7 +22,7 @@ void foo() {
 			member: (identifier))))
 	(statementExpression (invokation
 		(memberAccess
-			accessed: (typePrimitive)
+			accessed: (typeInt)
 			member: (identifier))))
 	(statementExpression (invokation
 		(memberAccess

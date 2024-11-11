@@ -5,7 +5,7 @@ void foo() {
 	switch (69) {}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
+(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
 	(switch
 		subject: (literalInt)
 		body: (switchBody)))))
@@ -19,7 +19,7 @@ void foo() {
 	}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
+(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
 	(switch
 		subject: (literalInt)
 		body: (switchBody
@@ -36,7 +36,7 @@ void foo() {
 	}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
+(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
 	(switch
 		subject: (literalInt)
 		body: (switchBody
@@ -53,7 +53,7 @@ void foo() {
 	}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
+(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
 	(switch
 		subject: (literalInt)
 		body: (switchBody
@@ -78,7 +78,7 @@ void foo() {
 	}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
+(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
 	(switch
 		subject: (literalInt)
 		body: (switchBody

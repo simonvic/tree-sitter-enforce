@@ -3024,11 +3024,7 @@
         },
         {
           "type": "SYMBOL",
-          "name": "typeGeneric"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
+          "name": "typeIdentifier"
         }
       ]
     },
@@ -3036,38 +3032,70 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "STRING",
-          "value": "void"
+          "type": "SYMBOL",
+          "name": "typeVoid"
         },
         {
-          "type": "STRING",
-          "value": "bool"
+          "type": "SYMBOL",
+          "name": "typeBool"
         },
         {
-          "type": "STRING",
-          "value": "int"
+          "type": "SYMBOL",
+          "name": "typeInt"
         },
         {
-          "type": "STRING",
-          "value": "float"
+          "type": "SYMBOL",
+          "name": "typeFloat"
         },
         {
-          "type": "STRING",
-          "value": "string"
+          "type": "SYMBOL",
+          "name": "typeString"
         },
         {
-          "type": "STRING",
-          "value": "typename"
+          "type": "SYMBOL",
+          "name": "typeTypename"
         },
         {
-          "type": "STRING",
-          "value": "vector"
+          "type": "SYMBOL",
+          "name": "typeVector"
         },
         {
-          "type": "STRING",
-          "value": "func"
+          "type": "SYMBOL",
+          "name": "typeFunc"
         }
       ]
+    },
+    "typeVoid": {
+      "type": "STRING",
+      "value": "void"
+    },
+    "typeBool": {
+      "type": "STRING",
+      "value": "bool"
+    },
+    "typeInt": {
+      "type": "STRING",
+      "value": "int"
+    },
+    "typeFloat": {
+      "type": "STRING",
+      "value": "float"
+    },
+    "typeString": {
+      "type": "STRING",
+      "value": "string"
+    },
+    "typeTypename": {
+      "type": "STRING",
+      "value": "typename"
+    },
+    "typeVector": {
+      "type": "STRING",
+      "value": "vector"
+    },
+    "typeFunc": {
+      "type": "STRING",
+      "value": "func"
     },
     "typeRef": {
       "type": "PREC",
@@ -3103,7 +3131,7 @@
         }
       ]
     },
-    "typeGeneric": {
+    "typeIdentifier": {
       "type": "SEQ",
       "members": [
         {
@@ -3111,32 +3139,16 @@
           "name": "identifier"
         },
         {
-          "type": "STRING",
-          "value": "<"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "type"
-        },
-        {
-          "type": "REPEAT",
-          "content": {
-            "type": "SEQ",
-            "members": [
-              {
-                "type": "STRING",
-                "value": ","
-              },
-              {
-                "type": "SYMBOL",
-                "name": "type"
-              }
-            ]
-          }
-        },
-        {
-          "type": "STRING",
-          "value": ">"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "types"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
@@ -3415,7 +3427,7 @@
       "fieldModifier"
     ],
     [
-      "typeGeneric",
+      "typeIdentifier",
       "_expression"
     ],
     [
@@ -3433,6 +3445,7 @@
   "supertypes": [
     "statement",
     "literal",
-    "type"
+    "type",
+    "typePrimitive"
   ]
 }

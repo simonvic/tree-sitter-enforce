@@ -5,5 +5,5 @@ void foo() {
 	delete x;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typePrimitive) (identifier) (block
+(compilationUnit (declMethod (typeVoid) (identifier) (block
 	(delete (identifier)))))

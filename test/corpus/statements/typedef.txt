@@ -5,5 +5,5 @@ typedef int i32;
 --------------------------------------------------------------------------------
 (compilationUnit
 	(typedef
-		(typePrimitive)
+		(typeInt)
 		(identifier)))

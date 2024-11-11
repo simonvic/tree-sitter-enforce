@@ -5,7 +5,7 @@ void foo() {
 	while (true) a;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typePrimitive) (identifier) (block
+(compilationUnit (declMethod (typeVoid) (identifier) (block
 	(while (literalBool) (statementExpression (identifier))))))
 
 ================================================================================
@@ -15,6 +15,6 @@ void foo() {
 	while (true) {}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typePrimitive) (identifier) (block
+(compilationUnit (declMethod (typeVoid) (identifier) (block
 	(while (literalBool) (block)))))
 

@@ -38,6 +38,7 @@ module.exports = grammar({
     $.statement,
     $.literal,
     $.type,
+    $.typePrimitive,
   ],
 
   word: $ => $.identifier,
@@ -45,7 +46,7 @@ module.exports = grammar({
   conflicts: $ => [
     [$.methodModifier, $.variableModifier],
     [$.methodModifier, $.fieldModifier],
-    [$.typeGeneric, $._expression],
+    [$.typeIdentifier, $._expression],
     [$.type, $._expression],
 
     // TODO: allow blocks as statements (anonymous scope) and allow arrayCreation only where possible
@@ -526,20 +527,28 @@ module.exports = grammar({
       $.typePrimitive,
       $.typeRef,
       $.typeArray,
-      $.typeGeneric,
-      $.identifier,
+      $.typeIdentifier,
     ),
 
-    typePrimitive: _ => choice(
-      'void',
-      'bool',
-      'int',
-      'float',
-      'string',
-      'typename',
-      'vector',
-      'func',
+    typePrimitive: $ => choice(
+      $.typeVoid,
+      $.typeBool,
+      $.typeInt,
+      $.typeFloat,
+      $.typeString,
+      $.typeTypename,
+      $.typeVector,
+      $.typeFunc,
     ),
+
+    typeVoid: _ => 'void',
+    typeBool: _ => 'bool',
+    typeInt: _ => 'int',
+    typeFloat: _ => 'float',
+    typeString: _ => 'string',
+    typeTypename: _ => 'typename',
+    typeVector: _ => 'vector',
+    typeFunc: _ => 'func',
 
     // TODO: request some info on precedence
     // ref Foo[]
@@ -548,8 +557,9 @@ module.exports = grammar({
     typeRef: $ => prec(1, seq('ref', $.type)),
     typeArray: $ => seq($.type, '[', ']'),
 
-    typeGeneric: $ => seq(
-      $.identifier, '<', $.type, repeat(seq(',', $.type)), '>'
+    typeIdentifier: $ => seq(
+      $.identifier,
+      optional($.types)
     ),
 
     super: _ => 'super',

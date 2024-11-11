@@ -8,7 +8,7 @@ proto static native void foo();
 		(methodModifier)
 		(methodModifier)
 		(methodModifier)
-		returnType: (typePrimitive)
+		returnType: (typeVoid)
 		name: (identifier)))
 
 ================================================================================
@@ -18,7 +18,7 @@ void foo() {}
 --------------------------------------------------------------------------------
 (compilationUnit
 	(declMethod
-		returnType: (typePrimitive)
+		returnType: (typeVoid)
 		name: (identifier)
 		body: (block)))
 
@@ -30,21 +30,21 @@ override void foo(const int x = 69, inout int y, out int y) {}
 (compilationUnit
 	(declMethod
 		(methodModifier)
-		returnType: (typePrimitive)
+		returnType: (typeVoid)
 		name: (identifier)
 		(formalParameters
 			(formalParameter
 				(formalParameterModifier)
-				type: (typePrimitive)
+				type: (typeInt)
 				name: (identifier)
 				default: (literalInt))
 			(formalParameter
 				(formalParameterModifier)
-				type: (typePrimitive)
+				type: (typeInt)
 				name: (identifier))
 			(formalParameter
 				(formalParameterModifier)
-				type: (typePrimitive)
+				type: (typeInt)
 				name: (identifier)))
 		body: (block)))
 

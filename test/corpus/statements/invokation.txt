@@ -5,7 +5,7 @@ void foo() {
 	bar();
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typePrimitive) (identifier) (block
+(compilationUnit (declMethod (typeVoid) (identifier) (block
 	(statementExpression (invokation (identifier))))))
 
 ================================================================================
@@ -15,7 +15,7 @@ void foo() {
 	bar(69, 420);
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typePrimitive) (identifier) (block
+(compilationUnit (declMethod (typeVoid) (identifier) (block
 	(statementExpression (invokation
 		(identifier)
 		(actualParameters

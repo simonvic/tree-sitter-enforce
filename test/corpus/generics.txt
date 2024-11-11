@@ -5,14 +5,14 @@ Foo<ref Bar> foo = new Foo<ref Bar>();
 --------------------------------------------------------------------------------
 (compilationUnit
 	(declVariable
-		(typeGeneric
+		(typeIdentifier
 			(identifier)
-			(typeRef (identifier)))
+			(types (typeRef (typeIdentifier (identifier)))))
 		(identifier)
 		(new
-			(typeGeneric
+			(typeIdentifier
 				(identifier)
-				(typeRef (identifier))))))
+				(types (typeRef (typeIdentifier (identifier))))))))
 
 
 

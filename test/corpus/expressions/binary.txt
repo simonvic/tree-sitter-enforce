@@ -10,7 +10,7 @@ void foo() {
 	a - b;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typePrimitive) (identifier) (block
+(compilationUnit (declMethod (typeVoid) (identifier) (block
 	(statementExpression (expressionBinary (identifier) (identifier)))
 	(statementExpression (expressionBinary (identifier) (identifier)))
 	(statementExpression (expressionBinary (identifier) (identifier)))
@@ -28,7 +28,7 @@ void foo() {
 	a > b;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typePrimitive) (identifier) (block
+(compilationUnit (declMethod (typeVoid) (identifier) (block
 	(statementExpression (expressionBinary (identifier) (identifier)))
 	(statementExpression (expressionBinary (identifier) (identifier)))
 	(statementExpression (expressionBinary (identifier) (identifier)))
@@ -42,7 +42,7 @@ void foo() {
 	a != b;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typePrimitive) (identifier) (block
+(compilationUnit (declMethod (typeVoid) (identifier) (block
 	(statementExpression (expressionBinary (identifier) (identifier)))
 	(statementExpression (expressionBinary (identifier) (identifier))))))
 
@@ -54,7 +54,7 @@ void foo() {
 	a || b;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typePrimitive) (identifier) (block
+(compilationUnit (declMethod (typeVoid) (identifier) (block
 	(statementExpression (expressionBinary (identifier) (identifier)))
 	(statementExpression (expressionBinary (identifier) (identifier))))))
 
@@ -65,7 +65,7 @@ void foo() {
 	a + b + c;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
+(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
 	(statementExpression (expressionBinary
 		lhs: (expressionBinary
 			lhs: (identifier)
@@ -79,7 +79,7 @@ void foo() {
 	(a + b) + c;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
+(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
 	(statementExpression (expressionBinary
 		lhs: (expressionBinary
 			lhs: (identifier)

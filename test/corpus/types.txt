@@ -19,55 +19,58 @@ map<int, ref array<int>> x;
 --------------------------------------------------------------------------------
 (compilationUnit
 	(declVariable
-		(typePrimitive)
+		(typeInt)
 		(identifier))
 	(declVariable
-		(identifier)
+		(typeIdentifier (identifier))
 		(identifier))
 	(declVariable
-		(typeRef (identifier))
+		(typeRef (typeIdentifier (identifier)))
 		(identifier))
 	(declVariable
-		(typeArray (typePrimitive))
+		(typeArray (typeInt))
 		(identifier))
 	(declVariable
-		(typeArray (identifier))
+		(typeArray (typeIdentifier (identifier)))
 		(identifier))
 	(declVariable
-		(typeArray (typeRef (identifier)))
+		(typeArray (typeRef (typeIdentifier (identifier))))
 		(identifier))
 	(declVariable
-		(typeGeneric
+		(typeIdentifier
 			(identifier)
-			(typePrimitive))
+			(types (typeInt)))
 		(identifier))
 	(declVariable
-		(typeGeneric
+		(typeIdentifier
 			(identifier)
-			(identifier))
+			(types (typeIdentifier (identifier))))
 		(identifier))
 	(declVariable
-		(typeGeneric
+		(typeIdentifier
 			(identifier)
-			(typeRef (identifier)))
+			(types (typeRef (typeIdentifier (identifier)))))
 		(identifier))
 	(declVariable
-		(typeGeneric
+		(typeIdentifier
 			(identifier)
-			(typePrimitive)
-			(typePrimitive))
+			(types
+				(typeInt)
+				(typeInt)))
 		(identifier))
 	(declVariable
-		(typeGeneric
+		(typeIdentifier
 			(identifier)
-			(typePrimitive)
-			(identifier))
+			(types
+				(typeInt)
+				(typeIdentifier (identifier))))
 		(identifier))
 	(declVariable
-		(typeGeneric
+		(typeIdentifier
 			(identifier)
-			(typePrimitive)
-			(typeRef (typeGeneric
-				(identifier)
-				(typePrimitive))))
+			(types
+				(typeInt)
+				(typeRef (typeIdentifier
+					(identifier)
+					(types (typeInt))))))
 		(identifier)))
