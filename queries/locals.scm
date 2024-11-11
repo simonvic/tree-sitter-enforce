@@ -1,9 +1,10 @@
 ; Scopes
 (compilationUnit) @local.scope
-; (declClass (block) @local.scope)
-; (declEnum (block) @local.scope)
-(declMethod (block) @local.scope)
-(declDeconstructor (block) @local.scope)
+(declClass body: (_) @local.scope)
+(declEnum body: (_) @local.scope)
+(declMethod) @local.scope
+(declDeconstructor) @local.scope
+(block) @local.scope
 (if) @local.scope
 (for) @local.scope
 (foreach) @local.scope
@@ -17,4 +18,4 @@
 
 ; References
 (identifier) @local.reference
-; (typePrimitive) @local.reference
+(typeIdentifier (identifier) @local.reference)
