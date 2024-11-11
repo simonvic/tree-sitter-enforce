@@ -198,14 +198,12 @@ module.exports = grammar({
     declClass: $ => seq(
       repeat($.classModifier),
       'class', field("typename", $.identifier),
+      optional(seq('<', $.type, $.identifier, repeat(seq(',', $.type, $.identifier)), '>')),
       optional(seq(
-        '<',
-        $.type, $.identifier,
-        repeat(seq(',', $.type, $.identifier)),
-        '>'
+        choice(':', 'extends'),
+        field("superTypename", $.identifier),
+        optional(seq('<', $.type, repeat(seq(',', $.type)), '>')),
       )),
-      optional(seq(choice(':', 'extends'), field("superTypename", $.identifier))),
-      // TODO: generics
       '{',
       repeat(choice(
         $.declEnum, // see quirk 6

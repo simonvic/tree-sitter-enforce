@@ -2,12 +2,17 @@
 generic class declaration
 ================================================================================
 class Foo<Class T> {}
+class Bar : Foo<int> {}
 --------------------------------------------------------------------------------
 (compilationUnit
 	(declClass
 		typename: (identifier)
 		(identifier)
-		(identifier)))
+		(identifier))
+	(declClass
+		typename: (identifier)
+		superTypename: (identifier)
+		(typePrimitive)))
 
 ================================================================================
 generic instantiation
