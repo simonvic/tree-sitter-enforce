@@ -65,7 +65,7 @@ void foo() {
 	a + b + c;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
+(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
 	(statementExpression (expressionBinary
 		lhs: (expressionBinary
 			lhs: (identifier)
@@ -79,7 +79,7 @@ void foo() {
 	(a + b) + c;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
+(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
 	(statementExpression (expressionBinary
 		lhs: (expressionBinary
 			lhs: (identifier)

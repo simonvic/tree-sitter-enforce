@@ -5,7 +5,7 @@ void foo() {
 	foreach (int k : m) {}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
+(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
 	(foreach
 		key: (iterator (typePrimitive) (identifier))
 		iterated: (identifier)
@@ -19,7 +19,7 @@ void foo() {
 	foreach (auto k : m) {}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
+(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
 	(foreach
 		key: (iterator (identifier))
 		iterated: (identifier)
@@ -33,7 +33,7 @@ void foo() {
 	foreach (int k, int v : m) {}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
+(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
 	(foreach
 		key: (iterator
 			(typePrimitive)
@@ -52,7 +52,7 @@ void foo() {
 	foreach (auto k, auto v : m) {}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
+(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
 	(foreach
 		key: (iterator (identifier))
 		value: (iterator (identifier))

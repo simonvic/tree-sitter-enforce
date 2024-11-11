@@ -9,7 +9,7 @@ void foo() {
 	bar.bar.baz();
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) (block
+(compilationUnit (declMethod returnType: (typePrimitive) name: (identifier) body: (block
 	(statementExpression (memberAccess
 		accessed: (identifier)
 		member: (identifier)))

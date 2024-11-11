@@ -20,7 +20,7 @@ void foo() {}
 	(declMethod
 		returnType: (typePrimitive)
 		name: (identifier)
-		(block)))
+		body: (block)))
 
 ================================================================================
 method declaration with parameters
@@ -46,7 +46,7 @@ override void foo(const int x = 69, inout int y, out int y) {}
 				(formalParameterModifier)
 				(typePrimitive)
 				(identifier)))
-		(block)))
+		body: (block)))
 
 
 

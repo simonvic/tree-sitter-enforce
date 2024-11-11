@@ -341,7 +341,7 @@ module.exports = grammar({
       optional($.formalParameters),
       ')',
       choice(
-        $.block,
+        field("body", $.block),
         ';'
       )
     ),
