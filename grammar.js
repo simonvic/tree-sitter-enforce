@@ -344,7 +344,10 @@ module.exports = grammar({
 
     enumBody: $ => seq(
       '{',
-      optional(seq($.enumMember, repeat(seq(',', $.enumMember)), optional(','))),
+      optional(seq(
+        $.enumMember,
+        repeat(seq(choice(',', ';'), $.enumMember)),
+        optional(choice(',', ';')))),
       '}',
     ),
 
