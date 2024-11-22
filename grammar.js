@@ -393,6 +393,7 @@ module.exports = grammar({
       repeat($.formalParameterModifier),
       field("type", $.type),
       field("name", $.identifier),
+      optional(seq('[', optional($._expression), ']')),
       optional(field("default", seq('=', $._expression)))
     ),
 
