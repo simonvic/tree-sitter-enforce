@@ -39,6 +39,7 @@ module.exports = grammar({
     $.literal,
     $.type,
     $.typePrimitive,
+    $.attributeParameter,
   ],
 
   word: $ => $.identifier,
@@ -220,7 +221,47 @@ module.exports = grammar({
       ';'
     ),
 
+    attributeList: $ => seq(
+      '[',
+      $.attribute, // see quirk 8
+      repeat(seq(',', $.attribute)),
+      ']'
+    ),
+
+    attribute: $ => seq(
+      field("name", $.identifier),
+      $.attributeParameters,
+    ),
+
+    attributeParameters: $ => seq(
+      '(',
+      optional(seq(
+        $.attributeParameter,
+        repeat(seq(',', $.attributeParameter)),
+      )),
+      ')'
+    ),
+
+    attributeParameter: $ => choice(
+      // TODO: ask about specs, probably some other expression is allowed
+      $.attribute,
+      $.literalInt,
+      $.literalBool,
+      $.literalString,
+      $.attributeParameterArray,
+    ),
+
+    attributeParameterArray: $ => seq(
+      '{',
+      optional(seq(
+        $.attributeParameter,
+        repeat(seq(',', $.attributeParameter)),
+      )),
+      '}'
+    ),
+
     declClass: $ => seq(
+      optional($.attributeList),
       repeat($.classModifier),
       'class',
       field("typename", $.identifier),
@@ -261,6 +302,7 @@ module.exports = grammar({
     ),
 
     declField: $ => seq(
+      optional($.attributeList),
       repeat($.fieldModifier),
       field("type", $.type),
       $._varDeclarator,
@@ -293,6 +335,7 @@ module.exports = grammar({
     ),
 
     declEnum: $ => seq(
+      optional($.attributeList),
       'enum',
       field("typename", $.identifier),
       optional(seq(
@@ -310,11 +353,13 @@ module.exports = grammar({
     ),
 
     enumMember: $ => seq(
+      optional($.attributeList),
       field("name", $.identifier),
       field("value", optional(seq('=', $._expression)))
     ),
 
     declMethod: $ => seq(
+      optional($.attributeList),
       repeat($.methodModifier),
       field("returnType", $.type),
       field("name", $.identifier),
@@ -590,5 +635,7 @@ module.exports = grammar({
  *
  * 7.1. generic type with primitive upper bound, cannot be instantiated without
  * a "wrong number of template parameters" compile error
+ *
+ * 8. Attributes can be empty
  *
  */

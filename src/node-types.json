@@ -1,5 +1,31 @@
 [
   {
+    "type": "attributeParameter",
+    "named": true,
+    "subtypes": [
+      {
+        "type": "attribute",
+        "named": true
+      },
+      {
+        "type": "attributeParameterArray",
+        "named": true
+      },
+      {
+        "type": "literalBool",
+        "named": true
+      },
+      {
+        "type": "literalInt",
+        "named": true
+      },
+      {
+        "type": "literalString",
+        "named": true
+      }
+    ]
+  },
+  {
     "type": "literal",
     "named": true,
     "subtypes": [
@@ -489,6 +515,77 @@
     }
   },
   {
+    "type": "attribute",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "attributeParameters",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "attributeList",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "attribute",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "attributeParameterArray",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "attributeParameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "attributeParameters",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "attributeParameter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "block",
     "named": true,
     "fields": {},
@@ -708,6 +805,10 @@
       "required": false,
       "types": [
         {
+          "type": "attributeList",
+          "named": true
+        },
+        {
           "type": "classModifier",
           "named": true
         }
@@ -771,6 +872,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "attributeList",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -943,6 +1054,10 @@
       "required": false,
       "types": [
         {
+          "type": "attributeList",
+          "named": true
+        },
+        {
           "type": "fieldModifier",
           "named": true
         }
@@ -988,6 +1103,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "attributeList",
+          "named": true
+        },
         {
           "type": "formalParameters",
           "named": true
@@ -1317,6 +1436,16 @@
           }
         ]
       }
+    },
+    "children": {
+      "multiple": false,
+      "required": false,
+      "types": [
+        {
+          "type": "attributeList",
+          "named": true
+        }
+      ]
     }
   },
   {
@@ -3399,11 +3528,11 @@
   },
   {
     "type": "else",
-    "named": false
+    "named": true
   },
   {
     "type": "else",
-    "named": true
+    "named": false
   },
   {
     "type": "endif",

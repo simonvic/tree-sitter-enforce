@@ -27,6 +27,7 @@
 
 ((identifier) @constant (#lua-match? @constant "^[A-Z_][A-Z%d_]+$"))
 
+; Preprocessor directives
 [
  (include)
  (define)
@@ -37,6 +38,9 @@
  ] @keyword.directive
 
 (preprocConst) @constant.macro
+
+; Attributes
+(attribute name: (_) @type)
 
 ; Constant fields
 (declField

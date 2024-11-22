@@ -1,0 +1,71 @@
+================================================================================
+attributes
+================================================================================
+[Foo()]
+class Foo {
+
+	[Foo()]
+	int foo;
+
+	[Foo()]
+	void foo() {}
+}
+
+[Foo()]
+enum Foo { }
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declClass
+		(attributeList (attribute name: (identifier) (attributeParameters)))
+		typename: (identifier)
+		body: (classBody
+			(declField
+				(attributeList (attribute name: (identifier) (attributeParameters)))
+				type: (typeInt)
+				name: (identifier))
+			(declMethod
+				(attributeList (attribute name: (identifier) (attributeParameters)))
+				returnType: (typeVoid)
+				name: (identifier)
+				body: (block))))
+	(declEnum
+		(attributeList (attribute name: (identifier) (attributeParameters)))
+		typename: (identifier)
+		body: (enumBody)))
+
+================================================================================
+multiple attributes
+================================================================================
+[Foo(), Bar()]
+class Foo { }
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declClass
+		(attributeList
+			(attribute (identifier) (attributeParameters))
+			(attribute (identifier) (attributeParameters)))
+		(identifier)
+		(classBody)))
+
+================================================================================
+attribute with parameters
+================================================================================
+[Foo("foo", true, 69, Bar("bar", {1, 2, 3}, Baz()))]
+class Foo { }
+--------------------------------------------------------------------------------
+(compilationUnit
+	(declClass
+		(attributeList
+			(attribute (identifier) (attributeParameters
+				(literalString)
+				(literalBool)
+				(literalInt)
+				(attribute (identifier) (attributeParameters
+					(literalString)
+					(attributeParameterArray
+						(literalInt)
+						(literalInt)
+						(literalInt))
+					(attribute (identifier) (attributeParameters)))))))
+		(identifier)
+		(classBody)))
