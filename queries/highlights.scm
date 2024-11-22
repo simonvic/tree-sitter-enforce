@@ -40,7 +40,7 @@
 (preprocConst) @constant.macro
 
 ; Attributes
-(attribute name: (_) @type)
+(attribute name: (_) @attribute)
 
 ; Constant fields
 (declField
