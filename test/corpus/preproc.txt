@@ -1,6 +1,5 @@
 ================================================================================
 preproc
-:skip
 ================================================================================
 #include path/to/somefile.c
 #include "path/to/somefile.c"
@@ -24,6 +23,20 @@ preproc
 
 #endif
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typePrimitive) (identifier) (block
-		))))
-
+(compilationUnit
+	(include (preprocConst))
+	(include (preprocConst))
+	(define (preprocConst))
+	(define (preprocConst))
+	(define (preprocConst))
+	(define (preprocConst))
+	(ifdef (preprocConst))
+	(ifdef (preprocConst))
+	(ifdef (preprocConst))
+	(ifdef (preprocConst))
+	(ifndef (preprocConst))
+	(ifndef (preprocConst))
+	(ifndef (preprocConst))
+	(ifndef (preprocConst))
+	(else)
+	endif))
