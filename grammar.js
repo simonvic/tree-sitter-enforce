@@ -105,9 +105,9 @@ module.exports = grammar({
       '/',
     ))),
 
-    _statementOrBlock: $ => choice($.statement, $.block),
     block: $ => seq('{', repeat($.statement), '}'),
     statement: $ => choice(
+      $.block,
       $.statementExpression,
       $.emptyStatement,
       $.delete,
@@ -141,8 +141,8 @@ module.exports = grammar({
     return: $ => seq('return', optional($._expression), ';'),
 
     if: $ => prec.right(seq(
-      'if', '(', $._expression, ')', $._statementOrBlock,
-      optional(seq('else', $._statementOrBlock))
+      'if', '(', $._expression, ')', $.statement,
+      optional(seq('else', $.statement))
     )),
 
     switch: $ => seq(
@@ -173,7 +173,7 @@ module.exports = grammar({
       '(',
       field("condition", $._expression),
       ')',
-      field("body", $._statementOrBlock),
+      field("body", $.statement),
     ),
 
     for: $ => seq(
@@ -184,7 +184,7 @@ module.exports = grammar({
       ';',
       field("update", optional($._expression)),
       ')',
-      field("body", $._statementOrBlock),
+      field("body", $.statement),
     ),
 
     foreach: $ => seq(
@@ -195,7 +195,7 @@ module.exports = grammar({
       ':',
       field("iterated", $._expression),
       ')',
-      field("body", $._statementOrBlock),
+      field("body", $.statement),
     ),
 
     iterator: $ => seq(

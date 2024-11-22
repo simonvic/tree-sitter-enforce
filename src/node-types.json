@@ -60,6 +60,10 @@
         "named": true
       },
       {
+        "type": "block",
+        "named": true
+      },
+      {
         "type": "break",
         "named": true
       },
@@ -1793,10 +1797,6 @@
         "required": true,
         "types": [
           {
-            "type": "block",
-            "named": true
-          },
-          {
             "type": "statement",
             "named": true
           }
@@ -1962,10 +1962,6 @@
         "multiple": false,
         "required": true,
         "types": [
-          {
-            "type": "block",
-            "named": true
-          },
           {
             "type": "statement",
             "named": true
@@ -2204,10 +2200,6 @@
       "types": [
         {
           "type": "arrayCreation",
-          "named": true
-        },
-        {
-          "type": "block",
           "named": true
         },
         {
@@ -3192,10 +3184,6 @@
         "multiple": false,
         "required": true,
         "types": [
-          {
-            "type": "block",
-            "named": true
-          },
           {
             "type": "statement",
             "named": true
