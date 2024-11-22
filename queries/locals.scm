@@ -3,7 +3,6 @@
 (declClass body: (_) @local.scope)
 (declEnum body: (_) @local.scope)
 (declMethod) @local.scope
-(declDeconstructor) @local.scope
 (block) @local.scope
 (if) @local.scope
 (for) @local.scope

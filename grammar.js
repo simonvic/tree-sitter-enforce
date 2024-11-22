@@ -295,7 +295,6 @@ module.exports = grammar({
       repeat(choice(
         $.declEnum, // see quirk 6
         $.declField,
-        $.declDeconstructor,
         $.declMethod,
       )),
       '}',
@@ -329,11 +328,6 @@ module.exports = grammar({
       'owned',
     ),
 
-    declDeconstructor: $ => seq(
-      // TODO: add methodModifier
-      'void', '~', $.identifier, '(', optional($.formalParameters), ')', $.block
-    ),
-
     declEnum: $ => seq(
       optional($.attributeList),
       'enum',
@@ -362,6 +356,7 @@ module.exports = grammar({
       optional($.attributeList),
       repeat($.methodModifier),
       field("returnType", $.type),
+      optional('~'),
       field("name", $.identifier),
       '(',
       optional($.formalParameters),

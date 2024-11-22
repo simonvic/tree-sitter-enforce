@@ -34,14 +34,7 @@
     )
   )
 
-; deconstructor
-
-(declDeconstructor
-  (identifier) @name
-  (#set! "kind" "Constructor")
-  ) @symbol
-
-; fields
+; field
 
 (declField
   ((fieldModifier) @_modifier (#eq? @_modifier "const"))

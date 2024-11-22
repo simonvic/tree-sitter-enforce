@@ -79,9 +79,10 @@ class Foo : Bar {
 				returnType: (typeVoid)
 				name: (identifier)
 				body: (block))
-			(declDeconstructor
-				(identifier)
-				(block))
+			(declMethod
+				returnType: (typeVoid)
+				name: (identifier)
+				body: (block))
 			(declMethod
 				returnType: (typeVoid)
 				name: (identifier)

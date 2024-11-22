@@ -700,10 +700,6 @@
       "required": false,
       "types": [
         {
-          "type": "declDeconstructor",
-          "named": true
-        },
-        {
           "type": "declEnum",
           "named": true
         },
@@ -810,29 +806,6 @@
         },
         {
           "type": "classModifier",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "declDeconstructor",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": true,
-      "types": [
-        {
-          "type": "block",
-          "named": true
-        },
-        {
-          "type": "formalParameters",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         }
       ]
@@ -3166,11 +3139,6 @@
     }
   },
   {
-    "type": "typeVoid",
-    "named": true,
-    "fields": {}
-  },
-  {
     "type": "typedef",
     "named": true,
     "fields": {
@@ -3691,11 +3659,11 @@
     "named": true
   },
   {
-    "type": "typedef",
-    "named": false
+    "type": "typeVoid",
+    "named": true
   },
   {
-    "type": "void",
+    "type": "typedef",
     "named": false
   },
   {

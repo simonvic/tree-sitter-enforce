@@ -1265,10 +1265,6 @@
               },
               {
                 "type": "SYMBOL",
-                "name": "declDeconstructor"
-              },
-              {
-                "type": "SYMBOL",
                 "name": "declMethod"
               }
             ]
@@ -1445,47 +1441,6 @@
         {
           "type": "STRING",
           "value": "owned"
-        }
-      ]
-    },
-    "declDeconstructor": {
-      "type": "SEQ",
-      "members": [
-        {
-          "type": "STRING",
-          "value": "void"
-        },
-        {
-          "type": "STRING",
-          "value": "~"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "identifier"
-        },
-        {
-          "type": "STRING",
-          "value": "("
-        },
-        {
-          "type": "CHOICE",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "formalParameters"
-            },
-            {
-              "type": "BLANK"
-            }
-          ]
-        },
-        {
-          "type": "STRING",
-          "value": ")"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "block"
         }
       ]
     },
@@ -1709,6 +1664,18 @@
             "type": "SYMBOL",
             "name": "type"
           }
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "~"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "FIELD",
