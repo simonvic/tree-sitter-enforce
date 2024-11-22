@@ -128,7 +128,7 @@ module.exports = grammar({
     statementExpression: $ => seq($._expression, ';'),
     emptyStatement: _ => ';',
 
-    delete: $ => seq('delete', $.identifier, ';'), // TODO: check if other expressions are allowed
+    delete: $ => seq('delete', $._expression, ';'),
 
     typedef: $ => seq(
       'typedef',
