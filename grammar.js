@@ -48,6 +48,8 @@ module.exports = grammar({
     [$.methodModifier, $.variableModifier],
     [$.methodModifier, $.fieldModifier],
     [$.typeIdentifier, $._expression],
+    [$.typeIdentifier],
+    [$.new],
     [$.type, $._expression],
 
     // TODO: allow blocks as statements (anonymous scope) and allow arrayCreation only where possible
@@ -436,7 +438,9 @@ module.exports = grammar({
       $.keyAccess,
       $.memberAccess,
       $.literal,
-      $.typePrimitive, // NOTE: types are first class citizens
+      // NOTE: types are first class citizens
+      $.typePrimitive,
+      $.typeIdentifier,
       $.identifier,
       $.super,
       $.this,
@@ -491,21 +495,23 @@ module.exports = grammar({
     new: $ => seq(
       'new',
       field("type", $.type),
-      '(',
       optional($.actualParameters),
-      ')'
     ),
 
     arrayCreation: $ => seq('{', repeat(seq($._expression, optional(','))), '}'),
 
     invokation: $ => prec(PREC.INVOKATION, seq(
-      $._expression, '(', optional($.actualParameters), ')'
+      $._expression, $.actualParameters
     )),
 
     actualParameters: $ => seq(
-      $.actualParameter,
-      repeat(seq(',', $.actualParameter)),
-      optional(','),
+      '(',
+      optional(seq(
+        $.actualParameter,
+        repeat(seq(',', $.actualParameter)),
+        optional(','),
+      )),
+      ')'
     ),
 
     actualParameter: $ => $._expression,
@@ -517,6 +523,7 @@ module.exports = grammar({
       ']',
     )),
 
+    // TODO: foo.bar() should be identifier.invocation
     memberAccess: $ => prec(PREC.DOT, seq(
       field("accessed", $._expression),
       '.',
@@ -554,8 +561,8 @@ module.exports = grammar({
     // ref Foo[]
     // is it [ref Foo]?
     // is it ref [Foo]?
-    typeRef: $ => prec(1, seq('ref', $.type)),
-    typeArray: $ => seq($.type, '[', ']'),
+    typeRef: $ => prec(2, seq('ref', $.type)),
+    typeArray: $ => prec(1, seq($.type, '[', ']')),
 
     typeIdentifier: $ => seq(
       $.identifier,

@@ -6,7 +6,7 @@ void foo() {
 }
 --------------------------------------------------------------------------------
 (compilationUnit (declMethod (typeVoid) (identifier) (block
-	(statementExpression (invokation (identifier))))))
+	(statementExpression (invokation (identifier) (actualParameters))))))
 
 ================================================================================
 invokation with parameters

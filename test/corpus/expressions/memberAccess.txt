@@ -19,15 +19,18 @@ void foo() {
 	(statementExpression (invokation
 		(memberAccess
 			accessed: (identifier)
-			member: (identifier))))
+			member: (identifier))
+		(actualParameters)))
 	(statementExpression (invokation
 		(memberAccess
 			accessed: (typeInt)
-			member: (identifier))))
+			member: (identifier))
+		(actualParameters)))
 	(statementExpression (invokation
 		(memberAccess
 			accessed: (memberAccess
 				accessed: (identifier)
 				member: (identifier))
-			member: (identifier)))))))
+			member: (identifier))
+		(actualParameters))))))
 

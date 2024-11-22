@@ -12,7 +12,8 @@ Foo<ref Bar> foo = new Foo<ref Bar>();
 		(new
 			(typeIdentifier
 				(identifier)
-				(types (typeRef (typeIdentifier (identifier))))))))
+				(types (typeRef (typeIdentifier (identifier)))))
+			(actualParameters))))
 
 
 

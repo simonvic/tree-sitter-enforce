@@ -238,6 +238,10 @@
           "named": true
         },
         {
+          "type": "typeIdentifier",
+          "named": true
+        },
+        {
           "type": "typePrimitive",
           "named": true
         }
@@ -250,7 +254,7 @@
     "fields": {},
     "children": {
       "multiple": true,
-      "required": true,
+      "required": false,
       "types": [
         {
           "type": "actualParameter",
@@ -317,6 +321,10 @@
         },
         {
           "type": "this",
+          "named": true
+        },
+        {
+          "type": "typeIdentifier",
           "named": true
         },
         {
@@ -441,6 +449,10 @@
             "named": true
           },
           {
+            "type": "typeIdentifier",
+            "named": true
+          },
+          {
             "type": "typePrimitive",
             "named": true
           }
@@ -508,6 +520,10 @@
           },
           {
             "type": "this",
+            "named": true
+          },
+          {
+            "type": "typeIdentifier",
             "named": true
           },
           {
@@ -685,6 +701,10 @@
           },
           {
             "type": "this",
+            "named": true
+          },
+          {
+            "type": "typeIdentifier",
             "named": true
           },
           {
@@ -930,6 +950,10 @@
             "named": true
           },
           {
+            "type": "typeIdentifier",
+            "named": true
+          },
+          {
             "type": "typePrimitive",
             "named": true
           }
@@ -997,6 +1021,10 @@
           },
           {
             "type": "this",
+            "named": true
+          },
+          {
+            "type": "typeIdentifier",
             "named": true
           },
           {
@@ -1164,6 +1192,10 @@
             "named": true
           },
           {
+            "type": "typeIdentifier",
+            "named": true
+          },
+          {
             "type": "typePrimitive",
             "named": true
           }
@@ -1231,6 +1263,10 @@
           },
           {
             "type": "this",
+            "named": true
+          },
+          {
+            "type": "typeIdentifier",
             "named": true
           },
           {
@@ -1408,6 +1444,10 @@
             "named": true
           },
           {
+            "type": "typeIdentifier",
+            "named": true
+          },
+          {
             "type": "typePrimitive",
             "named": true
           }
@@ -1572,6 +1612,10 @@
             "named": true
           },
           {
+            "type": "typeIdentifier",
+            "named": true
+          },
+          {
             "type": "typePrimitive",
             "named": true
           }
@@ -1639,6 +1683,10 @@
           },
           {
             "type": "this",
+            "named": true
+          },
+          {
+            "type": "typeIdentifier",
             "named": true
           },
           {
@@ -1710,6 +1758,10 @@
           "named": true
         },
         {
+          "type": "typeIdentifier",
+          "named": true
+        },
+        {
           "type": "typePrimitive",
           "named": true
         }
@@ -1774,6 +1826,10 @@
         },
         {
           "type": "this",
+          "named": true
+        },
+        {
+          "type": "typeIdentifier",
           "named": true
         },
         {
@@ -1867,6 +1923,10 @@
             "named": true
           },
           {
+            "type": "typeIdentifier",
+            "named": true
+          },
+          {
             "type": "typePrimitive",
             "named": true
           }
@@ -1944,6 +2004,10 @@
           },
           {
             "type": "this",
+            "named": true
+          },
+          {
+            "type": "typeIdentifier",
             "named": true
           },
           {
@@ -2030,6 +2094,10 @@
           },
           {
             "type": "this",
+            "named": true
+          },
+          {
+            "type": "typeIdentifier",
             "named": true
           },
           {
@@ -2130,6 +2198,10 @@
           },
           {
             "type": "this",
+            "named": true
+          },
+          {
+            "type": "typeIdentifier",
             "named": true
           },
           {
@@ -2255,6 +2327,10 @@
           "named": true
         },
         {
+          "type": "typeIdentifier",
+          "named": true
+        },
+        {
           "type": "typePrimitive",
           "named": true
         }
@@ -2371,6 +2447,10 @@
           "named": true
         },
         {
+          "type": "typeIdentifier",
+          "named": true
+        },
+        {
           "type": "typePrimitive",
           "named": true
         }
@@ -2465,6 +2545,10 @@
             "named": true
           },
           {
+            "type": "typeIdentifier",
+            "named": true
+          },
+          {
             "type": "typePrimitive",
             "named": true
           }
@@ -2532,6 +2616,10 @@
           },
           {
             "type": "this",
+            "named": true
+          },
+          {
+            "type": "typeIdentifier",
             "named": true
           },
           {
@@ -2623,6 +2711,10 @@
           },
           {
             "type": "this",
+            "named": true
+          },
+          {
+            "type": "typeIdentifier",
             "named": true
           },
           {
@@ -2735,6 +2827,10 @@
           "named": true
         },
         {
+          "type": "typeIdentifier",
+          "named": true
+        },
+        {
           "type": "typePrimitive",
           "named": true
         }
@@ -2799,6 +2895,10 @@
         },
         {
           "type": "this",
+          "named": true
+        },
+        {
+          "type": "typeIdentifier",
           "named": true
         },
         {
@@ -2913,6 +3013,10 @@
             "named": true
           },
           {
+            "type": "typeIdentifier",
+            "named": true
+          },
+          {
             "type": "typePrimitive",
             "named": true
           }
@@ -3020,6 +3124,10 @@
           },
           {
             "type": "this",
+            "named": true
+          },
+          {
+            "type": "typeIdentifier",
             "named": true
           },
           {
@@ -3252,6 +3360,10 @@
           },
           {
             "type": "this",
+            "named": true
+          },
+          {
+            "type": "typeIdentifier",
             "named": true
           },
           {
