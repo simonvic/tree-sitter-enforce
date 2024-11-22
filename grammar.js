@@ -59,7 +59,12 @@ module.exports = grammar({
     $.commentBlock,
     $.docLine,
     $.docBlock,
-    // $.preprocDirective,
+    $.include,
+    $.define,
+    $.ifdef,
+    $.ifndef,
+    $.else,
+    $.endif
   ],
 
   rules: {
@@ -72,22 +77,14 @@ module.exports = grammar({
       $.typedef,
     )),
 
-    // preprocDirective: $ => choice(
-    //   $.include,
-    //   $.define,
-    //   $.ifdef,
-    //   $.ifndef,
-    //   $.else,
-    //   $.endif
-    // ),
-    //
-    // // TODO: sort out why treesitter segfaults
-    // include: _ => /#include\s+([^\n#"]+|("[^\n"]*"))/,
-    // define: _ => /#define\s+([^\n#"]+|("[^\n"]*"))/,
-    // ifdef: _ => /#ifdef\s+([^\n#"]+|("[^\n"]*"))/,
-    // ifndef: _ => /#ifndef\s+([^\n#"]+|("[^\n"]*"))/,
-    // else: _ => /#else/,
-    // endif: _ => /#endif/,
+    include: $ => seq('#include', $.preprocConst),
+    define: $ => seq('#define', $.preprocConst),
+    ifdef: $ => seq('#ifdef', $.preprocConst),
+    ifndef: $ => seq('#ifndef', $.preprocConst),
+    else: _ => token('#else'),
+    endif: _ => token('#endif'),
+
+    preprocConst: _ => token.immediate(choice(/\s+[^\n#"]+/, /\s+"[^\n"]*"/)),
 
     docLine: _ => token(prec(PREC.DOC, seq(choice('//!', '//?'), /[^\n]*/))),
 

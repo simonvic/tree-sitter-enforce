@@ -25,8 +25,18 @@
 
 (identifier) @variable
 
-((identifier) @constant
-              (#lua-match? @constant "^[A-Z_][A-Z%d_]+$"))
+((identifier) @constant (#lua-match? @constant "^[A-Z_][A-Z%d_]+$"))
+
+[
+ (include)
+ (define)
+ (ifdef)
+ (ifndef)
+ (else)
+ (endif)
+ ] @keyword.directive
+
+(preprocConst) @constant.macro
 
 ; Constant fields
 (declField

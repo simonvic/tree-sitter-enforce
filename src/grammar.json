@@ -31,6 +31,88 @@
         ]
       }
     },
+    "include": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#include"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preprocConst"
+        }
+      ]
+    },
+    "define": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#define"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preprocConst"
+        }
+      ]
+    },
+    "ifdef": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#ifdef"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preprocConst"
+        }
+      ]
+    },
+    "ifndef": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#ifndef"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "preprocConst"
+        }
+      ]
+    },
+    "else": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "#else"
+      }
+    },
+    "endif": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "#endif"
+      }
+    },
+    "preprocConst": {
+      "type": "IMMEDIATE_TOKEN",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "PATTERN",
+            "value": "\\s+[^\\n#\"]+"
+          },
+          {
+            "type": "PATTERN",
+            "value": "\\s+\"[^\\n\"]*\""
+          }
+        ]
+      }
+    },
     "docLine": {
       "type": "TOKEN",
       "content": {
@@ -3102,6 +3184,30 @@
     {
       "type": "SYMBOL",
       "name": "docBlock"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "include"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "define"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "ifdef"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "ifndef"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "else"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "endif"
     }
   ],
   "conflicts": [

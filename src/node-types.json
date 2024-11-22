@@ -1180,6 +1180,21 @@
     }
   },
   {
+    "type": "define",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "preprocConst",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "delete",
     "named": true,
     "fields": {},
@@ -2147,6 +2162,51 @@
         },
         {
           "type": "typePrimitive",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ifdef",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "preprocConst",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "ifndef",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "preprocConst",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "include",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "preprocConst",
           "named": true
         }
       ]
@@ -3130,6 +3190,22 @@
     "named": false
   },
   {
+    "type": "#define",
+    "named": false
+  },
+  {
+    "type": "#ifdef",
+    "named": false
+  },
+  {
+    "type": "#ifndef",
+    "named": false
+  },
+  {
+    "type": "#include",
+    "named": false
+  },
+  {
     "type": "%",
     "named": false
   },
@@ -3326,6 +3402,14 @@
     "named": false
   },
   {
+    "type": "else",
+    "named": true
+  },
+  {
+    "type": "endif",
+    "named": true
+  },
+  {
     "type": "enum",
     "named": false
   },
@@ -3404,6 +3488,10 @@
   {
     "type": "owned",
     "named": false
+  },
+  {
+    "type": "preprocConst",
+    "named": true
   },
   {
     "type": "private",
