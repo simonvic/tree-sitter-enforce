@@ -39,9 +39,6 @@
 
 (preprocConst) @constant.macro
 
-; Attributes
-(attribute name: (_) @attribute)
-
 ; Constant fields
 (declField
   ((fieldModifier) @_modifier (#eq? @_modifier "const"))

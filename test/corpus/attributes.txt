@@ -16,20 +16,20 @@ enum Foo { }
 --------------------------------------------------------------------------------
 (compilationUnit
 	(declClass
-		(attributeList (attribute name: (identifier) (attributeParameters)))
+		(attributeList (invokation (identifier) (actualParameters)))
 		typename: (identifier)
 		body: (classBody
 			(declField
-				(attributeList (attribute name: (identifier) (attributeParameters)))
+				(attributeList (invokation (identifier) (actualParameters)))
 				type: (typeInt)
 				name: (identifier))
 			(declMethod
-				(attributeList (attribute name: (identifier) (attributeParameters)))
+				(attributeList (invokation (identifier) (actualParameters)))
 				returnType: (typeVoid)
 				name: (identifier)
 				body: (block))))
 	(declEnum
-		(attributeList (attribute name: (identifier) (attributeParameters)))
+		(attributeList (invokation (identifier) (actualParameters)))
 		typename: (identifier)
 		body: (enumBody)))
 
@@ -42,8 +42,8 @@ class Foo { }
 (compilationUnit
 	(declClass
 		(attributeList
-			(attribute (identifier) (attributeParameters))
-			(attribute (identifier) (attributeParameters)))
+			(invokation (identifier) (actualParameters))
+			(invokation (identifier) (actualParameters)))
 		(identifier)
 		(classBody)))
 
@@ -56,16 +56,19 @@ class Foo { }
 (compilationUnit
 	(declClass
 		(attributeList
-			(attribute (identifier) (attributeParameters
-				(literalString)
-				(literalBool)
-				(literalInt)
-				(attribute (identifier) (attributeParameters
-					(literalString)
-					(attributeParameterArray
-						(literalInt)
-						(literalInt)
-						(literalInt))
-					(attribute (identifier) (attributeParameters)))))))
-		(identifier)
-		(classBody)))
+			(invokation
+				(identifier)
+				(actualParameters
+					(actualParameter (literalString))
+					(actualParameter (literalBool))
+					(actualParameter (literalInt)) 
+					(actualParameter (invokation
+						(identifier)
+						(actualParameters
+							(actualParameter (literalString))
+							(actualParameter (arrayCreation
+								(literalInt)
+								(literalInt)
+								(literalInt)))
+							(actualParameter (invokation (identifier) (actualParameters)))))))))
+		(identifier) (classBody)))

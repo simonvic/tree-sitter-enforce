@@ -39,7 +39,6 @@ module.exports = grammar({
     $.literal,
     $.type,
     $.typePrimitive,
-    $.attributeParameter,
   ],
 
   word: $ => $.identifier,
@@ -224,42 +223,9 @@ module.exports = grammar({
 
     attributeList: $ => seq(
       '[',
-      $.attribute, // see quirk 8
-      repeat(seq(',', $.attribute)),
+      $._expression,
+      repeat(seq(',', $._expression)),
       ']'
-    ),
-
-    attribute: $ => seq(
-      field("name", $.identifier),
-      $.attributeParameters,
-    ),
-
-    attributeParameters: $ => seq(
-      '(',
-      optional(seq(
-        $.attributeParameter,
-        repeat(seq(',', $.attributeParameter)),
-      )),
-      ')'
-    ),
-
-    attributeParameter: $ => choice(
-      // TODO: ask about specs, probably some other expression is allowed
-      $.attribute,
-      $.literalInt,
-      $.literalBool,
-      $.literalString,
-      $.literalNull,
-      $.attributeParameterArray,
-    ),
-
-    attributeParameterArray: $ => seq(
-      '{',
-      optional(seq(
-        $.attributeParameter,
-        repeat(seq(',', $.attributeParameter)),
-      )),
-      '}'
     ),
 
     declClass: $ => seq(

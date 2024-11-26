@@ -1,35 +1,5 @@
 [
   {
-    "type": "attributeParameter",
-    "named": true,
-    "subtypes": [
-      {
-        "type": "attribute",
-        "named": true
-      },
-      {
-        "type": "attributeParameterArray",
-        "named": true
-      },
-      {
-        "type": "literalBool",
-        "named": true
-      },
-      {
-        "type": "literalInt",
-        "named": true
-      },
-      {
-        "type": "literalNull",
-        "named": true
-      },
-      {
-        "type": "literalString",
-        "named": true
-      }
-    ]
-  },
-  {
     "type": "literal",
     "named": true,
     "subtypes": [
@@ -539,32 +509,6 @@
     }
   },
   {
-    "type": "attribute",
-    "named": true,
-    "fields": {
-      "name": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      }
-    },
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
-        {
-          "type": "attributeParameters",
-          "named": true
-        }
-      ]
-    }
-  },
-  {
     "type": "attributeList",
     "named": true,
     "fields": {},
@@ -573,37 +517,63 @@
       "required": true,
       "types": [
         {
-          "type": "attribute",
+          "type": "arrayCreation",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "attributeParameterArray",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
+        },
         {
-          "type": "attributeParameter",
+          "type": "cast",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "attributeParameters",
-    "named": true,
-    "fields": {},
-    "children": {
-      "multiple": true,
-      "required": false,
-      "types": [
+        },
         {
-          "type": "attributeParameter",
+          "type": "expressionBinary",
+          "named": true
+        },
+        {
+          "type": "expressionPrefix",
+          "named": true
+        },
+        {
+          "type": "expressionSuffix",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "invokation",
+          "named": true
+        },
+        {
+          "type": "keyAccess",
+          "named": true
+        },
+        {
+          "type": "literal",
+          "named": true
+        },
+        {
+          "type": "memberAccess",
+          "named": true
+        },
+        {
+          "type": "new",
+          "named": true
+        },
+        {
+          "type": "super",
+          "named": true
+        },
+        {
+          "type": "this",
+          "named": true
+        },
+        {
+          "type": "typeIdentifier",
+          "named": true
+        },
+        {
+          "type": "typePrimitive",
           "named": true
         }
       ]
@@ -3716,11 +3686,11 @@
   },
   {
     "type": "else",
-    "named": true
+    "named": false
   },
   {
     "type": "else",
-    "named": false
+    "named": true
   },
   {
     "type": "endif",
