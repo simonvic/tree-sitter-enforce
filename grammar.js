@@ -91,7 +91,6 @@ module.exports = grammar({
 
     docLine: _ => token(prec(PREC.DOC, seq(choice('//!', '//?'), /[^\n]*/))),
 
-    // kindly borrowed from https://github.com/tree-sitter/tree-sitter-java/blob/master/grammar.js#L1291C5-L1297C8
     docBlock: _ => token(prec(PREC.DOC, seq(
       choice('/**', '/*!'),
       /[^*]*\*+([^/*][^*]*\*+)*/,
@@ -250,6 +249,7 @@ module.exports = grammar({
       $.literalInt,
       $.literalBool,
       $.literalString,
+      $.literalNull,
       $.attributeParameterArray,
     ),
 
@@ -388,7 +388,6 @@ module.exports = grammar({
       'private',
     ),
 
-    // TODO: add array
     formalParameters: $ => seq(
       $.formalParameter,
       repeat(seq(',', $.formalParameter)),

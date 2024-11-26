@@ -20,6 +20,10 @@
         "named": true
       },
       {
+        "type": "literalNull",
+        "named": true
+      },
+      {
         "type": "literalString",
         "named": true
       }
