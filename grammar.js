@@ -568,6 +568,7 @@ module.exports = grammar({
     // ref Foo[]
     // is it [ref Foo]?
     // is it ref [Foo]?
+    // TODO: move ref to modifiers; ref static Foo foo; is allowed
     typeRef: $ => prec(2, seq('ref', $.type)),
     typeArray: $ => prec(1, seq($.type, '[', ']')),
 
@@ -609,10 +610,10 @@ module.exports = grammar({
     ),
 
     escapeSequence: _ => token(/\\["\\nrt]/),
-    _stringContent: _ => token(choice(
+    _stringContent: _ => token(prec(2, choice(
       /[^"\\\n]/,
       /\\[^"\\nrt]/,
-    )),
+    ))),
 
     identifier: _ => token(/[a-zA-Z_][a-zA-Z0-9_]*/),
 

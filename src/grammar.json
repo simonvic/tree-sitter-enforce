@@ -3401,17 +3401,21 @@
     "_stringContent": {
       "type": "TOKEN",
       "content": {
-        "type": "CHOICE",
-        "members": [
-          {
-            "type": "PATTERN",
-            "value": "[^\"\\\\\\n]"
-          },
-          {
-            "type": "PATTERN",
-            "value": "\\\\[^\"\\\\nrt]"
-          }
-        ]
+        "type": "PREC",
+        "value": 2,
+        "content": {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "PATTERN",
+              "value": "[^\"\\\\\\n]"
+            },
+            {
+              "type": "PATTERN",
+              "value": "\\\\[^\"\\\\nrt]"
+            }
+          ]
+        }
       }
     },
     "identifier": {
