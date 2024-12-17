@@ -8,6 +8,12 @@
       "file-types": [
         "c"
       ],
+      "highlights": [
+        "queries/highlights.scm",
+      ],
+      "tags": [
+        "queries/tags.scm"
+      ],
       "injection-regex": "^enforce$"
     }
   ],
