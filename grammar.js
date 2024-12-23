@@ -13,7 +13,7 @@ const PREC = {
   DOC: 1,
   COMMENT: 0,
 
-  INVOKATION: 18,
+  INVOKATION: 19,
   DOT: 18,
   KEY_ACCESS: 18,
   POSTFIX: 18,
@@ -50,6 +50,7 @@ module.exports = grammar({
     [$.typeIdentifier],
     [$.new],
     [$.type, $._expression],
+    [$.statement, $._expression],
 
     // TODO: allow blocks as statements (anonymous scope) and allow arrayCreation only where possible
     [$.block, $.arrayCreation],
@@ -122,6 +123,7 @@ module.exports = grammar({
       $.foreach,
       $.declVariable,
       $.assignment,
+      $.invokation,
     ),
     statementExpression: $ => seq($._expression, ';'),
     emptyStatement: _ => ';',
@@ -473,7 +475,9 @@ module.exports = grammar({
     arrayCreation: $ => seq('{', repeat(seq($._expression, optional(','))), '}'),
 
     invokation: $ => prec(PREC.INVOKATION, seq(
-      $._expression, $.actualParameters
+      optional(seq(field("instance", $._expression), '.')),
+      field("invoked", $.identifier),
+      $.actualParameters
     )),
 
     actualParameters: $ => seq(
@@ -495,7 +499,6 @@ module.exports = grammar({
       ']',
     )),
 
-    // TODO: foo.bar() should be identifier.invocation
     memberAccess: $ => prec(PREC.DOT, seq(
       field("accessed", $._expression),
       '.',

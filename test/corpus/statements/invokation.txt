@@ -22,3 +22,23 @@ void foo() {
 			(actualParameter (literalInt))
 			(actualParameter (literalInt))))))))
 
+================================================================================
+invokation of instance expression
+================================================================================
+void foo() {
+	foo[69].foo.foo[420].foo();
+}
+--------------------------------------------------------------------------------
+(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
+	(statementExpression (invokation
+		instance: (keyAccess
+			accessed: (memberAccess
+				accessed: (memberAccess
+					accessed: (keyAccess
+						accessed: (identifier)
+						key: (literalInt))
+					member: (identifier))
+				member: (identifier))
+			key: (literalInt))
+		invoked: (identifier)
+		(actualParameters))))))

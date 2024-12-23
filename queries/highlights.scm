@@ -115,7 +115,7 @@
  )
 
 (invokation
-  (identifier) @function.method.call
+  invoked: (identifier) @function.method.call
   )
 
 ; Constructor and deconstructor (function with same name of the class)

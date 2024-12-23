@@ -16,20 +16,20 @@ enum Foo { }
 --------------------------------------------------------------------------------
 (compilationUnit
 	(declClass
-		(attributeList (invokation (identifier) (actualParameters)))
+		(attributeList (invokation invoked: (identifier) (actualParameters)))
 		typename: (identifier)
 		body: (classBody
 			(declField
-				(attributeList (invokation (identifier) (actualParameters)))
+				(attributeList (invokation invoked: (identifier) (actualParameters)))
 				type: (typeInt)
 				name: (identifier))
 			(declMethod
-				(attributeList (invokation (identifier) (actualParameters)))
+				(attributeList (invokation invoked: (identifier) (actualParameters)))
 				returnType: (typeVoid)
 				name: (identifier)
 				body: (block))))
 	(declEnum
-		(attributeList (invokation (identifier) (actualParameters)))
+		(attributeList (invokation invoked: (identifier) (actualParameters)))
 		typename: (identifier)
 		body: (enumBody)))
 

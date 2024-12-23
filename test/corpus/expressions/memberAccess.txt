@@ -4,9 +4,7 @@ member access
 void foo() {
 	bar.baz;
 	int.MAX;
-	bar.baz();
-	int.Floor();
-	bar.bar.baz();
+	bar.bar.baz().bar;
 }
 --------------------------------------------------------------------------------
 (compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
@@ -16,21 +14,12 @@ void foo() {
 	(statementExpression (memberAccess
 		accessed: (typeInt)
 		member: (identifier)))
-	(statementExpression (invokation
-		(memberAccess
-			accessed: (identifier)
-			member: (identifier))
-		(actualParameters)))
-	(statementExpression (invokation
-		(memberAccess
-			accessed: (typeInt)
-			member: (identifier))
-		(actualParameters)))
-	(statementExpression (invokation
-		(memberAccess
-			accessed: (memberAccess
+	(statementExpression (memberAccess
+		accessed: (invokation
+			instance: (memberAccess
 				accessed: (identifier)
 				member: (identifier))
-			member: (identifier))
-		(actualParameters))))))
+			invoked: (identifier)
+			(actualParameters))
+		member: (identifier))))))
 
