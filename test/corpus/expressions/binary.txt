@@ -10,13 +10,13 @@ void foo() {
 	a - b;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
-	(statementExpression (expressionBinary (identifier) (identifier)))
-	(statementExpression (expressionBinary (identifier) (identifier)))
-	(statementExpression (expressionBinary (identifier) (identifier)))
-	(statementExpression (expressionBinary (identifier) (identifier)))
-	(statementExpression (expressionBinary (identifier) (identifier)))
-	(statementExpression (expressionBinary (identifier) (identifier))))))
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(statement_expression (expression_binary (identifier) (identifier)))
+	(statement_expression (expression_binary (identifier) (identifier)))
+	(statement_expression (expression_binary (identifier) (identifier)))
+	(statement_expression (expression_binary (identifier) (identifier)))
+	(statement_expression (expression_binary (identifier) (identifier)))
+	(statement_expression (expression_binary (identifier) (identifier))))))
 
 ================================================================================
 relational
@@ -28,11 +28,11 @@ void foo() {
 	a > b;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
-	(statementExpression (expressionBinary (identifier) (identifier)))
-	(statementExpression (expressionBinary (identifier) (identifier)))
-	(statementExpression (expressionBinary (identifier) (identifier)))
-	(statementExpression (expressionBinary (identifier) (identifier))))))
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(statement_expression (expression_binary (identifier) (identifier)))
+	(statement_expression (expression_binary (identifier) (identifier)))
+	(statement_expression (expression_binary (identifier) (identifier)))
+	(statement_expression (expression_binary (identifier) (identifier))))))
 
 ================================================================================
 equality
@@ -42,9 +42,9 @@ void foo() {
 	a != b;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
-	(statementExpression (expressionBinary (identifier) (identifier)))
-	(statementExpression (expressionBinary (identifier) (identifier))))))
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(statement_expression (expression_binary (identifier) (identifier)))
+	(statement_expression (expression_binary (identifier) (identifier))))))
 
 ================================================================================
 boolean
@@ -54,9 +54,9 @@ void foo() {
 	a || b;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
-	(statementExpression (expressionBinary (identifier) (identifier)))
-	(statementExpression (expressionBinary (identifier) (identifier))))))
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(statement_expression (expression_binary (identifier) (identifier)))
+	(statement_expression (expression_binary (identifier) (identifier))))))
 
 ================================================================================
 nested binary expression
@@ -65,9 +65,9 @@ void foo() {
 	a + b + c;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
-	(statementExpression (expressionBinary
-		lhs: (expressionBinary
+(compilation_unit (decl_method return_type: (type_void) name: (identifier) body: (block
+	(statement_expression (expression_binary
+		lhs: (expression_binary
 			lhs: (identifier)
 			rhs: (identifier))
 		rhs: (identifier))))))
@@ -79,9 +79,9 @@ void foo() {
 	(a + b) + c;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
-	(statementExpression (expressionBinary
-		lhs: (expressionBinary
+(compilation_unit (decl_method return_type: (type_void) name: (identifier) body: (block
+	(statement_expression (expression_binary
+		lhs: (expression_binary
 			lhs: (identifier)
 			rhs: (identifier))
 		rhs: (identifier))))))

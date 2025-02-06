@@ -3,10 +3,10 @@ class declaration
 ================================================================================
 class Foo {}
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declClass
+(compilation_unit
+	(decl_class
 		typename: (identifier)
-		body: (classBody)))
+		body: (class_body)))
 
 
 ================================================================================
@@ -14,23 +14,23 @@ class declaration with inheritance
 ================================================================================
 class Foo : Bar {}
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declClass
+(compilation_unit
+	(decl_class
 		typename: (identifier)
 		superclass: (superclass
 			typename: (identifier))
-		body: (classBody)))
+		body: (class_body)))
 
 ================================================================================
 modded class declaration
 ================================================================================
 modded class Foo {}
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declClass
-		(classModifier)
+(compilation_unit
+	(decl_class
+		(class_modifier)
 		typename: (identifier)
-		body: (classBody)))
+		body: (class_body)))
 
 
 ================================================================================
@@ -38,13 +38,13 @@ modded class declaration with inheritance
 ================================================================================
 modded class Foo : Bar {}
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declClass
-		(classModifier)
+(compilation_unit
+	(decl_class
+		(class_modifier)
 		typename: (identifier)
 		superclass: (superclass
 			typename: (identifier))
-		body: (classBody)))
+		body: (class_body)))
 
 
 ================================================================================
@@ -59,32 +59,32 @@ class Foo : Bar {
 	void foo() {}
 }
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declClass
+(compilation_unit
+	(decl_class
 		typename: (identifier)
 		superclass: (superclass
 			typename: (identifier))
-		body: (classBody
-			(declField
-				type: (typeInt)
+		body: (class_body
+			(decl_field
+				type: (type_int)
 				name: (identifier))
-			(declField
-				type: (typeInt)
+			(decl_field
+				type: (type_int)
 				name: (identifier))
-			(declField
-				type: (typeInt)
+			(decl_field
+				type: (type_int)
 				name: (identifier)
-				initSize: (literalInt))
-			(declMethod
-				returnType: (typeVoid)
+				init_size: (literal_int))
+			(decl_method
+				return_type: (type_void)
 				name: (identifier)
 				body: (block))
-			(declMethod
-				returnType: (typeVoid)
+			(decl_method
+				return_type: (type_void)
 				name: (identifier)
 				body: (block))
-			(declMethod
-				returnType: (typeVoid)
+			(decl_method
+				return_type: (type_void)
 				name: (identifier)
 				body: (block)))))
 
@@ -97,11 +97,11 @@ class Foo {
 	int foo, foo[], foo[69], foo;
 }
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declClass
+(compilation_unit
+	(decl_class
 		typename: (identifier)
-		(declMethod
-			returnType: (typeInt)
+		(decl_method
+			return_type: (type_int)
 			name: (identifier)
 			body: (block))))
 
@@ -112,19 +112,19 @@ generic class declaration
 class Foo<Class T> {}
 class Bar : Foo<int> {}
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declClass
+(compilation_unit
+	(decl_class
 		typename: (identifier)
-		typeParameters: (typeParameters
-			(typeParameter
-				bound: (typeIdentifier (identifier))
+		type_parameters: (type_parameters
+			(type_parameter
+				bound: (type_identifier (identifier))
 				name: (identifier)))
-		body: (classBody))
-	(declClass
+		body: (class_body))
+	(decl_class
 		typename: (identifier)
 		superclass: (superclass
 			typename: (identifier)
 			types: (types
-				(typeInt)))
-		body: (classBody)))
+				(type_int)))
+		body: (class_body)))
 

@@ -1,8 +1,8 @@
-(declClass) @class.outer
+(decl_class) @class.outer
 
-(declMethod) @function.outer
+(decl_method) @function.outer
 
-(declMethod
+(decl_method
   (block) @function.inner)
 @function.outer
 
@@ -18,40 +18,40 @@
 
 (invokation) @call.outer
 
-(formalParameters
+(formal_parameters
   "," @_start
   .
-  (formalParameter) @parameter.inner
+  (formal_parameter) @parameter.inner
   (#make-range! "parameter.outer" @_start @parameter.inner))
 
-(formalParameters
+(formal_parameters
   .
-  (formalParameter) @parameter.inner
+  (formal_parameter) @parameter.inner
   .
   ","? @_end
   (#make-range! "parameter.outer" @parameter.inner @_end))
 
-(actualParameters
+(actual_parameters
   "," @_start
   .
-  (actualParameter) @parameter.inner
+  (actual_parameter) @parameter.inner
   (#make-range! "parameter.outer" @_start @parameter.inner))
 
-(actualParameters
+(actual_parameters
   .
-  (actualParameter) @parameter.inner
+  (actual_parameter) @parameter.inner
   .
   ","? @_end
   (#make-range! "parameter.outer" @parameter.inner @_end))
 
 [
-  (commentLine)
-  (commentBlock)
-  (docLine)
-  (docBlock)
+  (comment_line)
+  (comment_block)
+  (doc_line)
+  (doc_block)
 ] @comment.outer
 
 [
-  (literalInt)
-  (literalFloat)
+  (literal_int)
+  (literal_float)
 ] @number.inner

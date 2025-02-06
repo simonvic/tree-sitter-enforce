@@ -3,25 +3,25 @@ empty enum
 ================================================================================
 enum Foo {}
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declEnum
+(compilation_unit
+	(decl_enum
 		typename: (identifier)
-		body: (enumBody)))
+		body: (enum_body)))
 
 ================================================================================
 simple enum
 ================================================================================
 enum Foo { A, B, C, }
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declEnum
+(compilation_unit
+	(decl_enum
 		typename: (identifier)
-		body: (enumBody
-			(enumMember
+		body: (enum_body
+			(enum_member
 				name: (identifier))
-			(enumMember
+			(enum_member
 				name: (identifier))
-			(enumMember
+			(enum_member
 				name: (identifier)))))
 
 ================================================================================
@@ -29,16 +29,16 @@ simple enum with initiliazers
 ================================================================================
 enum Foo { A, B = 69, C, }
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declEnum
+(compilation_unit
+	(decl_enum
 		typename: (identifier)
-		body: (enumBody
-			(enumMember
+		body: (enum_body
+			(enum_member
 				name: (identifier))
-			(enumMember
+			(enum_member
 				name: (identifier)
-				value: (literalInt))
-			(enumMember
+				value: (literal_int))
+			(enum_member
 				name: (identifier)))))
 
 ================================================================================
@@ -46,15 +46,15 @@ extended enum
 ================================================================================
 enum Foo : Bar { A, B = 69, C, }
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declEnum
+(compilation_unit
+	(decl_enum
 		typename: (identifier)
 		superenum: (identifier)
-		body: (enumBody
-			(enumMember
+		body: (enum_body
+			(enum_member
 				name: (identifier))
-			(enumMember
+			(enum_member
 				name: (identifier)
-				value: (literalInt))
-			(enumMember
+				value: (literal_int))
+			(enum_member
 				name: (identifier)))))

@@ -1,26 +1,26 @@
-(commentLine) @comment @spell
-(commentBlock) @comment.block @spell
+(comment_line) @comment @spell
+(comment_block) @comment.block @spell
 
-(docLine) @comment.documentation @spell
-(docBlock) @comment.documentation.block @spell
+(doc_line) @comment.documentation @spell
+(doc_block) @comment.documentation.block @spell
 
-(literalBool) @boolean
-(literalInt) @number
-(literalFloat) @number.float
-(literalString) @string
-(escapeSequence) @string.escape
+(literal_bool) @boolean
+(literal_int) @number
+(literal_float) @number.float
+(literal_string) @string
+(escape_sequence) @string.escape
 
 
 ; vectors
 ; TODO: what about arrays of vectors?
-(declVariable
-  (typeVector)
-  (literalString) @vector
+(decl_variable
+  (type_vector)
+  (literal_string) @vector
   )
 
-(formalParameter
-  type: (typeVector)
-  default: (literalString) @vector
+(formal_parameter
+  type: (type_vector)
+  default: (literal_string) @vector
   )
 
 (identifier) @variable
@@ -37,16 +37,16 @@
  (endif)
  ] @keyword.directive
 
-(preprocConst) @constant.macro
+(preproc_const) @constant.macro
 
 ; Constant fields
-(declField
-  ((fieldModifier) @_modifier (#eq? @_modifier "const"))
+(decl_field
+  ((field_modifier) @_modifier (#eq? @_modifier "const"))
   type: (_)
   name: (identifier) @constant
   )
 
-(enumMember name: (identifier) @constant)
+(enum_member name: (identifier) @constant)
 
 [
  "+" "-" "*" "/" "%" "^"
@@ -63,14 +63,14 @@
  "{" "}"
  ] @punctuation.bracket
 
-; TODO: <> in declClass
+; TODO: <> in decl_class
 (types [ "<" ">" ] @punctuation.bracket)
 
 [
  "," "." ":" ";"
  ] @punctuation.delimiter
 
-(literalString ["\"" "\""] @punctuation.delimiter)
+(literal_string ["\"" "\""] @punctuation.delimiter)
 
 [
  "continue" "break"
@@ -90,27 +90,27 @@
 ["while" "for" "foreach"] @keyword.repeat
 ["enum" "class"] @keyword.type
 [
- (variableModifier)
- (methodModifier)
- (classModifier)
- (fieldModifier)
- (formalParameterModifier)
+ (variable_modifier)
+ (method_modifier)
+ (class_modifier)
+ (field_modifier)
+ (formal_parameter_modifier)
  ] @keyword.modifier
 
 ["ref"] @type
-(declClass typename: (identifier) @type)
-(declEnum typename: (identifier) @type)
-(typeIdentifier (identifier) @type)
+(decl_class typename: (identifier) @type)
+(decl_enum typename: (identifier) @type)
+(type_identifier (identifier) @type)
 
-(typePrimitive) @type.builtin
+(type_primitive) @type.builtin
 
 [
  (super)
  (this)
- (literalNull)
+ (literal_null)
  ] @variable.builtin
 
-(declMethod
+(decl_method
   name: (identifier) @function.method
  )
 
@@ -119,10 +119,10 @@
   )
 
 ; Constructor and deconstructor (function with same name of the class)
-(declClass
+(decl_class
   typename: (identifier) @foo
-  body: (classBody
-    (declMethod
+  body: (class_body
+    (decl_method
 	    name: (identifier) @constructor
 	    (#eq? @constructor @foo)
       )
@@ -130,10 +130,10 @@
   )
 
 ; TODO: mark invalid deconstructor as error?
-(declClass
+(decl_class
   typename: (identifier) @foo
-  body: (classBody
-    (declMethod
+  body: (class_body
+    (decl_method
       "~"
 	    name: (identifier) @constructor.deconstructor
 	    (#eq? @constructor.deconstructor @foo)
@@ -142,8 +142,8 @@
   )
 
 ; Constant fields
-; (declField
-;   ((fieldModifier) @_modifier (#eq? @_modifier "const"))
+; (decl_field
+;   ((field_modifier) @_modifier (#eq? @_modifier "const"))
 ;   (_)
 ;   (identifier) @constant
 ;   )
@@ -151,10 +151,10 @@
 ; TODO: mark assignment to const as error?
 
 ; Constant parameters and local variables referencing to it
-; (declMethod
-;   (formalParameters
-;   	(formalParameter
-;   	  ((formalParameterModifier) @_modifier (#eq? @_modifier "const"))
+; (decl_method
+;   (formal_parameters
+;   	(formal_parameter
+;   	  ((formal_parameter_modifier) @_modifier (#eq? @_modifier "const"))
 ;   	  name: (identifier) @_constantParam @constant
 ;   	  )
 ;   	)

@@ -1,5 +1,5 @@
-(declMethod (identifier) @name) @definition.function
-(declClass typename: (identifier) @name) @definition.class
+(decl_method (identifier) @name) @definition.function
+(decl_class typename: (identifier) @name) @definition.class
 (invokation) @reference.call
 (identifier) @reference.class
 

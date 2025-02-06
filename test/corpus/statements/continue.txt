@@ -5,5 +5,5 @@ void foo() {
 	continue;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
+(compilation_unit (decl_method (type_void) (identifier) (block
 	(continue))))

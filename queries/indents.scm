@@ -1,10 +1,10 @@
 [
   (block)
-  (declClass)
-  (declEnum)
+  (decl_class)
+  (decl_enum)
   (switch)
-  (formalParameters)
-  (actualParameters)
+  (formal_parameters)
+  (actual_parameters)
 ] @indent.begin
 
 [
@@ -19,9 +19,9 @@
  "}"
 ] @indent.end
 
-(commentLine) @indent.ignore
+(comment_line) @indent.ignore
 
 [
   (ERROR)
-  (commentBlock)
+  (comment_block)
 ] @indent.auto

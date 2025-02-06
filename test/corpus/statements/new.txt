@@ -5,8 +5,8 @@ void foo() {
 	new Foo();
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
-	(statementExpression (new (typeIdentifier (identifier)) (actualParameters))))))
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(statement_expression (new (type_identifier (identifier)) (actual_parameters))))))
 
 
 ================================================================================
@@ -16,12 +16,12 @@ void foo() {
 	new Foo(69, 420);
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
-	(statementExpression
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(statement_expression
 		(new
-			(typeIdentifier (identifier))
-			(actualParameters
-				(actualParameter (literalInt))
-				(actualParameter (literalInt))))))))
+			(type_identifier (identifier))
+			(actual_parameters
+				(actual_parameter (literal_int))
+				(actual_parameter (literal_int))))))))
 
 

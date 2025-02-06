@@ -9,50 +9,50 @@ int a; //! this is another doc
 //! this is the final doc
 //! yeah //!enforce is cool
 --------------------------------------------------------------------------------
-(compilationUnit
-	(docLine)
-	(docLine)
-	(docLine)
-	(docLine)
-	(declVariable (typeInt) (identifier))
-	(docLine)
-	(docLine)
-	(docLine))
+(compilation_unit
+	(doc_line)
+	(doc_line)
+	(doc_line)
+	(doc_line)
+	(decl_variable (type_int) (identifier))
+	(doc_line)
+	(doc_line)
+	(doc_line))
 
 ================================================================================
 oneline empty doc block
 ================================================================================
 /***/
 --------------------------------------------------------------------------------
-(compilationUnit (docBlock))
+(compilation_unit (doc_block))
 
 ================================================================================
 oneline doc block with only whitespaces
 ================================================================================
 /** */
 --------------------------------------------------------------------------------
-(compilationUnit (docBlock))
+(compilation_unit (doc_block))
 
 ================================================================================
 oneline doc block with only text
 ================================================================================
 /**enforce*/
 --------------------------------------------------------------------------------
-(compilationUnit (docBlock))
+(compilation_unit (doc_block))
 
 ================================================================================
 oneline doc block with pounds
 ================================================================================
 /** ///// */
 --------------------------------------------------------------------------------
-(compilationUnit (docBlock))
+(compilation_unit (doc_block))
 
 ================================================================================
 oneline doc block
 ================================================================================
 /** this is a doc block */
 --------------------------------------------------------------------------------
-(compilationUnit (docBlock))
+(compilation_unit (doc_block))
 
 ================================================================================
 doc block on multiple lines
@@ -63,14 +63,14 @@ a doc
 block
 */
 --------------------------------------------------------------------------------
-(compilationUnit (docBlock))
+(compilation_unit (doc_block))
 
 ================================================================================
 two doc blocks on one line
 ================================================================================
 /** awf */ /** awfawf */
 --------------------------------------------------------------------------------
-(compilationUnit (docBlock) (docBlock))
+(compilation_unit (doc_block) (doc_block))
 
 ================================================================================
 doc block before statement
@@ -82,9 +82,9 @@ block
 */
 int a;
 --------------------------------------------------------------------------------
-(compilationUnit
-	(docBlock)
-	(declVariable (typeInt) (identifier)))
+(compilation_unit
+	(doc_block)
+	(decl_variable (type_int) (identifier)))
 
 ================================================================================
 doc block after statement
@@ -96,24 +96,24 @@ a doc
 block
 */
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declVariable (typeInt) (identifier))
-	(docBlock))
+(compilation_unit
+	(decl_variable (type_int) (identifier))
+	(doc_block))
 
 ================================================================================
 doc block inline statement
 ================================================================================
 int /** this is a doc block */ a;
 --------------------------------------------------------------------------------
-(compilationUnit (declVariable (typeInt) (docBlock) (identifier)))
+(compilation_unit (decl_variable (type_int) (doc_block) (identifier)))
 
 ================================================================================
 doc block with nested opening tag
 ================================================================================
 int /** you open a doc with the '/*' token. */ a;
 --------------------------------------------------------------------------------
-(compilationUnit 
-	(declVariable (typeInt)
-		(docBlock)
+(compilation_unit 
+	(decl_variable (type_int)
+		(doc_block)
 		(identifier)))
 

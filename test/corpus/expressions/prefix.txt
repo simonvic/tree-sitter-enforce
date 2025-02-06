@@ -7,10 +7,10 @@ void foo() {
 	!a;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
-	(statementExpression (expressionPrefix (identifier)))
-	(statementExpression (expressionPrefix (identifier)))
-	(statementExpression (expressionPrefix (identifier))))))
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(statement_expression (expression_prefix (identifier)))
+	(statement_expression (expression_prefix (identifier)))
+	(statement_expression (expression_prefix (identifier))))))
 
 ================================================================================
 double negation
@@ -19,6 +19,6 @@ void foo() {
 	!!a;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
-	(statementExpression (expressionPrefix
-		(expressionPrefix (identifier)))))))
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(statement_expression (expression_prefix
+		(expression_prefix (identifier)))))))

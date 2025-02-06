@@ -7,15 +7,15 @@ void foo() {
 	x[row][col];
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
-	(statementExpression (keyAccess
+(compilation_unit (decl_method return_type: (type_void) name: (identifier) body: (block
+	(statement_expression (key_access
 		accessed: (identifier)
-		key: (literalInt)))
-	(statementExpression (keyAccess
+		key: (literal_int)))
+	(statement_expression (key_access
 		accessed: (identifier)
-		key: (expressionSuffix (identifier))))
-	(statementExpression (keyAccess
-		accessed: (keyAccess
+		key: (expression_suffix (identifier))))
+	(statement_expression (key_access
+		accessed: (key_access
 			accessed: (identifier)
 			key: (identifier))
 		key: (identifier))))))

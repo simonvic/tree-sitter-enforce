@@ -5,7 +5,7 @@ void foo() {
 	x = 69;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
+(compilation_unit (decl_method return_type: (type_void) name: (identifier) body: (block
 		(assignment
 			lhs: (identifier)
-			rhs: (literalInt)))))
+			rhs: (literal_int)))))

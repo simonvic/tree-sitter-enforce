@@ -5,11 +5,11 @@ void foo() {
 	for (;true;) a;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
+(compilation_unit (decl_method return_type: (type_void) name: (identifier) body: (block
 	(for
-		init: (emptyStatement)
-		condition: (literalBool)
-		body: (statementExpression (identifier))))))
+		init: (empty_statement)
+		condition: (literal_bool)
+		body: (statement_expression (identifier))))))
 
 ================================================================================
 for true do block
@@ -18,10 +18,10 @@ void foo() {
 	for (;true;) {}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
+(compilation_unit (decl_method return_type: (type_void) name: (identifier) body: (block
 	(for
-		init: (emptyStatement)
-		condition: (literalBool)
+		init: (empty_statement)
+		condition: (literal_bool)
 		body: (block)))))
 
 ================================================================================
@@ -32,24 +32,24 @@ void foo() {
 	for (i = 0; i < 69; i++) {}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
+(compilation_unit (decl_method return_type: (type_void) name: (identifier) body: (block
 	(for
-		init: (declVariable
-			type: (typeInt)
+		init: (decl_variable
+			type: (type_int)
 			name: (identifier)
-			init: (literalInt))
-		condition: (expressionBinary
+			init: (literal_int))
+		condition: (expression_binary
 			lhs: (identifier)
-			rhs: (literalInt))
-		update: (expressionSuffix (identifier))
+			rhs: (literal_int))
+		update: (expression_suffix (identifier))
 		body: (block))
 	(for
 		init: (assignment
 			lhs: (identifier)
-			rhs: (literalInt))
-		condition: (expressionBinary
+			rhs: (literal_int))
+		condition: (expression_binary
 			lhs: (identifier)
-			rhs: (literalInt))
-		update: (expressionSuffix (identifier))
+			rhs: (literal_int))
+		update: (expression_suffix (identifier))
 		body: (block)))))
 

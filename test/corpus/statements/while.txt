@@ -5,8 +5,8 @@ void foo() {
 	while (true) a;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
-	(while (literalBool) (statementExpression (identifier))))))
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(while (literal_bool) (statement_expression (identifier))))))
 
 ================================================================================
 while true do block
@@ -15,6 +15,6 @@ void foo() {
 	while (true) {}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
-	(while (literalBool) (block)))))
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(while (literal_bool) (block)))))
 

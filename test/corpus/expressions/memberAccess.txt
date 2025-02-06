@@ -7,19 +7,19 @@ void foo() {
 	bar.bar.baz().bar;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
-	(statementExpression (memberAccess
+(compilation_unit (decl_method return_type: (type_void) name: (identifier) body: (block
+	(statement_expression (member_access
 		accessed: (identifier)
 		member: (identifier)))
-	(statementExpression (memberAccess
-		accessed: (typeInt)
+	(statement_expression (member_access
+		accessed: (type_int)
 		member: (identifier)))
-	(statementExpression (memberAccess
+	(statement_expression (member_access
 		accessed: (invokation
-			instance: (memberAccess
+			instance: (member_access
 				accessed: (identifier)
 				member: (identifier))
 			invoked: (identifier)
-			(actualParameters))
+			(actual_parameters))
 		member: (identifier))))))
 

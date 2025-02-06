@@ -1,10 +1,10 @@
 [
   (block)
   (switch)
-  (formalParameters)
-  (actualParameters)
-  (declClass)
-  (declEnum)
-  (commentBlock)
-  (docBlock)
+  (formal_parameters)
+  (actual_parameters)
+  (decl_class)
+  (decl_enum)
+  (comment_block)
+  (doc_block)
 ] @fold

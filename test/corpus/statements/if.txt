@@ -5,8 +5,8 @@ void foo() {
 	if (true) a;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
-	(if (literalBool) (statementExpression (identifier))))))
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(if (literal_bool) (statement_expression (identifier))))))
 
 ================================================================================
 if expression then block
@@ -15,8 +15,8 @@ void foo() {
 	if (true) {}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
-	(if (literalBool) (block)))))
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(if (literal_bool) (block)))))
 
 ================================================================================
 if expression then statement else statement
@@ -25,11 +25,11 @@ void foo() {
 	if (true) a; else b;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
+(compilation_unit (decl_method (type_void) (identifier) (block
 	(if
-		(literalBool)
-		(statementExpression (identifier))
-		(statementExpression (identifier))))))
+		(literal_bool)
+		(statement_expression (identifier))
+		(statement_expression (identifier))))))
 
 ================================================================================
 if expression then block else block
@@ -40,9 +40,9 @@ void foo() {
 	}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
+(compilation_unit (decl_method (type_void) (identifier) (block
 	(if
-		(literalBool)
+		(literal_bool)
 		(block)
 		(block)))))
 
@@ -56,11 +56,11 @@ void foo() {
 	}
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
+(compilation_unit (decl_method (type_void) (identifier) (block
 	(if
-		(literalBool)
+		(literal_bool)
 		(block)
 		(if
-			(literalBool)
+			(literal_bool)
 			(block)
 			(block))))))

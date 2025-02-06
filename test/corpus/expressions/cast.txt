@@ -6,8 +6,8 @@ void foo() {
 	(Foo) a;
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
-	(statementExpression (cast type: (typeInt) value: (identifier)))
-	(statementExpression (cast type: (typeIdentifier (identifier)) value: (identifier))))))
+(compilation_unit (decl_method return_type: (type_void) name: (identifier) body: (block
+	(statement_expression (cast type: (type_int) value: (identifier)))
+	(statement_expression (cast type: (type_identifier (identifier)) value: (identifier))))))
 
 

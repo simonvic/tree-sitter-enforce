@@ -17,60 +17,60 @@ map<int, int> x;
 map<int, Foo> x;
 map<int, ref array<int>> x;
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declVariable
-		(typeInt)
+(compilation_unit
+	(decl_variable
+		(type_int)
 		(identifier))
-	(declVariable
-		(typeIdentifier (identifier))
+	(decl_variable
+		(type_identifier (identifier))
 		(identifier))
-	(declVariable
-		(typeRef (typeIdentifier (identifier)))
+	(decl_variable
+		(type_ref (type_identifier (identifier)))
 		(identifier))
-	(declVariable
-		(typeArray (typeInt))
+	(decl_variable
+		(type_array (type_int))
 		(identifier))
-	(declVariable
-		(typeArray (typeIdentifier (identifier)))
+	(decl_variable
+		(type_array (type_identifier (identifier)))
 		(identifier))
-	(declVariable
-		(typeArray (typeRef (typeIdentifier (identifier))))
+	(decl_variable
+		(type_array (type_ref (type_identifier (identifier))))
 		(identifier))
-	(declVariable
-		(typeIdentifier
+	(decl_variable
+		(type_identifier
 			(identifier)
-			(types (typeInt)))
+			(types (type_int)))
 		(identifier))
-	(declVariable
-		(typeIdentifier
+	(decl_variable
+		(type_identifier
 			(identifier)
-			(types (typeIdentifier (identifier))))
+			(types (type_identifier (identifier))))
 		(identifier))
-	(declVariable
-		(typeIdentifier
+	(decl_variable
+		(type_identifier
 			(identifier)
-			(types (typeRef (typeIdentifier (identifier)))))
+			(types (type_ref (type_identifier (identifier)))))
 		(identifier))
-	(declVariable
-		(typeIdentifier
-			(identifier)
-			(types
-				(typeInt)
-				(typeInt)))
-		(identifier))
-	(declVariable
-		(typeIdentifier
+	(decl_variable
+		(type_identifier
 			(identifier)
 			(types
-				(typeInt)
-				(typeIdentifier (identifier))))
+				(type_int)
+				(type_int)))
 		(identifier))
-	(declVariable
-		(typeIdentifier
+	(decl_variable
+		(type_identifier
 			(identifier)
 			(types
-				(typeInt)
-				(typeRef (typeIdentifier
+				(type_int)
+				(type_identifier (identifier))))
+		(identifier))
+	(decl_variable
+		(type_identifier
+			(identifier)
+			(types
+				(type_int)
+				(type_ref (type_identifier
 					(identifier)
-					(types (typeInt))))))
+					(types (type_int))))))
 		(identifier)))

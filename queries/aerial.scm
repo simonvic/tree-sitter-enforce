@@ -1,18 +1,18 @@
 ; enums
 
-(declEnum
+(decl_enum
   typename: (identifier) @name
   (#set! "kind" "Enum")
   ) @symbol
 
-(enumMember
+(enum_member
   name: (identifier) @name
   (#set! "kind" "EnumMember")
   ) @symbol
 
 ; class
 
-(declClass
+(decl_class
   typename: (identifier) @name
   (#set! "kind" "Class")
   ) @symbol
@@ -23,10 +23,10 @@
   ) @symbol
 
 ; constructor
-(declClass
+(decl_class
   typename: (identifier) @_typename
-  body: (classBody
-    (declMethod
+  body: (class_body
+    (decl_method
 	    name: (identifier) @name
 	    (#eq? @name @_typename)
 	    (#set! "kind" "Constructor")
@@ -36,21 +36,21 @@
 
 ; field
 
-(declField
-  ((fieldModifier) @_modifier (#eq? @_modifier "const"))
+(decl_field
+  ((field_modifier) @_modifier (#eq? @_modifier "const"))
   type: (_)
   name: (identifier) @name
   (#set! "kind" "Constant")
   ) @symbol
 
-(declField
+(decl_field
   type: (_)
   name: (identifier) @name
   (#set! "kind" "Field")
   ) @symbol
 
 ; methods
-(declMethod
+(decl_method
   name: (identifier) @name
   (#set! "kind" "Method")
   ) @symbol

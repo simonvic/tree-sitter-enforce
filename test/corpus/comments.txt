@@ -9,50 +9,50 @@ int a; // this is another comment
 // this is the final comment
 // yeah //enforce is cool
 --------------------------------------------------------------------------------
-(compilationUnit
-	(commentLine)
-	(commentLine)
-	(commentLine)
-	(commentLine)
-	(declVariable (typeInt) (identifier))
-	(commentLine)
-	(commentLine)
-	(commentLine))
+(compilation_unit
+	(comment_line)
+	(comment_line)
+	(comment_line)
+	(comment_line)
+	(decl_variable (type_int) (identifier))
+	(comment_line)
+	(comment_line)
+	(comment_line))
 
 ================================================================================
 oneline empty comment block
 ================================================================================
 /**/
 --------------------------------------------------------------------------------
-(compilationUnit (commentBlock))
+(compilation_unit (comment_block))
 
 ================================================================================
 oneline comment block with only whitespaces
 ================================================================================
 /* */
 --------------------------------------------------------------------------------
-(compilationUnit (commentBlock))
+(compilation_unit (comment_block))
 
 ================================================================================
 oneline comment block with only text
 ================================================================================
 /*enforce*/
 --------------------------------------------------------------------------------
-(compilationUnit (commentBlock))
+(compilation_unit (comment_block))
 
 ================================================================================
 oneline comment block with pounds
 ================================================================================
 /* ///// */
 --------------------------------------------------------------------------------
-(compilationUnit (commentBlock))
+(compilation_unit (comment_block))
 
 ================================================================================
 oneline comment block
 ================================================================================
 /* this is a comment block */
 --------------------------------------------------------------------------------
-(compilationUnit (commentBlock))
+(compilation_unit (comment_block))
 
 ================================================================================
 comment block on multiple lines
@@ -63,14 +63,14 @@ a comment
 block
 */
 --------------------------------------------------------------------------------
-(compilationUnit (commentBlock))
+(compilation_unit (comment_block))
 
 ================================================================================
 two comment blocks on one line
 ================================================================================
 /* awf */ /* awfawf */
 --------------------------------------------------------------------------------
-(compilationUnit (commentBlock) (commentBlock))
+(compilation_unit (comment_block) (comment_block))
 
 ================================================================================
 comment block before statement
@@ -82,9 +82,9 @@ block
 */
 int a;
 --------------------------------------------------------------------------------
-(compilationUnit
-	(commentBlock)
-	(declVariable (typeInt) (identifier)))
+(compilation_unit
+	(comment_block)
+	(decl_variable (type_int) (identifier)))
 
 ================================================================================
 comment block after statement
@@ -96,24 +96,24 @@ a comment
 block
 */
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declVariable (typeInt) (identifier))
-	(commentBlock))
+(compilation_unit
+	(decl_variable (type_int) (identifier))
+	(comment_block))
 
 ================================================================================
 comment block inline statement
 ================================================================================
 int /* this is a comment block */ a;
 --------------------------------------------------------------------------------
-(compilationUnit (declVariable (typeInt) (commentBlock) (identifier)))
+(compilation_unit (decl_variable (type_int) (comment_block) (identifier)))
 
 ================================================================================
 comment block with nested opening tag
 ================================================================================
 int /* you open a comment with the '/*' token. */ a;
 --------------------------------------------------------------------------------
-(compilationUnit 
-	(declVariable (typeInt)
-		(commentBlock)
+(compilation_unit 
+	(decl_variable (type_int)
+		(comment_block)
 		(identifier)))
 

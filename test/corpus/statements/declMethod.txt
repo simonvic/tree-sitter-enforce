@@ -3,12 +3,12 @@ abstract method declaration
 ================================================================================
 proto static native void foo();
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declMethod
-		(methodModifier)
-		(methodModifier)
-		(methodModifier)
-		returnType: (typeVoid)
+(compilation_unit
+	(decl_method
+		(method_modifier)
+		(method_modifier)
+		(method_modifier)
+		return_type: (type_void)
 		name: (identifier)))
 
 ================================================================================
@@ -16,9 +16,9 @@ concrete method declaration
 ================================================================================
 void foo() {}
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declMethod
-		returnType: (typeVoid)
+(compilation_unit
+	(decl_method
+		return_type: (type_void)
 		name: (identifier)
 		body: (block)))
 
@@ -27,24 +27,24 @@ method declaration with parameters
 ================================================================================
 override void foo(const int x = 69, inout int y, out int y) {}
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declMethod
-		(methodModifier)
-		returnType: (typeVoid)
+(compilation_unit
+	(decl_method
+		(method_modifier)
+		return_type: (type_void)
 		name: (identifier)
-		(formalParameters
-			(formalParameter
-				(formalParameterModifier)
-				type: (typeInt)
+		(formal_parameters
+			(formal_parameter
+				(formal_parameter_modifier)
+				type: (type_int)
 				name: (identifier)
-				default: (literalInt))
-			(formalParameter
-				(formalParameterModifier)
-				type: (typeInt)
+				default: (literal_int))
+			(formal_parameter
+				(formal_parameter_modifier)
+				type: (type_int)
 				name: (identifier))
-			(formalParameter
-				(formalParameterModifier)
-				type: (typeInt)
+			(formal_parameter
+				(formal_parameter_modifier)
+				type: (type_int)
 				name: (identifier)))
 		body: (block)))
 

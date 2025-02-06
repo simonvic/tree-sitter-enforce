@@ -2,7 +2,7 @@
   (block) @context.end
   ) @context
 
-(declMethod
+(decl_method
   body: (_) @context.end
   ) @context
 
@@ -14,7 +14,7 @@
   body: (_) @context.end
   ) @context
 
-(declClass
+(decl_class
   body: (_) @context.end
   ) @context
 
@@ -26,8 +26,8 @@
   body: (_) @context.end
   ) @context
 
-(switchCase
+(switch_case
   label: (_) @context.end
   ) @context
 
-(statementExpression) @context
+(statement_expression) @context

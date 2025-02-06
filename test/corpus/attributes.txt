@@ -14,24 +14,24 @@ class Foo {
 [Foo()]
 enum Foo { }
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declClass
-		(attributeList (invokation invoked: (identifier) (actualParameters)))
+(compilation_unit
+	(decl_class
+		(attribute_list (invokation invoked: (identifier) (actual_parameters)))
 		typename: (identifier)
-		body: (classBody
-			(declField
-				(attributeList (invokation invoked: (identifier) (actualParameters)))
-				type: (typeInt)
+		body: (class_body
+			(decl_field
+				(attribute_list (invokation invoked: (identifier) (actual_parameters)))
+				type: (type_int)
 				name: (identifier))
-			(declMethod
-				(attributeList (invokation invoked: (identifier) (actualParameters)))
-				returnType: (typeVoid)
+			(decl_method
+				(attribute_list (invokation invoked: (identifier) (actual_parameters)))
+				return_type: (type_void)
 				name: (identifier)
 				body: (block))))
-	(declEnum
-		(attributeList (invokation invoked: (identifier) (actualParameters)))
+	(decl_enum
+		(attribute_list (invokation invoked: (identifier) (actual_parameters)))
 		typename: (identifier)
-		body: (enumBody)))
+		body: (enum_body)))
 
 ================================================================================
 multiple attributes
@@ -39,13 +39,13 @@ multiple attributes
 [Foo(), Bar()]
 class Foo { }
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declClass
-		(attributeList
-			(invokation (identifier) (actualParameters))
-			(invokation (identifier) (actualParameters)))
+(compilation_unit
+	(decl_class
+		(attribute_list
+			(invokation (identifier) (actual_parameters))
+			(invokation (identifier) (actual_parameters)))
 		(identifier)
-		(classBody)))
+		(class_body)))
 
 ================================================================================
 attribute with parameters
@@ -53,22 +53,22 @@ attribute with parameters
 [Foo("foo", true, 69, Bar("bar", {1, 2, 3}, Baz()))]
 class Foo { }
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declClass
-		(attributeList
+(compilation_unit
+	(decl_class
+		(attribute_list
 			(invokation
 				(identifier)
-				(actualParameters
-					(actualParameter (literalString))
-					(actualParameter (literalBool))
-					(actualParameter (literalInt)) 
-					(actualParameter (invokation
+				(actual_parameters
+					(actual_parameter (literal_string))
+					(actual_parameter (literal_bool))
+					(actual_parameter (literal_int)) 
+					(actual_parameter (invokation
 						(identifier)
-						(actualParameters
-							(actualParameter (literalString))
-							(actualParameter (arrayCreation
-								(literalInt)
-								(literalInt)
-								(literalInt)))
-							(actualParameter (invokation (identifier) (actualParameters)))))))))
-		(identifier) (classBody)))
+						(actual_parameters
+							(actual_parameter (literal_string))
+							(actual_parameter (array_creation
+								(literal_int)
+								(literal_int)
+								(literal_int)))
+							(actual_parameter (invokation (identifier) (actual_parameters)))))))))
+		(identifier) (class_body)))

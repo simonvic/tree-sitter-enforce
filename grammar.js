@@ -38,30 +38,30 @@ module.exports = grammar({
     $.statement,
     $.literal,
     $.type,
-    $.typePrimitive,
+    $.type_primitive,
   ],
 
   word: $ => $.identifier,
 
   conflicts: $ => [
-    [$.methodModifier, $.variableModifier],
-    [$.methodModifier, $.fieldModifier],
-    [$.typeIdentifier, $._expression],
-    [$.typeIdentifier],
+    [$.method_modifier, $.variable_modifier],
+    [$.method_modifier, $.field_modifier],
+    [$.type_identifier, $._expression],
+    [$.type_identifier],
     [$.new],
     [$.type, $._expression],
     [$.statement, $._expression],
 
-    // TODO: allow blocks as statements (anonymous scope) and allow arrayCreation only where possible
-    [$.block, $.arrayCreation],
+    // TODO: allow blocks as statements (anonymous scope) and allow array_creation only where possible
+    [$.block, $.array_creation],
   ],
 
   extras: $ => [
     /\s/, // whitespaces do matters, but whatever
-    $.commentLine,
-    $.commentBlock,
-    $.docLine,
-    $.docBlock,
+    $.comment_line,
+    $.comment_block,
+    $.doc_line,
+    $.doc_block,
     $.include,
     $.define,
     $.ifdef,
@@ -72,35 +72,35 @@ module.exports = grammar({
 
   rules: {
 
-    compilationUnit: $ => repeat(choice(
-      $.declClass,
-      $.declEnum,
-      $.declMethod,
-      $.declVariable,
+    compilation_unit: $ => repeat(choice(
+      $.decl_class,
+      $.decl_enum,
+      $.decl_method,
+      $.decl_variable,
       $.typedef,
     )),
 
-    include: $ => seq('#include', $.preprocConst),
-    define: $ => seq('#define', $.preprocConst),
-    ifdef: $ => seq('#ifdef', $.preprocConst),
-    ifndef: $ => seq('#ifndef', $.preprocConst),
+    include: $ => seq('#include', $.preproc_const),
+    define: $ => seq('#define', $.preproc_const),
+    ifdef: $ => seq('#ifdef', $.preproc_const),
+    ifndef: $ => seq('#ifndef', $.preproc_const),
     else: _ => token('#else'),
     endif: _ => token('#endif'),
 
-    preprocConst: _ => token.immediate(choice(/\s+[^\n#"]+/, /\s+"[^\n"]*"/)),
+    preproc_const: _ => token.immediate(choice(/\s+[^\n#"]+/, /\s+"[^\n"]*"/)),
 
-    docLine: _ => token(prec(PREC.DOC, seq(choice('//!', '//?'), /[^\n]*/))),
+    doc_line: _ => token(prec(PREC.DOC, seq(choice('//!', '//?'), /[^\n]*/))),
 
-    docBlock: _ => token(prec(PREC.DOC, seq(
+    doc_block: _ => token(prec(PREC.DOC, seq(
       choice('/**', '/*!'),
       /[^*]*\*+([^/*][^*]*\*+)*/,
       '/',
     ))),
 
-    commentLine: _ => token(prec(PREC.COMMENT, seq('//', /[^\n]*/))),
+    comment_line: _ => token(prec(PREC.COMMENT, seq('//', /[^\n]*/))),
 
     // kindly borrowed from https://github.com/tree-sitter/tree-sitter-java/blob/master/grammar.js#L1291C5-L1297C8
-    commentBlock: _ => token(prec(PREC.COMMENT, seq(
+    comment_block: _ => token(prec(PREC.COMMENT, seq(
       '/*',
       /[^*]*\*+([^/*][^*]*\*+)*/,
       '/',
@@ -109,8 +109,8 @@ module.exports = grammar({
     block: $ => seq('{', repeat($.statement), '}'),
     statement: $ => choice(
       $.block,
-      $.statementExpression,
-      $.emptyStatement,
+      $.statement_expression,
+      $.empty_statement,
       $.delete,
       $.typedef,
       $.break,
@@ -121,12 +121,12 @@ module.exports = grammar({
       $.while,
       $.for,
       $.foreach,
-      $.declVariable,
+      $.decl_variable,
       $.assignment,
       $.invokation,
     ),
-    statementExpression: $ => seq($._expression, ';'),
-    emptyStatement: _ => ';',
+    statement_expression: $ => seq($._expression, ';'),
+    empty_statement: _ => ';',
 
     delete: $ => seq('delete', $._expression, ';'),
 
@@ -152,17 +152,17 @@ module.exports = grammar({
       '(',
       field("subject", $._expression),
       ')',
-      field("body", $.switchBody),
+      field("body", $.switch_body),
     ),
 
-    switchBody: $ => seq(
+    switch_body: $ => seq(
       '{',
-      repeat($.switchCase),
-      optional(field("defaultCase", seq('default', ':', repeat($.statement)))),
+      repeat($.switch_case),
+      optional(field("default_case", seq('default', ':', repeat($.statement)))),
       '}'
     ),
 
-    switchCase: $ => seq(
+    switch_case: $ => seq(
       'case',
       field("label", $._expression),
       ':',
@@ -223,32 +223,32 @@ module.exports = grammar({
       ';'
     ),
 
-    attributeList: $ => seq(
+    attribute_list: $ => seq(
       '[',
       $._expression,
       repeat(seq(',', $._expression)),
       ']'
     ),
 
-    declClass: $ => seq(
-      optional($.attributeList),
-      repeat($.classModifier),
+    decl_class: $ => seq(
+      optional($.attribute_list),
+      repeat($.class_modifier),
       'class',
       field("typename", $.identifier),
-      optional(field("typeParameters", $.typeParameters)),
+      optional(field("type_parameters", $.type_parameters)),
       optional(seq(
         choice(':', 'extends'),
         field("superclass", $.superclass)
       )),
-      field("body", $.classBody),
+      field("body", $.class_body),
       optional(';'),
     ),
 
-    classModifier: _ => 'modded',
+    class_modifier: _ => 'modded',
 
-    typeParameters: $ => seq('<', $.typeParameter, repeat(seq(',', $.typeParameter)), '>'),
+    type_parameters: $ => seq('<', $.type_parameter, repeat(seq(',', $.type_parameter)), '>'),
 
-    typeParameter: $ => seq(
+    type_parameter: $ => seq(
       field("bound", $.type),
       field("name", $.identifier)
     ),
@@ -260,32 +260,32 @@ module.exports = grammar({
 
     types: $ => seq('<', $.type, repeat(seq(',', $.type)), '>'),
 
-    classBody: $ => seq(
+    class_body: $ => seq(
       '{',
       repeat(choice(
-        $.declEnum, // see quirk 6
-        $.declField,
-        $.declMethod,
+        $.decl_enum, // see quirk 6
+        $.decl_field,
+        $.decl_method,
       )),
       '}',
     ),
 
-    declField: $ => seq(
-      optional($.attributeList),
-      repeat($.fieldModifier),
+    decl_field: $ => seq(
+      optional($.attribute_list),
+      repeat($.field_modifier),
       field("type", $.type),
-      $._varDeclarator,
-      repeat(seq(',', $._varDeclarator)),
+      $._var_declarator,
+      repeat(seq(',', $._var_declarator)),
       ';'
     ),
 
-    _varDeclarator: $ => seq(
+    _var_declarator: $ => seq(
       field("name", $.identifier),
-      optional(seq('[', optional(field("initSize", $._expression)), ']')),
+      optional(seq('[', optional(field("init_size", $._expression)), ']')),
       optional(seq('=', field("init", $._expression))),
     ),
 
-    fieldModifier: _ => choice(
+    field_modifier: _ => choice(
       'const',
       'static',
       'autoptr',
@@ -298,41 +298,41 @@ module.exports = grammar({
       'owned',
     ),
 
-    declEnum: $ => seq(
-      optional($.attributeList),
+    decl_enum: $ => seq(
+      optional($.attribute_list),
       'enum',
       field("typename", $.identifier),
       optional(seq(
         choice(':', 'extends'),
         field("superenum", $.identifier)
       )),
-      field("body", $.enumBody),
+      field("body", $.enum_body),
       optional(';')
     ),
 
-    enumBody: $ => seq(
+    enum_body: $ => seq(
       '{',
       optional(seq(
-        $.enumMember,
-        repeat(seq(choice(',', ';'), $.enumMember)),
+        $.enum_member,
+        repeat(seq(choice(',', ';'), $.enum_member)),
         optional(choice(',', ';')))),
       '}',
     ),
 
-    enumMember: $ => seq(
-      optional($.attributeList),
+    enum_member: $ => seq(
+      optional($.attribute_list),
       field("name", $.identifier),
       field("value", optional(seq('=', $._expression)))
     ),
 
-    declMethod: $ => seq(
-      optional($.attributeList),
-      repeat($.methodModifier),
-      field("returnType", $.type),
+    decl_method: $ => seq(
+      optional($.attribute_list),
+      repeat($.method_modifier),
+      field("return_type", $.type),
       optional('~'),
       field("name", $.identifier),
       '(',
-      optional($.formalParameters),
+      optional($.formal_parameters),
       ')',
       choice(
         seq(
@@ -343,7 +343,7 @@ module.exports = grammar({
       )
     ),
 
-    methodModifier: _ => choice(
+    method_modifier: _ => choice(
       'override',
       'proto',
       'native',
@@ -356,21 +356,21 @@ module.exports = grammar({
       'private',
     ),
 
-    formalParameters: $ => seq(
-      $.formalParameter,
-      repeat(seq(',', $.formalParameter)),
+    formal_parameters: $ => seq(
+      $.formal_parameter,
+      repeat(seq(',', $.formal_parameter)),
       optional(',')
     ),
 
-    formalParameter: $ => seq(
-      repeat($.formalParameterModifier),
+    formal_parameter: $ => seq(
+      repeat($.formal_parameter_modifier),
       field("type", $.type),
       field("name", $.identifier),
       optional(seq('[', optional($._expression), ']')),
       optional(field("default", seq('=', $._expression)))
     ),
 
-    formalParameterModifier: _ => choice(
+    formal_parameter_modifier: _ => choice(
       'const',
       'autoptr',
       'out',
@@ -380,15 +380,15 @@ module.exports = grammar({
       'private',
     ),
 
-    declVariable: $ => seq(
-      repeat($.variableModifier),
+    decl_variable: $ => seq(
+      repeat($.variable_modifier),
       field("type", choice($.type, 'auto')),
-      $._varDeclarator,
-      repeat(seq(',', $._varDeclarator)),
+      $._var_declarator,
+      repeat(seq(',', $._var_declarator)),
       ';'
     ),
 
-    variableModifier: _ => choice(
+    variable_modifier: _ => choice(
       'const',
       'static',
       'autoptr',
@@ -401,28 +401,28 @@ module.exports = grammar({
     ),
 
     _expression: $ => choice(
-      $._expressionParenthesized,
-      $.expressionBinary,
-      $.expressionPrefix,
-      $.expressionSuffix,
+      $._expression_parenthesized,
+      $.expression_binary,
+      $.expression_prefix,
+      $.expression_suffix,
       $.cast,
       $.new,
-      $.arrayCreation,
+      $.array_creation,
       $.invokation,
-      $.keyAccess,
-      $.memberAccess,
+      $.key_access,
+      $.member_access,
       $.literal,
       // NOTE: types are first class citizens
-      $.typePrimitive,
-      $.typeIdentifier,
+      $.type_primitive,
+      $.type_identifier,
       $.identifier,
       $.super,
       $.this,
     ),
 
-    _expressionParenthesized: $ => seq('(', $._expression, ')'),
+    _expression_parenthesized: $ => seq('(', $._expression, ')'),
 
-    expressionBinary: $ => choice(
+    expression_binary: $ => choice(
       ...[
         ['&&', PREC.LOGICAL_AND],
         ['||', PREC.LOGICAL_OR],
@@ -452,12 +452,12 @@ module.exports = grammar({
       ),
     ),
 
-    expressionPrefix: $ => prec(PREC.PREFIX, seq(
+    expression_prefix: $ => prec(PREC.PREFIX, seq(
       choice('++', '--', '+', '-', '!', '~'),
       $._expression,
     )),
 
-    expressionSuffix: $ => prec(PREC.POSTFIX, seq(
+    expression_suffix: $ => prec(PREC.POSTFIX, seq(
       $._expression,
       choice('++', '--',)
     )),
@@ -469,78 +469,78 @@ module.exports = grammar({
     new: $ => seq(
       'new',
       field("type", $.type),
-      optional($.actualParameters),
+      optional($.actual_parameters),
     ),
 
-    arrayCreation: $ => seq('{', repeat(seq($._expression, optional(','))), '}'),
+    array_creation: $ => seq('{', repeat(seq($._expression, optional(','))), '}'),
 
     invokation: $ => prec(PREC.INVOKATION, seq(
       optional(seq(field("instance", $._expression), '.')),
       field("invoked", $.identifier),
-      $.actualParameters
+      $.actual_parameters
     )),
 
-    actualParameters: $ => seq(
+    actual_parameters: $ => seq(
       '(',
       optional(seq(
-        $.actualParameter,
-        repeat(seq(',', $.actualParameter)),
+        $.actual_parameter,
+        repeat(seq(',', $.actual_parameter)),
         optional(','),
       )),
       ')'
     ),
 
-    actualParameter: $ => $._expression,
+    actual_parameter: $ => $._expression,
 
-    keyAccess: $ => prec(PREC.KEY_ACCESS, seq(
+    key_access: $ => prec(PREC.KEY_ACCESS, seq(
       field("accessed", $._expression),
       '[',
       field("key", $._expression),
       ']',
     )),
 
-    memberAccess: $ => prec(PREC.DOT, seq(
+    member_access: $ => prec(PREC.DOT, seq(
       field("accessed", $._expression),
       '.',
       field("member", $.identifier),
     )),
 
     type: $ => choice(
-      $.typePrimitive,
-      $.typeRef,
-      $.typeArray,
-      $.typeIdentifier,
+      $.type_primitive,
+      $.type_ref,
+      $.type_array,
+      $.type_identifier,
     ),
 
-    typePrimitive: $ => choice(
-      $.typeVoid,
-      $.typeBool,
-      $.typeInt,
-      $.typeFloat,
-      $.typeString,
-      $.typeTypename,
-      $.typeVector,
-      $.typeFunc,
+    type_primitive: $ => choice(
+      $.type_void,
+      $.type_bool,
+      $.type_int,
+      $.type_float,
+      $.type_string,
+      $.type_typename,
+      $.type_vector,
+      $.type_func,
     ),
 
-    typeVoid: _ => 'void',
-    typeBool: _ => 'bool',
-    typeInt: _ => 'int',
-    typeFloat: _ => 'float',
-    typeString: _ => 'string',
-    typeTypename: _ => 'typename',
-    typeVector: _ => 'vector',
-    typeFunc: _ => 'func',
+    type_void: _ => 'void',
+    type_bool: _ => 'bool',
+    type_int: _ => 'int',
+    type_float: _ => 'float',
+    type_string: _ => 'string',
+    type_typename: _ => 'typename',
+    type_vector: _ => 'vector',
+    type_func: _ => 'func',
 
     // TODO: request some info on precedence
     // ref Foo[]
     // is it [ref Foo]?
     // is it ref [Foo]?
     // TODO: move ref to modifiers; ref static Foo foo; is allowed
-    typeRef: $ => prec(2, seq('ref', $.type)),
-    typeArray: $ => prec(1, seq($.type, '[', ']')),
+    type_ref: $ => prec(2, seq('ref', $.type)),
+    type_array: $ => prec(1, seq($.type, '[', ']')),
 
-    typeIdentifier: $ => seq(
+    type_identifier: $ => seq(
       $.identifier,
       optional($.types)
     ),
@@ -549,36 +549,36 @@ module.exports = grammar({
     this: _ => 'this',
 
     literal: $ => choice(
-      $.literalNull,
-      $.literalBool,
-      $.literalInt,
-      $.literalFloat,
-      $.literalString,
+      $.literal_null,
+      $.literal_bool,
+      $.literal_int,
+      $.literal_float,
+      $.literal_string,
     ),
 
-    literalNull: _ => token(choice('null', 'NULL')),
-    literalBool: _ => token(choice('false', 'true')),
-    literalInt: _ => token(choice(
+    literal_null: _ => token(choice('null', 'NULL')),
+    literal_bool: _ => token(choice('false', 'true')),
+    literal_int: _ => token(choice(
       seq('0x', /[0-9a-fA-F]+/),
       seq(/[0-9]+/, optional(EXPONENT)),
     )),
-    literalFloat: _ => token(seq(
+    literal_float: _ => token(seq(
       /[0-9]+/,
       '.',
       /[0-9]+/,
       optional(EXPONENT),
     )),
-    literalString: $ => seq(
+    literal_string: $ => seq(
       '"',
       repeat(choice(
-        $.escapeSequence,
-        $._stringContent,
+        $.escape_sequence,
+        $._string_content,
       )),
       '"',
     ),
 
-    escapeSequence: _ => token(/\\["\\nrt]/),
-    _stringContent: _ => token(prec(2, choice(
+    escape_sequence: _ => token(/\\["\\nrt]/),
+    _string_content: _ => token(prec(2, choice(
       /[^"\\\n]/,
       /\\[^"\\nrt]/,
     ))),

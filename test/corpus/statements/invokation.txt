@@ -5,8 +5,8 @@ void foo() {
 	bar();
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
-	(statementExpression (invokation (identifier) (actualParameters))))))
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(statement_expression (invokation (identifier) (actual_parameters))))))
 
 ================================================================================
 invokation with parameters
@@ -15,12 +15,12 @@ void foo() {
 	bar(69, 420);
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod (typeVoid) (identifier) (block
-	(statementExpression (invokation
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(statement_expression (invokation
 		(identifier)
-		(actualParameters
-			(actualParameter (literalInt))
-			(actualParameter (literalInt))))))))
+		(actual_parameters
+			(actual_parameter (literal_int))
+			(actual_parameter (literal_int))))))))
 
 ================================================================================
 invokation of instance expression
@@ -29,16 +29,16 @@ void foo() {
 	foo[69].foo.foo[420].foo();
 }
 --------------------------------------------------------------------------------
-(compilationUnit (declMethod returnType: (typeVoid) name: (identifier) body: (block
-	(statementExpression (invokation
-		instance: (keyAccess
-			accessed: (memberAccess
-				accessed: (memberAccess
-					accessed: (keyAccess
+(compilation_unit (decl_method return_type: (type_void) name: (identifier) body: (block
+	(statement_expression (invokation
+		instance: (key_access
+			accessed: (member_access
+				accessed: (member_access
+					accessed: (key_access
 						accessed: (identifier)
-						key: (literalInt))
+						key: (literal_int))
 					member: (identifier))
 				member: (identifier))
-			key: (literalInt))
+			key: (literal_int))
 		invoked: (identifier)
-		(actualParameters))))))
+		(actual_parameters))))))

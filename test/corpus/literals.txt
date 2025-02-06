@@ -6,10 +6,10 @@ void foo() {
 	NULL;
 }
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declMethod (typeVoid) (identifier) (block
-		(statementExpression (literalNull))
-		(statementExpression (literalNull)))))
+(compilation_unit
+	(decl_method (type_void) (identifier) (block
+		(statement_expression (literal_null))
+		(statement_expression (literal_null)))))
 
 ================================================================================
 bool
@@ -19,10 +19,10 @@ void foo() {
 	false;
 }
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declMethod (typeVoid) (identifier) (block
-		(statementExpression (literalBool))
-		(statementExpression (literalBool)))))
+(compilation_unit
+	(decl_method (type_void) (identifier) (block
+		(statement_expression (literal_bool))
+		(statement_expression (literal_bool)))))
 
 ================================================================================
 integer
@@ -34,12 +34,12 @@ void foo() {
 	1e-69;
 }
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declMethod (typeVoid) (identifier) (block
-		(statementExpression (literalInt))
-		(statementExpression (literalInt))
-		(statementExpression (literalInt))
-		(statementExpression (literalInt)))))
+(compilation_unit
+	(decl_method (type_void) (identifier) (block
+		(statement_expression (literal_int))
+		(statement_expression (literal_int))
+		(statement_expression (literal_int))
+		(statement_expression (literal_int)))))
 
 ================================================================================
 float
@@ -51,12 +51,12 @@ void foo() {
 	1.0e-69;
 }
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declMethod (typeVoid) (identifier) (block
-		(statementExpression (literalFloat))
-		(statementExpression (literalFloat))
-		(statementExpression (literalFloat))
-		(statementExpression (literalFloat)))))
+(compilation_unit
+	(decl_method (type_void) (identifier) (block
+		(statement_expression (literal_float))
+		(statement_expression (literal_float))
+		(statement_expression (literal_float))
+		(statement_expression (literal_float)))))
 
 ================================================================================
 string
@@ -71,17 +71,17 @@ void foo() {
 	"C:\some\path";
 }
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declMethod (typeVoid) (identifier) (block
-		(statementExpression (literalString))
-		(statementExpression (literalString))
-		(statementExpression (literalString))
-		(statementExpression (literalString
-			(escapeSequence)
-			(escapeSequence)
-			(escapeSequence)))
-		(statementExpression (literalString
-			(escapeSequence)))
-		(statementExpression (literalString
-			(escapeSequence)))
-		(statementExpression (literalString)))))
+(compilation_unit
+	(decl_method (type_void) (identifier) (block
+		(statement_expression (literal_string))
+		(statement_expression (literal_string))
+		(statement_expression (literal_string))
+		(statement_expression (literal_string
+			(escape_sequence)
+			(escape_sequence)
+			(escape_sequence)))
+		(statement_expression (literal_string
+			(escape_sequence)))
+		(statement_expression (literal_string
+			(escape_sequence)))
+		(statement_expression (literal_string)))))

@@ -3,17 +3,17 @@ generic instantiation
 ================================================================================
 Foo<ref Bar> foo = new Foo<ref Bar>(); 
 --------------------------------------------------------------------------------
-(compilationUnit
-	(declVariable
-		(typeIdentifier
+(compilation_unit
+	(decl_variable
+		(type_identifier
 			(identifier)
-			(types (typeRef (typeIdentifier (identifier)))))
+			(types (type_ref (type_identifier (identifier)))))
 		(identifier)
 		(new
-			(typeIdentifier
+			(type_identifier
 				(identifier)
-				(types (typeRef (typeIdentifier (identifier)))))
-			(actualParameters))))
+				(types (type_ref (type_identifier (identifier)))))
+			(actual_parameters))))
 
 
 
