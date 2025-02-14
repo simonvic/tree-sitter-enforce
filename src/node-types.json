@@ -3679,11 +3679,13 @@
   },
   {
     "type": "comment_block",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "comment_line",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "const",
@@ -3703,23 +3705,28 @@
   },
   {
     "type": "doc_block",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "doc_line",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "else",
-    "named": false
+    "named": false,
+    "extra": true
   },
   {
     "type": "else",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "endif",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "enum",

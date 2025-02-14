@@ -3411,5 +3411,6 @@
     "literal",
     "type",
     "type_primitive"
-  ]
+  ],
+  "reserved": {}
 }
