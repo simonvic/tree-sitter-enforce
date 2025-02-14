@@ -3,9 +3,7 @@
 (decl_method) @function.outer
 
 (decl_method
-  (block) @function.inner)
-@function.outer
-
+  (block) @function.inner) @function.outer
 
 (for
   (block) @loop.inner) @loop.outer

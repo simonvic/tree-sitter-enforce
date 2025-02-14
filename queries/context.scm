@@ -1,33 +1,25 @@
 (if
-  (block) @context.end
-  ) @context
+  (block) @context.end) @context
 
 (decl_method
-  body: (_) @context.end
-  ) @context
+  body: (_) @context.end) @context
 
 (for
-  body: (_) @context.end
-  ) @context
+  body: (_) @context.end) @context
 
 (foreach
-  body: (_) @context.end
-  ) @context
+  body: (_) @context.end) @context
 
 (decl_class
-  body: (_) @context.end
-  ) @context
+  body: (_) @context.end) @context
 
 (switch
-  body: (_) @context.end
-  ) @context
+  body: (_) @context.end) @context
 
 (switch
-  body: (_) @context.end
-  ) @context
+  body: (_) @context.end) @context
 
 (switch_case
-  label: (_) @context.end
-  ) @context
+  label: (_) @context.end) @context
 
 (statement_expression) @context
