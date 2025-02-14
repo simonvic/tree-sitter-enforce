@@ -131,7 +131,6 @@
   "auto" ; TODO: is it type?
 ] @keyword
 
-; ["thread"] @keyword.coroutine
 "return" @keyword.return
 
 [
@@ -200,27 +199,6 @@
       name: (identifier) @constructor.deconstructor
       (#eq? @constructor.deconstructor @foo))))
 
-; Constant fields
-; (decl_field
-;   ((field_modifier) @_modifier (#eq? @_modifier "const"))
-;   (_)
-;   (identifier) @constant
-;   )
-; TODO: mark assignment to const as error?
-; Constant parameters and local variables referencing to it
-; (decl_method
-;   (formal_parameters
-;   	(formal_parameter
-;   	  ((formal_parameter_modifier) @_modifier (#eq? @_modifier "const"))
-;   	  name: (identifier) @_constantParam @constant
-;   	  )
-;   	)
-;   body: (block
-;   	(_
-;   	  ((identifier) @constant (#eq? @constant @_constantParam))
-;   	  )
-;   	)
-;   )
 ; Dead code
 (block
   (_)*
@@ -229,5 +207,3 @@
   (#set! "priority" 110))
 
 (ERROR) @error
-
-; TODO: string and print format injection
