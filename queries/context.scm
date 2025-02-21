@@ -13,7 +13,7 @@
 (decl_class
   body: (_) @context.end) @context
 
-(switch
+(decl_enum
   body: (_) @context.end) @context
 
 (switch
@@ -21,5 +21,3 @@
 
 (switch_case
   label: (_) @context.end) @context
-
-(statement_expression) @context
