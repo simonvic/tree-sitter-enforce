@@ -1,15 +1,30 @@
-(decl_class) @class.outer
+[
+  (comment_line)
+  (comment_block)
+  (doc_line)
+  (doc_block)
+] @comment.outer
 
-(decl_method) @function.outer
+[
+  (literal_int)
+  (literal_float)
+] @number.inner
+
+; TODO: capture inside braces
+(decl_class
+  body: (_) @class.inner) @class.outer
 
 (decl_method
-  (block) @function.inner) @function.outer
+  body: (_) @function.inner) @function.outer
 
 (for
-  (block) @loop.inner) @loop.outer
+  body: (_) @loop.inner) @loop.outer
 
 (while
-  (block) @loop.inner) @loop.outer
+  body: (_) @loop.inner) @loop.outer
+
+(return
+  (_)? @return.inner) @return.outer
 
 ; blocks
 (block) @block.outer
@@ -41,15 +56,3 @@
   .
   ","? @_end
   (#make-range! "parameter.outer" @parameter.inner @_end))
-
-[
-  (comment_line)
-  (comment_block)
-  (doc_line)
-  (doc_block)
-] @comment.outer
-
-[
-  (literal_int)
-  (literal_float)
-] @number.inner
