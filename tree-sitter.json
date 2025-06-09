@@ -33,7 +33,7 @@
   },
   "bindings": {
     "c": false,
-    "go": false,
+    "go": true,
     "node": false,
     "python": false,
     "rust": false,
