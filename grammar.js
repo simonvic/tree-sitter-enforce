@@ -44,6 +44,7 @@ module.exports = grammar({
   word: $ => $.identifier,
 
   conflicts: $ => [
+    [$.method_modifier, $.class_modifier],
     [$.method_modifier, $.variable_modifier],
     [$.method_modifier, $.field_modifier],
     [$.type_identifier, $._expression],
@@ -244,7 +245,10 @@ module.exports = grammar({
       optional(';'),
     ),
 
-    class_modifier: _ => 'modded',
+    class_modifier: _ => choice(
+      'modded',
+      'sealed',
+    ),
 
     type_parameters: $ => seq('<', $.type_parameter, repeat(seq(',', $.type_parameter)), '>'),
 
@@ -354,6 +358,7 @@ module.exports = grammar({
       'event',
       'protected',
       'private',
+      'sealed'
     ),
 
     formal_parameters: $ => seq(
