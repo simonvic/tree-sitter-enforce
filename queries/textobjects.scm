@@ -31,28 +31,26 @@
 
 (invokation) @call.outer
 
+; parameters
 (formal_parameters
-  "," @_start
+  "," @parameter.outer
   .
-  (formal_parameter) @parameter.inner
-  (#make-range! "parameter.outer" @_start @parameter.inner))
+  (formal_parameter) @parameter.inner @parameter.outer)
 
 (formal_parameters
   .
-  (formal_parameter) @parameter.inner
+  (_) @parameter.inner @parameter.outer
   .
-  ","? @_end
-  (#make-range! "parameter.outer" @parameter.inner @_end))
+  ","? @parameter.outer)
 
 (actual_parameters
-  "," @_start
+  "," @parameter.outer
   .
-  (actual_parameter) @parameter.inner
-  (#make-range! "parameter.outer" @_start @parameter.inner))
+  (_) @parameter.inner @parameter.outer)
 
 (actual_parameters
   .
-  (actual_parameter) @parameter.inner
+  (_) @parameter.inner @parameter.outer
   .
-  ","? @_end
-  (#make-range! "parameter.outer" @parameter.inner @_end))
+  ","? @parameter.outer)
+
