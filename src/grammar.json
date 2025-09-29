@@ -1330,6 +1330,13 @@
           ]
         },
         {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "class_modifier"
+          }
+        },
+        {
           "type": "STRING",
           "value": "enum"
         },

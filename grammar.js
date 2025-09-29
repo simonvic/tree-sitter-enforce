@@ -304,6 +304,7 @@ module.exports = grammar({
 
     decl_enum: $ => seq(
       optional($.attribute_list),
+      repeat($.class_modifier),
       'enum',
       field("typename", $.identifier),
       optional(seq(

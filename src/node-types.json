@@ -854,11 +854,15 @@
       }
     },
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": false,
       "types": [
         {
           "type": "attribute_list",
+          "named": true
+        },
+        {
+          "type": "class_modifier",
           "named": true
         }
       ]
