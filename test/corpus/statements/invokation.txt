@@ -23,6 +23,27 @@ void foo() {
 			(actual_parameter (literal_int))))))))
 
 ================================================================================
+invokation with named parameters
+================================================================================
+void foo() {
+	bar(x: 69, y: 420);
+}
+--------------------------------------------------------------------------------
+(compilation_unit (decl_method
+	return_type: (type_void)
+	name: (identifier)
+	body: (block
+		(statement_expression (invokation
+			invoked: (identifier)
+			(actual_parameters
+				(actual_parameter
+					name: (identifier)
+					(literal_int))
+				(actual_parameter
+					name: (identifier)
+					(literal_int))))))))
+
+================================================================================
 invokation of instance expression
 ================================================================================
 void foo() {

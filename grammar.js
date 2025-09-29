@@ -498,7 +498,10 @@ module.exports = grammar({
       ')'
     ),
 
-    actual_parameter: $ => $._expression,
+    actual_parameter: $ => seq(
+      optional(seq(field("name", $.identifier), ':')),
+      $._expression
+    ),
 
     key_access: $ => prec(PREC.KEY_ACCESS, seq(
       field("accessed", $._expression),
