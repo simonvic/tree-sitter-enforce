@@ -378,6 +378,7 @@ module.exports = grammar({
     ),
 
     formal_parameter_modifier: _ => choice(
+      'owned',
       'const',
       'autoptr',
       'out',

@@ -1808,6 +1808,10 @@
       "members": [
         {
           "type": "STRING",
+          "value": "owned"
+        },
+        {
+          "type": "STRING",
           "value": "const"
         },
         {
