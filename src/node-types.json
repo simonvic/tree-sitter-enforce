@@ -1303,6 +1303,10 @@
       "required": false,
       "types": [
         {
+          "type": "actual_parameters",
+          "named": true
+        },
+        {
           "type": "variable_modifier",
           "named": true
         }

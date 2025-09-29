@@ -53,6 +53,8 @@ module.exports = grammar({
     [$.type, $._expression],
     [$.statement, $._expression],
 
+    [$.decl_method, $.actual_parameters],
+
     // TODO: allow blocks as statements (anonymous scope) and allow array_creation only where possible
     [$.block, $.array_creation],
   ],
@@ -391,9 +393,19 @@ module.exports = grammar({
     decl_variable: $ => seq(
       repeat($.variable_modifier),
       field("type", choice($.type, 'auto')),
-      $._var_declarator,
-      repeat(seq(',', $._var_declarator)),
+      choice(
+        seq(
+          $._var_declarator,
+          repeat(seq(',', $._var_declarator)),
+        ),
+        $._function_declarator
+      ),
       ';'
+    ),
+
+    _function_declarator: $ => seq(
+      field("name", $.identifier),
+      $.actual_parameters,
     ),
 
     variable_modifier: _ => choice(

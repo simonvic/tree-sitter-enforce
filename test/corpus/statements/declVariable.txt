@@ -92,3 +92,16 @@ int x[69] = {1, 2, 3};
 			(literal_int)
 			(literal_int))))
 
+================================================================================
+variable declaration with function declarator
+================================================================================
+Point point(1, 2, 3);
+--------------------------------------------------------------------------------
+(compilation_unit
+	(decl_variable
+		type: (type_identifier (identifier))
+		name: (identifier)
+		(actual_parameters
+			(actual_parameter (literal_int))
+			(actual_parameter (literal_int))
+			(actual_parameter (literal_int)))))
