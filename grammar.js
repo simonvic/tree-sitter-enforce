@@ -372,7 +372,8 @@ module.exports = grammar({
       repeat($.formal_parameter_modifier),
       field("type", $.type),
       field("name", $.identifier),
-      optional(seq('[', optional($._expression), ']')),
+      // TODO: use declarator (and array declarator) rule
+      repeat(seq('[', optional($._expression), ']')),
       optional(field("default", seq('=', $._expression)))
     ),
 
