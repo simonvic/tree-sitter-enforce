@@ -30,10 +30,6 @@
     "named": true,
     "subtypes": [
       {
-        "type": "assignment",
-        "named": true
-      },
-      {
         "type": "block",
         "named": true
       },
@@ -179,6 +175,10 @@
           "named": true
         },
         {
+          "type": "assignment",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -262,6 +262,10 @@
       "types": [
         {
           "type": "array_creation",
+          "named": true
+        },
+        {
+          "type": "assignment",
           "named": true
         },
         {
@@ -390,6 +394,10 @@
             "named": true
           },
           {
+            "type": "assignment",
+            "named": true
+          },
+          {
             "type": "cast",
             "named": true
           },
@@ -464,6 +472,10 @@
             "named": true
           },
           {
+            "type": "assignment",
+            "named": true
+          },
+          {
             "type": "cast",
             "named": true
           },
@@ -533,6 +545,10 @@
       "types": [
         {
           "type": "array_creation",
+          "named": true
+        },
+        {
+          "type": "assignment",
           "named": true
         },
         {
@@ -642,6 +658,10 @@
           },
           {
             "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "assignment",
             "named": true
           },
           {
@@ -900,6 +920,10 @@
             "named": true
           },
           {
+            "type": "assignment",
+            "named": true
+          },
+          {
             "type": "cast",
             "named": true
           },
@@ -971,6 +995,10 @@
           },
           {
             "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "assignment",
             "named": true
           },
           {
@@ -1142,6 +1170,10 @@
             "named": true
           },
           {
+            "type": "assignment",
+            "named": true
+          },
+          {
             "type": "cast",
             "named": true
           },
@@ -1213,6 +1245,10 @@
           },
           {
             "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "assignment",
             "named": true
           },
           {
@@ -1316,7 +1352,6 @@
   {
     "type": "define",
     "named": true,
-    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -1339,6 +1374,10 @@
       "types": [
         {
           "type": "array_creation",
+          "named": true
+        },
+        {
+          "type": "assignment",
           "named": true
         },
         {
@@ -1452,6 +1491,10 @@
           },
           {
             "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "assignment",
             "named": true
           },
           {
@@ -1623,6 +1666,10 @@
             "named": true
           },
           {
+            "type": "assignment",
+            "named": true
+          },
+          {
             "type": "cast",
             "named": true
           },
@@ -1694,6 +1741,10 @@
           },
           {
             "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "assignment",
             "named": true
           },
           {
@@ -1769,6 +1820,10 @@
           "named": true
         },
         {
+          "type": "assignment",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -1837,6 +1892,10 @@
       "types": [
         {
           "type": "array_creation",
+          "named": true
+        },
+        {
+          "type": "assignment",
           "named": true
         },
         {
@@ -1934,6 +1993,10 @@
             "named": true
           },
           {
+            "type": "assignment",
+            "named": true
+          },
+          {
             "type": "cast",
             "named": true
           },
@@ -1996,7 +2059,15 @@
         "required": true,
         "types": [
           {
-            "type": "statement",
+            "type": "decl_variable",
+            "named": true
+          },
+          {
+            "type": "empty_statement",
+            "named": true
+          },
+          {
+            "type": "statement_expression",
             "named": true
           }
         ]
@@ -2015,6 +2086,10 @@
           },
           {
             "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "assignment",
             "named": true
           },
           {
@@ -2105,6 +2180,10 @@
           },
           {
             "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "assignment",
             "named": true
           },
           {
@@ -2212,6 +2291,10 @@
             "named": true
           },
           {
+            "type": "assignment",
+            "named": true
+          },
+          {
             "type": "cast",
             "named": true
           },
@@ -2296,6 +2379,10 @@
       "types": [
         {
           "type": "array_creation",
+          "named": true
+        },
+        {
+          "type": "assignment",
           "named": true
         },
         {
@@ -2394,6 +2481,10 @@
           "named": true
         },
         {
+          "type": "assignment",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -2455,7 +2546,6 @@
   {
     "type": "ifdef",
     "named": true,
-    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -2471,7 +2561,6 @@
   {
     "type": "ifndef",
     "named": true,
-    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -2487,7 +2576,6 @@
   {
     "type": "include",
     "named": true,
-    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -2518,6 +2606,10 @@
           },
           {
             "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "assignment",
             "named": true
           },
           {
@@ -2640,6 +2732,10 @@
             "named": true
           },
           {
+            "type": "assignment",
+            "named": true
+          },
+          {
             "type": "cast",
             "named": true
           },
@@ -2711,6 +2807,10 @@
           },
           {
             "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "assignment",
             "named": true
           },
           {
@@ -2806,6 +2906,10 @@
           },
           {
             "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "assignment",
             "named": true
           },
           {
@@ -2922,6 +3026,10 @@
           "named": true
         },
         {
+          "type": "assignment",
+          "named": true
+        },
+        {
           "type": "cast",
           "named": true
         },
@@ -2990,6 +3098,10 @@
       "types": [
         {
           "type": "array_creation",
+          "named": true
+        },
+        {
+          "type": "assignment",
           "named": true
         },
         {
@@ -3108,6 +3220,10 @@
             "named": true
           },
           {
+            "type": "assignment",
+            "named": true
+          },
+          {
             "type": "cast",
             "named": true
           },
@@ -3219,6 +3335,10 @@
           },
           {
             "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "assignment",
             "named": true
           },
           {
@@ -3455,6 +3575,10 @@
           },
           {
             "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "assignment",
             "named": true
           },
           {
