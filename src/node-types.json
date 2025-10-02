@@ -1447,10 +1447,6 @@
             "named": false
           },
           {
-            "type": "=",
-            "named": false
-          },
-          {
             "type": "array_creation",
             "named": true
           },

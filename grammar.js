@@ -187,7 +187,7 @@ module.exports = grammar({
       field("init", $.statement),
       field("condition", $._expression), // NOTE: not optional in enforce
       ';',
-      field("update", optional($._expression)),
+      optional(field("update", $._expression)),
       ')',
       field("body", $.statement),
     ),
@@ -329,7 +329,7 @@ module.exports = grammar({
     enum_member: $ => seq(
       optional($.attribute_list),
       field("name", $.identifier),
-      field("value", optional(seq('=', $._expression)))
+      optional(seq('=', field("value", $._expression)))
     ),
 
     decl_method: $ => seq(
