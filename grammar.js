@@ -125,7 +125,6 @@ module.exports = grammar({
       $.for,
       $.foreach,
       $.decl_variable,
-      $.assignment,
       $.invokation,
     ),
     statement_expression: $ => seq($._expression, ';'),
@@ -184,7 +183,7 @@ module.exports = grammar({
     for: $ => seq(
       'for',
       '(',
-      field("init", $.statement),
+      field("init", choice($.decl_variable, $.statement_expression, $.empty_statement)),
       field("condition", $._expression), // NOTE: not optional in enforce
       ';',
       optional(field("update", $._expression)),
@@ -208,7 +207,7 @@ module.exports = grammar({
       $.identifier
     ),
 
-    assignment: $ => seq(
+    assignment: $ => prec.right(seq(
       field("lhs", $._expression),
       field("bop", choice(
         '=',
@@ -223,8 +222,7 @@ module.exports = grammar({
         '>>=',
       )),
       field("rhs", $._expression),
-      ';'
-    ),
+    )),
 
     attribute_list: $ => seq(
       '[',
@@ -422,6 +420,7 @@ module.exports = grammar({
 
     _expression: $ => choice(
       $._expression_parenthesized,
+      $.assignment,
       $.expression_binary,
       $.expression_prefix,
       $.expression_suffix,

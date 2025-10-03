@@ -44,12 +44,37 @@ void foo() {
 		update: (expression_suffix (identifier))
 		body: (block))
 	(for
-		init: (assignment
-			lhs: (identifier)
-			rhs: (literal_int))
+		init: (statement_expression
+            (assignment
+                lhs: (identifier)
+                rhs: (literal_int)))
 		condition: (expression_binary
 			lhs: (identifier)
 			rhs: (literal_int))
 		update: (expression_suffix (identifier))
 		body: (block)))))
+================================================================================
+for with assignment
+================================================================================
+void foo() {
+	for (int i = 0; i < 69; i += 1) {}
+}
+--------------------------------------------------------------------------------
 
+(compilation_unit
+  (decl_method
+    return_type: (type_void)
+    name: (identifier)
+    body: (block
+      (for
+        init: (decl_variable
+          type: (type_int)
+          name: (identifier)
+          init: (literal_int))
+        condition: (expression_binary
+          lhs: (identifier)
+          rhs: (literal_int))
+        update: (assignment
+          lhs: (identifier)
+          rhs: (literal_int))
+        body: (block)))))

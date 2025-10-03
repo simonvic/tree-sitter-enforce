@@ -6,6 +6,7 @@ void foo() {
 }
 --------------------------------------------------------------------------------
 (compilation_unit (decl_method return_type: (type_void) name: (identifier) body: (block
-		(assignment
-			lhs: (identifier)
-			rhs: (literal_int)))))
+        (statement_expression
+            (assignment
+              lhs: (identifier)
+              rhs: (literal_int))))))
