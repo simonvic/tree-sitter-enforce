@@ -30,6 +30,10 @@
     "named": true,
     "subtypes": [
       {
+        "type": "assignment",
+        "named": true
+      },
+      {
         "type": "block",
         "named": true
       },
@@ -175,10 +179,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "cast",
           "named": true
         },
@@ -262,10 +262,6 @@
       "types": [
         {
           "type": "array_creation",
-          "named": true
-        },
-        {
-          "type": "assignment",
           "named": true
         },
         {
@@ -394,10 +390,6 @@
             "named": true
           },
           {
-            "type": "assignment",
-            "named": true
-          },
-          {
             "type": "cast",
             "named": true
           },
@@ -472,10 +464,6 @@
             "named": true
           },
           {
-            "type": "assignment",
-            "named": true
-          },
-          {
             "type": "cast",
             "named": true
           },
@@ -545,10 +533,6 @@
       "types": [
         {
           "type": "array_creation",
-          "named": true
-        },
-        {
-          "type": "assignment",
           "named": true
         },
         {
@@ -658,10 +642,6 @@
           },
           {
             "type": "array_creation",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
@@ -920,10 +900,6 @@
             "named": true
           },
           {
-            "type": "assignment",
-            "named": true
-          },
-          {
             "type": "cast",
             "named": true
           },
@@ -995,10 +971,6 @@
           },
           {
             "type": "array_creation",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
@@ -1170,10 +1142,6 @@
             "named": true
           },
           {
-            "type": "assignment",
-            "named": true
-          },
-          {
             "type": "cast",
             "named": true
           },
@@ -1245,10 +1213,6 @@
           },
           {
             "type": "array_creation",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
@@ -1377,10 +1341,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "cast",
           "named": true
         },
@@ -1487,10 +1447,6 @@
           },
           {
             "type": "array_creation",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
@@ -1662,10 +1618,6 @@
             "named": true
           },
           {
-            "type": "assignment",
-            "named": true
-          },
-          {
             "type": "cast",
             "named": true
           },
@@ -1737,10 +1689,6 @@
           },
           {
             "type": "array_creation",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
@@ -1816,10 +1764,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "cast",
           "named": true
         },
@@ -1888,10 +1832,6 @@
       "types": [
         {
           "type": "array_creation",
-          "named": true
-        },
-        {
-          "type": "assignment",
           "named": true
         },
         {
@@ -1972,6 +1912,52 @@
           }
         ]
       },
+      "bop": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "&=",
+            "named": false
+          },
+          {
+            "type": "*=",
+            "named": false
+          },
+          {
+            "type": "+=",
+            "named": false
+          },
+          {
+            "type": "-=",
+            "named": false
+          },
+          {
+            "type": "/=",
+            "named": false
+          },
+          {
+            "type": "<<=",
+            "named": false
+          },
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": ">>=",
+            "named": false
+          },
+          {
+            "type": "^=",
+            "named": false
+          },
+          {
+            "type": "|=",
+            "named": false
+          }
+        ]
+      },
       "condition": {
         "multiple": true,
         "required": true,
@@ -1986,10 +1972,6 @@
           },
           {
             "type": "array_creation",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
@@ -2055,20 +2037,12 @@
         "required": true,
         "types": [
           {
-            "type": "decl_variable",
-            "named": true
-          },
-          {
-            "type": "empty_statement",
-            "named": true
-          },
-          {
-            "type": "statement_expression",
+            "type": "statement",
             "named": true
           }
         ]
       },
-      "update": {
+      "lhs": {
         "multiple": true,
         "required": false,
         "types": [
@@ -2082,10 +2056,6 @@
           },
           {
             "type": "array_creation",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
@@ -2145,6 +2115,194 @@
             "named": true
           }
         ]
+      },
+      "rhs": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "cast",
+            "named": true
+          },
+          {
+            "type": "expression_binary",
+            "named": true
+          },
+          {
+            "type": "expression_prefix",
+            "named": true
+          },
+          {
+            "type": "expression_suffix",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "invokation",
+            "named": true
+          },
+          {
+            "type": "key_access",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_access",
+            "named": true
+          },
+          {
+            "type": "new",
+            "named": true
+          },
+          {
+            "type": "super",
+            "named": true
+          },
+          {
+            "type": "this",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "type_primitive",
+            "named": true
+          }
+        ]
+      },
+      "update": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "&=",
+            "named": false
+          },
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "*=",
+            "named": false
+          },
+          {
+            "type": "+=",
+            "named": false
+          },
+          {
+            "type": "-=",
+            "named": false
+          },
+          {
+            "type": "/=",
+            "named": false
+          },
+          {
+            "type": "<<=",
+            "named": false
+          },
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": ">>=",
+            "named": false
+          },
+          {
+            "type": "^=",
+            "named": false
+          },
+          {
+            "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "cast",
+            "named": true
+          },
+          {
+            "type": "expression_binary",
+            "named": true
+          },
+          {
+            "type": "expression_prefix",
+            "named": true
+          },
+          {
+            "type": "expression_suffix",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "key_access",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_access",
+            "named": true
+          },
+          {
+            "type": "new",
+            "named": true
+          },
+          {
+            "type": "statement",
+            "named": true
+          },
+          {
+            "type": "super",
+            "named": true
+          },
+          {
+            "type": "this",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "type_primitive",
+            "named": true
+          },
+          {
+            "type": "|=",
+            "named": false
+          }
+        ]
       }
     }
   },
@@ -2176,10 +2334,6 @@
           },
           {
             "type": "array_creation",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
@@ -2287,10 +2441,6 @@
             "named": true
           },
           {
-            "type": "assignment",
-            "named": true
-          },
-          {
             "type": "cast",
             "named": true
           },
@@ -2375,10 +2525,6 @@
       "types": [
         {
           "type": "array_creation",
-          "named": true
-        },
-        {
-          "type": "assignment",
           "named": true
         },
         {
@@ -2474,10 +2620,6 @@
       "types": [
         {
           "type": "array_creation",
-          "named": true
-        },
-        {
-          "type": "assignment",
           "named": true
         },
         {
@@ -2605,10 +2747,6 @@
             "named": true
           },
           {
-            "type": "assignment",
-            "named": true
-          },
-          {
             "type": "cast",
             "named": true
           },
@@ -2728,10 +2866,6 @@
             "named": true
           },
           {
-            "type": "assignment",
-            "named": true
-          },
-          {
             "type": "cast",
             "named": true
           },
@@ -2803,10 +2937,6 @@
           },
           {
             "type": "array_creation",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
@@ -2902,10 +3032,6 @@
           },
           {
             "type": "array_creation",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
@@ -3022,10 +3148,6 @@
           "named": true
         },
         {
-          "type": "assignment",
-          "named": true
-        },
-        {
           "type": "cast",
           "named": true
         },
@@ -3094,10 +3216,6 @@
       "types": [
         {
           "type": "array_creation",
-          "named": true
-        },
-        {
-          "type": "assignment",
           "named": true
         },
         {
@@ -3216,10 +3334,6 @@
             "named": true
           },
           {
-            "type": "assignment",
-            "named": true
-          },
-          {
             "type": "cast",
             "named": true
           },
@@ -3331,10 +3445,6 @@
           },
           {
             "type": "array_creation",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
@@ -3571,10 +3681,6 @@
           },
           {
             "type": "array_creation",
-            "named": true
-          },
-          {
-            "type": "assignment",
             "named": true
           },
           {
