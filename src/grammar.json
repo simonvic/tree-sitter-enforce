@@ -656,8 +656,21 @@
               "type": "FIELD",
               "name": "update",
               "content": {
-                "type": "SYMBOL",
-                "name": "_expression"
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_expression"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "statement"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_assignment"
+                  }
+                ]
               }
             },
             {
@@ -771,7 +784,7 @@
         }
       ]
     },
-    "assignment": {
+    "_assignment": {
       "type": "SEQ",
       "members": [
         {
@@ -838,6 +851,15 @@
             "type": "SYMBOL",
             "name": "_expression"
           }
+        }
+      ]
+    },
+    "assignment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_assignment"
         },
         {
           "type": "STRING",

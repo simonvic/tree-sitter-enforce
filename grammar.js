@@ -187,7 +187,12 @@ module.exports = grammar({
       field("init", $.statement),
       field("condition", $._expression), // NOTE: not optional in enforce
       ';',
-      optional(field("update", $._expression)),
+      optional(field("update", choice(
+        $._expression,
+        // NOTE: all statements are allowed except for `if` and `typedef`. Eventually filter them out
+        $.statement,
+        $._assignment
+      ))),
       ')',
       field("body", $.statement),
     ),
@@ -208,7 +213,7 @@ module.exports = grammar({
       $.identifier
     ),
 
-    assignment: $ => seq(
+    _assignment: $ => seq(
       field("lhs", $._expression),
       field("bop", choice(
         '=',
@@ -223,8 +228,8 @@ module.exports = grammar({
         '>>=',
       )),
       field("rhs", $._expression),
-      ';'
     ),
+    assignment: $ => seq($._assignment, ';'),
 
     attribute_list: $ => seq(
       '[',

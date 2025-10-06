@@ -1316,7 +1316,6 @@
   {
     "type": "define",
     "named": true,
-    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -1913,6 +1912,52 @@
           }
         ]
       },
+      "bop": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "&=",
+            "named": false
+          },
+          {
+            "type": "*=",
+            "named": false
+          },
+          {
+            "type": "+=",
+            "named": false
+          },
+          {
+            "type": "-=",
+            "named": false
+          },
+          {
+            "type": "/=",
+            "named": false
+          },
+          {
+            "type": "<<=",
+            "named": false
+          },
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": ">>=",
+            "named": false
+          },
+          {
+            "type": "^=",
+            "named": false
+          },
+          {
+            "type": "|=",
+            "named": false
+          }
+        ]
+      },
       "condition": {
         "multiple": true,
         "required": true,
@@ -1997,7 +2042,7 @@
           }
         ]
       },
-      "update": {
+      "lhs": {
         "multiple": true,
         "required": false,
         "types": [
@@ -2068,6 +2113,194 @@
           {
             "type": "type_primitive",
             "named": true
+          }
+        ]
+      },
+      "rhs": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "cast",
+            "named": true
+          },
+          {
+            "type": "expression_binary",
+            "named": true
+          },
+          {
+            "type": "expression_prefix",
+            "named": true
+          },
+          {
+            "type": "expression_suffix",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "invokation",
+            "named": true
+          },
+          {
+            "type": "key_access",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_access",
+            "named": true
+          },
+          {
+            "type": "new",
+            "named": true
+          },
+          {
+            "type": "super",
+            "named": true
+          },
+          {
+            "type": "this",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "type_primitive",
+            "named": true
+          }
+        ]
+      },
+      "update": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "&=",
+            "named": false
+          },
+          {
+            "type": "(",
+            "named": false
+          },
+          {
+            "type": ")",
+            "named": false
+          },
+          {
+            "type": "*=",
+            "named": false
+          },
+          {
+            "type": "+=",
+            "named": false
+          },
+          {
+            "type": "-=",
+            "named": false
+          },
+          {
+            "type": "/=",
+            "named": false
+          },
+          {
+            "type": "<<=",
+            "named": false
+          },
+          {
+            "type": "=",
+            "named": false
+          },
+          {
+            "type": ">>=",
+            "named": false
+          },
+          {
+            "type": "^=",
+            "named": false
+          },
+          {
+            "type": "array_creation",
+            "named": true
+          },
+          {
+            "type": "cast",
+            "named": true
+          },
+          {
+            "type": "expression_binary",
+            "named": true
+          },
+          {
+            "type": "expression_prefix",
+            "named": true
+          },
+          {
+            "type": "expression_suffix",
+            "named": true
+          },
+          {
+            "type": "identifier",
+            "named": true
+          },
+          {
+            "type": "key_access",
+            "named": true
+          },
+          {
+            "type": "literal",
+            "named": true
+          },
+          {
+            "type": "member_access",
+            "named": true
+          },
+          {
+            "type": "new",
+            "named": true
+          },
+          {
+            "type": "statement",
+            "named": true
+          },
+          {
+            "type": "super",
+            "named": true
+          },
+          {
+            "type": "this",
+            "named": true
+          },
+          {
+            "type": "type_identifier",
+            "named": true
+          },
+          {
+            "type": "type_primitive",
+            "named": true
+          },
+          {
+            "type": "|=",
+            "named": false
           }
         ]
       }
@@ -2451,7 +2684,6 @@
   {
     "type": "ifdef",
     "named": true,
-    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -2467,7 +2699,6 @@
   {
     "type": "ifndef",
     "named": true,
-    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -2483,7 +2714,6 @@
   {
     "type": "include",
     "named": true,
-    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
