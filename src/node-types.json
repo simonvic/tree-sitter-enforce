@@ -1316,6 +1316,7 @@
   {
     "type": "define",
     "named": true,
+    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -2684,6 +2685,7 @@
   {
     "type": "ifdef",
     "named": true,
+    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -2699,6 +2701,7 @@
   {
     "type": "ifndef",
     "named": true,
+    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
@@ -2714,6 +2717,7 @@
   {
     "type": "include",
     "named": true,
+    "extra": true,
     "fields": {},
     "children": {
       "multiple": false,
