@@ -1691,6 +1691,10 @@
         },
         {
           "type": "STRING",
+          "value": "notnull"
+        },
+        {
+          "type": "STRING",
           "value": "event"
         },
         {

@@ -363,6 +363,7 @@ module.exports = grammar({
       'external',
       'volatile',
       'owned',
+      'notnull',
       'event',
       'protected',
       'private',

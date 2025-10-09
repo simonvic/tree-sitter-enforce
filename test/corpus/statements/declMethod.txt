@@ -1,10 +1,11 @@
 ================================================================================
 abstract method declaration
 ================================================================================
-proto static native void foo();
+proto static native notnull void foo();
 --------------------------------------------------------------------------------
 (compilation_unit
 	(decl_method
+		(method_modifier)
 		(method_modifier)
 		(method_modifier)
 		(method_modifier)
