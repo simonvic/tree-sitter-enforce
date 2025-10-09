@@ -31,6 +31,8 @@ const PREC = {
   LOGICAL_OR: 4,
 };
 
+const PREPROC_WS = token.immediate(/[\s\t]+/);
+
 module.exports = grammar({
   name: "enforce",
 
@@ -83,14 +85,14 @@ module.exports = grammar({
       $.typedef,
     )),
 
-    include: $ => seq('#include', $.preproc_const),
-    define: $ => seq('#define', $.preproc_const),
-    ifdef: $ => seq('#ifdef', $.preproc_const),
-    ifndef: $ => seq('#ifndef', $.preproc_const),
-    else: _ => token('#else'),
-    endif: _ => token('#endif'),
+    include: $ => seq('#include', PREPROC_WS, $.preproc_const),
+    define: $ => seq('#define', PREPROC_WS, $.preproc_const),
+    ifdef: $ => seq('#ifdef', PREPROC_WS, $.preproc_const),
+    ifndef: $ => seq('#ifndef', PREPROC_WS, $.preproc_const),
+    else: _ => '#else',
+    endif: _ => '#endif',
 
-    preproc_const: _ => token.immediate(choice(/\s+[^\n#"]+/, /\s+"[^\n"]*"/)),
+    preproc_const: _ => token.immediate(choice(/[^\n#"]+/, /"[^\n"]*"/)),
 
     doc_line: _ => token(prec(PREC.DOC, seq(choice('//!', '//?'), /[^\n]*/))),
 

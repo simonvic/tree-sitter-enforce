@@ -28,10 +28,10 @@
 
 ; Preprocessor directives
 [
-  (include)
-  (define)
-  (ifdef)
-  (ifndef)
+  "#include"
+  "#define"
+  "#ifdef"
+  "#ifndef"
   (else)
   (endif)
 ] @keyword.directive
