@@ -32,8 +32,8 @@
   "#define"
   "#ifdef"
   "#ifndef"
-  (else)
-  (endif)
+  (preproc_else)
+  (preproc_endif)
 ] @keyword.directive
 
 (preproc_const) @constant.macro

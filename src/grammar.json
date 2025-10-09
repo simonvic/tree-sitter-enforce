@@ -31,7 +31,7 @@
         ]
       }
     },
-    "include": {
+    "preproc_include": {
       "type": "SEQ",
       "members": [
         {
@@ -51,7 +51,7 @@
         }
       ]
     },
-    "define": {
+    "preproc_define": {
       "type": "SEQ",
       "members": [
         {
@@ -71,7 +71,7 @@
         }
       ]
     },
-    "ifdef": {
+    "preproc_ifdef": {
       "type": "SEQ",
       "members": [
         {
@@ -91,7 +91,7 @@
         }
       ]
     },
-    "ifndef": {
+    "preproc_ifndef": {
       "type": "SEQ",
       "members": [
         {
@@ -111,11 +111,11 @@
         }
       ]
     },
-    "else": {
+    "preproc_else": {
       "type": "STRING",
       "value": "#else"
     },
-    "endif": {
+    "preproc_endif": {
       "type": "STRING",
       "value": "#endif"
     },
@@ -3481,27 +3481,27 @@
     },
     {
       "type": "SYMBOL",
-      "name": "include"
+      "name": "preproc_include"
     },
     {
       "type": "SYMBOL",
-      "name": "define"
+      "name": "preproc_define"
     },
     {
       "type": "SYMBOL",
-      "name": "ifdef"
+      "name": "preproc_ifdef"
     },
     {
       "type": "SYMBOL",
-      "name": "ifndef"
+      "name": "preproc_ifndef"
     },
     {
       "type": "SYMBOL",
-      "name": "else"
+      "name": "preproc_else"
     },
     {
       "type": "SYMBOL",
-      "name": "endif"
+      "name": "preproc_endif"
     }
   ],
   "conflicts": [

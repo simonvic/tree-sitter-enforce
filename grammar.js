@@ -67,12 +67,12 @@ module.exports = grammar({
     $.comment_block,
     $.doc_line,
     $.doc_block,
-    $.include,
-    $.define,
-    $.ifdef,
-    $.ifndef,
-    $.else,
-    $.endif
+    $.preproc_include,
+    $.preproc_define,
+    $.preproc_ifdef,
+    $.preproc_ifndef,
+    $.preproc_else,
+    $.preproc_endif
   ],
 
   rules: {
@@ -85,12 +85,12 @@ module.exports = grammar({
       $.typedef,
     )),
 
-    include: $ => seq('#include', PREPROC_WS, $.preproc_const),
-    define: $ => seq('#define', PREPROC_WS, $.preproc_const),
-    ifdef: $ => seq('#ifdef', PREPROC_WS, $.preproc_const),
-    ifndef: $ => seq('#ifndef', PREPROC_WS, $.preproc_const),
-    else: _ => '#else',
-    endif: _ => '#endif',
+    preproc_include: $ => seq('#include', PREPROC_WS, $.preproc_const),
+    preproc_define: $ => seq('#define', PREPROC_WS, $.preproc_const),
+    preproc_ifdef: $ => seq('#ifdef', PREPROC_WS, $.preproc_const),
+    preproc_ifndef: $ => seq('#ifndef', PREPROC_WS, $.preproc_const),
+    preproc_else: _ => '#else',
+    preproc_endif: _ => '#endif',
 
     preproc_const: _ => token.immediate(choice(
       // matches unquoted constant, 1 or more of anything but newlines, double quotes and pound
