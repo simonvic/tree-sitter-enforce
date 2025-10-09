@@ -84,14 +84,16 @@ void foo() {
 	(for
 		(empty_statement)
 		(literal_bool)
-		(identifier)
-		(literal_int)
+		(assignment
+			(identifier)
+			(literal_int))
 		(block))
 	(for
 		(empty_statement)
 		(literal_bool)
-		(assignment (identifier)
-		(literal_int))
+		(assignment
+			(identifier)
+			(literal_int))
 		(block))
 	(for
 		(empty_statement)

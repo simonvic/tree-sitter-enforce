@@ -1860,9 +1860,15 @@ static const TSFieldMapEntry ts_field_map_entries[] = {
 
 static const TSSymbol ts_alias_sequences[PRODUCTION_ID_COUNT][MAX_ALIAS_SEQUENCE_LENGTH] = {
   [0] = {0},
+  [77] = {
+    [5] = sym_assignment,
+  },
 };
 
 static const uint16_t ts_non_terminal_alias_map[] = {
+  sym__assignment, 2,
+    sym__assignment,
+    sym_assignment,
   0,
 };
 

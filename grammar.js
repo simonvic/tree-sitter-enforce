@@ -191,7 +191,7 @@ module.exports = grammar({
         $._expression,
         // NOTE: all statements are allowed except for `if` and `typedef`. Eventually filter them out
         $.statement,
-        $._assignment
+        alias($._assignment, $.assignment)
       ))),
       ')',
       field("body", $.statement),

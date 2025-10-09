@@ -667,8 +667,13 @@
                     "name": "statement"
                   },
                   {
-                    "type": "SYMBOL",
-                    "name": "_assignment"
+                    "type": "ALIAS",
+                    "content": {
+                      "type": "SYMBOL",
+                      "name": "_assignment"
+                    },
+                    "named": true,
+                    "value": "assignment"
                   }
                 ]
               }
