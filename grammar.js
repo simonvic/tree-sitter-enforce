@@ -69,28 +69,29 @@ module.exports = grammar({
     $.doc_block,
     $.preproc_include,
     $.preproc_define,
-    $.preproc_ifdef,
-    $.preproc_ifndef,
-    $.preproc_else,
-    $.preproc_endif
   ],
 
   rules: {
 
-    compilation_unit: $ => repeat(choice(
+    compilation_unit: $ => repeat($._top_level_rule_or_preproc),
+
+    _top_level_rule: $ => choice(
       $.decl_class,
       $.decl_enum,
       $.decl_method,
       $.decl_variable,
       $.typedef,
-    )),
+    ),
+
+    _top_level_rule_or_preproc: $ => choice(
+      $._top_level_rule,
+      alias($.preproc_if_top_level_rule, $.preproc_if),
+    ),
+
+    ...preprocIf('_top_level_rule', $ => $._top_level_rule_or_preproc),
 
     preproc_include: $ => seq('#include', PREPROC_WS, $.preproc_const),
     preproc_define: $ => seq('#define', PREPROC_WS, $.preproc_const),
-    preproc_ifdef: $ => seq('#ifdef', PREPROC_WS, $.preproc_const),
-    preproc_ifndef: $ => seq('#ifndef', PREPROC_WS, $.preproc_const),
-    preproc_else: _ => '#else',
-    preproc_endif: _ => '#endif',
 
     preproc_const: _ => token.immediate(choice(
       // matches unquoted constant, 1 or more of anything but newlines, double quotes and pound
@@ -117,7 +118,15 @@ module.exports = grammar({
       '/',
     ))),
 
-    block: $ => seq('{', repeat($.statement), '}'),
+    block: $ => seq('{', repeat($._statement_or_preproc), '}'),
+
+    _statement_or_preproc: $ => choice(
+      $.statement,
+      alias($.preproc_if_statement, $.preproc_if),
+    ),
+
+    ...preprocIf('_statement', $ => $._statement_or_preproc),
+
     statement: $ => choice(
       $.block,
       $.statement_expression,
@@ -168,9 +177,16 @@ module.exports = grammar({
 
     switch_body: $ => seq(
       '{',
-      repeat($.switch_case),
-      optional(field("default_case", seq('default', ':', repeat($.statement)))),
+      repeat($._switch_case_or_preproc),
+      optional(field("default_case", seq('default', ':', repeat($._statement_or_preproc)))),
       '}'
+    ),
+
+    ...preprocIf("_switch_case", $ => $.switch_case),
+
+    _switch_case_or_preproc: $ => choice(
+      $.switch_case,
+      alias($.preproc_if_switch_case, $.preproc_if)
     ),
 
     switch_case: $ => seq(
@@ -281,13 +297,18 @@ module.exports = grammar({
 
     class_body: $ => seq(
       '{',
-      repeat(choice(
-        $.decl_enum, // see quirk 6
-        $.decl_field,
-        $.decl_method,
-      )),
+      repeat($._class_member_or_preproc),
       '}',
     ),
+
+    _class_member_or_preproc: $ => choice(
+      $.decl_enum, // see quirk 6
+      $.decl_field,
+      $.decl_method,
+      alias($.preproc_if_class_member, $.preproc_if),
+    ),
+
+    ...preprocIf('_class_member', $ => $._class_member_or_preproc),
 
     decl_field: $ => seq(
       optional($.attribute_list),
@@ -332,17 +353,22 @@ module.exports = grammar({
 
     enum_body: $ => seq(
       '{',
-      optional(seq(
-        $.enum_member,
-        repeat(seq(choice(',', ';'), $.enum_member)),
-        optional(choice(',', ';')))),
+      repeat($._enum_member_or_preproc),
       '}',
     ),
+
+    _enum_member_or_preproc: $ => choice(
+      $.enum_member,
+      alias($.preproc_if_enum_member, $.preproc_if)
+    ),
+
+    ...preprocIf('_enum_member', $ => $._enum_member_or_preproc),
 
     enum_member: $ => seq(
       optional($.attribute_list),
       field("name", $.identifier),
-      optional(seq('=', field("value", $._expression)))
+      optional(seq('=', field("value", $._expression))),
+      optional(choice(',', ';'))
     ),
 
     decl_method: $ => seq(
@@ -624,6 +650,35 @@ module.exports = grammar({
 
   }
 });
+
+/**
+ * Build RuleBuilders for preprocessor if directives
+ *
+ * @param {string} ruleNameSuffix
+ * @param {RuleBuilder<string>} content
+ * @returns {RuleBuilders<string, string>}
+ */
+function preprocIf(ruleNameSuffix, content) {
+
+  return {
+
+    // TODO: inline? Or is the AST better looking?
+    ["preproc_content" + ruleNameSuffix]: $ => repeat1(content($)),
+
+    ["preproc_if" + ruleNameSuffix]: $ => seq(
+      choice('#ifdef', '#ifndef'),
+      PREPROC_WS,
+      $.preproc_const,
+      optional(alias($["preproc_content" + ruleNameSuffix], $.preproc_content)),
+      optional(seq(
+        '#else',
+        optional(alias($["preproc_content" + ruleNameSuffix], $.preproc_content)),
+      )),
+      '#endif',
+    ),
+
+  };
+}
 
 // Quirks
 /*

@@ -1,42 +1,204 @@
 ================================================================================
-preproc
+preproc include
 ================================================================================
 #include path/to/somefile.c
 #include "path/to/somefile.c"
+--------------------------------------------------------------------------------
+(compilation_unit
+	(preproc_include (preproc_const))
+	(preproc_include (preproc_const)))
 
+================================================================================
+preproc define
+================================================================================
 #define foo
 #define "foo"
 #define ""
 #define "foo#bar"
+--------------------------------------------------------------------------------
+(compilation_unit
+	(preproc_define (preproc_const))
+	(preproc_define (preproc_const))
+	(preproc_define (preproc_const))
+	(preproc_define (preproc_const)))
 
+================================================================================
+preproc ifdef
+================================================================================
 #ifdef foo
-#ifdef "foo"
-#ifdef ""
-#ifdef "foo#bar"
-
-#ifndef foo
-#ifndef "foo"
-#ifndef ""
-#ifndef "foo#bar"
-
+#endif
+#ifdef foo
 #else
-
 #endif
 --------------------------------------------------------------------------------
 (compilation_unit
-	(preproc_include (preproc_const))
-	(preproc_include (preproc_const))
-	(preproc_define (preproc_const))
-	(preproc_define (preproc_const))
-	(preproc_define (preproc_const))
-	(preproc_define (preproc_const))
-	(preproc_ifdef (preproc_const))
-	(preproc_ifdef (preproc_const))
-	(preproc_ifdef (preproc_const))
-	(preproc_ifdef (preproc_const))
-	(preproc_ifndef (preproc_const))
-	(preproc_ifndef (preproc_const))
-	(preproc_ifndef (preproc_const))
-	(preproc_ifndef (preproc_const))
-	(preproc_else)
-	(preproc_endif))
+	(preproc_if (preproc_const))
+	(preproc_if (preproc_const)))
+
+================================================================================
+preproc ifndef
+================================================================================
+#ifndef foo
+#endif
+#ifndef "foo#bar"
+#else
+#endif
+--------------------------------------------------------------------------------
+(compilation_unit
+	(preproc_if (preproc_const))
+	(preproc_if (preproc_const)))
+
+================================================================================
+preproc if in top level
+================================================================================
+#ifdef foo
+int foo;
+#else
+int bar;
+#endif
+--------------------------------------------------------------------------------
+(compilation_unit
+	(preproc_if
+		(preproc_const)
+		(preproc_content
+			(decl_variable (type_int) (identifier)))
+		(preproc_content
+			(decl_variable (type_int) (identifier)))))
+
+================================================================================
+preproc if in block
+================================================================================
+void foo() {
+	int x;
+#ifdef foo
+	int foo;
+#else
+	int bar;
+#endif
+	int y;
+}
+--------------------------------------------------------------------------------
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(decl_variable (type_int) (identifier))
+	(preproc_if
+		(preproc_const)
+		(preproc_content
+			(decl_variable (type_int) (identifier)))
+		(preproc_content
+			(decl_variable (type_int) (identifier))))
+	(decl_variable (type_int) (identifier)))))
+
+================================================================================
+preproc if in class body
+================================================================================
+class Foo {
+	int x;
+#ifdef foo
+	int foo;
+#else
+	int bar;
+#endif
+	int y;
+}
+--------------------------------------------------------------------------------
+(compilation_unit
+	(decl_class
+		(identifier)
+		(class_body
+			(decl_field (type_int) (identifier))
+			(preproc_if
+				(preproc_const)
+				(preproc_content
+					(decl_field (type_int) (identifier)))
+				(preproc_content
+					(decl_field (type_int) (identifier))))
+			(decl_field (type_int) (identifier)))))
+
+================================================================================
+preproc if in enum body
+================================================================================
+enum eFoo {
+	X,
+#ifdef foo
+	FOO,
+#else
+	BAR,
+#endif
+	Y
+}
+--------------------------------------------------------------------------------
+(compilation_unit
+	(decl_enum
+		(identifier)
+		(enum_body
+			(enum_member (identifier))
+			(preproc_if
+				(preproc_const)
+				(preproc_content
+					(enum_member (identifier)))
+				(preproc_content
+					(enum_member (identifier))))
+			(enum_member (identifier)))))
+
+================================================================================
+preproc if switch
+================================================================================
+void foo() {
+	switch (foo) {
+		case 69: break;
+#ifdef foo
+		case foo: break;
+#else
+		case bar: break;
+#endif
+		case 420: break;
+	}
+}
+--------------------------------------------------------------------------------
+(compilation_unit (decl_method (type_void) (identifier) (block
+	(switch
+		(identifier)
+		(switch_body
+			(switch_case (literal_int) (break))
+			(preproc_if
+				(preproc_const)
+				(preproc_content
+					(switch_case (identifier) (break)))
+				(preproc_content
+					(switch_case (identifier) (break))))
+			(switch_case (literal_int) (break)))))))
+
+================================================================================
+preproc if nested in enum body
+================================================================================
+enum eFoo {
+	X,
+#ifdef foo
+	FOO,
+#else
+#ifdef baz
+	BAZ,
+#else
+	BAR,
+#endif
+#endif
+	Y
+}
+--------------------------------------------------------------------------------
+(compilation_unit
+	(decl_enum
+		(identifier)
+		(enum_body
+			(enum_member (identifier))
+			(preproc_if
+				(preproc_const)
+				(preproc_content
+					(enum_member (identifier)))
+				(preproc_content
+					(preproc_if
+						(preproc_const)
+						(preproc_content
+							(enum_member (identifier)))
+						(preproc_content
+							(enum_member (identifier))))))
+			(enum_member (identifier)))))

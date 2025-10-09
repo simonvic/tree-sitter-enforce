@@ -603,6 +603,10 @@
       "required": false,
       "types": [
         {
+          "type": "preproc_if",
+          "named": true
+        },
+        {
           "type": "statement",
           "named": true
         }
@@ -723,6 +727,10 @@
         {
           "type": "decl_method",
           "named": true
+        },
+        {
+          "type": "preproc_if",
+          "named": true
         }
       ]
     }
@@ -755,6 +763,10 @@
         },
         {
           "type": "decl_variable",
+          "named": true
+        },
+        {
+          "type": "preproc_if",
           "named": true
         },
         {
@@ -1399,6 +1411,10 @@
       "types": [
         {
           "type": "enum_member",
+          "named": true
+        },
+        {
+          "type": "preproc_if",
           "named": true
         }
       ]
@@ -2842,6 +2858,49 @@
     }
   },
   {
+    "type": "preproc_content",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "decl_class",
+          "named": true
+        },
+        {
+          "type": "decl_enum",
+          "named": true
+        },
+        {
+          "type": "decl_field",
+          "named": true
+        },
+        {
+          "type": "decl_method",
+          "named": true
+        },
+        {
+          "type": "enum_member",
+          "named": true
+        },
+        {
+          "type": "preproc_if",
+          "named": true
+        },
+        {
+          "type": "statement",
+          "named": true
+        },
+        {
+          "type": "switch_case",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "preproc_define",
     "named": true,
     "extra": true,
@@ -2858,32 +2917,19 @@
     }
   },
   {
-    "type": "preproc_ifdef",
+    "type": "preproc_if",
     "named": true,
-    "extra": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
         {
           "type": "preproc_const",
           "named": true
-        }
-      ]
-    }
-  },
-  {
-    "type": "preproc_ifndef",
-    "named": true,
-    "extra": true,
-    "fields": {},
-    "children": {
-      "multiple": false,
-      "required": true,
-      "types": [
+        },
         {
-          "type": "preproc_const",
+          "type": "preproc_content",
           "named": true
         }
       ]
@@ -3180,6 +3226,10 @@
             "named": false
           },
           {
+            "type": "preproc_if",
+            "named": true
+          },
+          {
             "type": "statement",
             "named": true
           }
@@ -3190,6 +3240,10 @@
       "multiple": true,
       "required": false,
       "types": [
+        {
+          "type": "preproc_if",
+          "named": true
+        },
         {
           "type": "switch_case",
           "named": true
@@ -3530,6 +3584,14 @@
     "named": false
   },
   {
+    "type": "#else",
+    "named": false
+  },
+  {
+    "type": "#endif",
+    "named": false
+  },
+  {
     "type": "#ifdef",
     "named": false
   },
@@ -3824,16 +3886,6 @@
   {
     "type": "preproc_const",
     "named": true
-  },
-  {
-    "type": "preproc_else",
-    "named": true,
-    "extra": true
-  },
-  {
-    "type": "preproc_endif",
-    "named": true,
-    "extra": true
   },
   {
     "type": "private",
