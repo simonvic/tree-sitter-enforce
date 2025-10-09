@@ -92,7 +92,13 @@ module.exports = grammar({
     else: _ => '#else',
     endif: _ => '#endif',
 
-    preproc_const: _ => token.immediate(choice(/[^\n#"]+/, /"[^\n"]*"/)),
+    preproc_const: _ => token.immediate(choice(
+      // matches unquoted constant, 1 or more of anything but newlines, double quotes and pound
+      /[^\n#"]+/,
+
+      // matches quoted constant, 0 or more of anything but newlines
+      /"[^\n"]*"/
+    )),
 
     doc_line: _ => token(prec(PREC.DOC, seq(choice('//!', '//?'), /[^\n]*/))),
 
