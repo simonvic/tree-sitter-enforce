@@ -72,3 +72,27 @@ class Foo { }
 								(literal_int)))
 							(actual_parameter (invokation (identifier) (actual_parameters)))))))))
 		(identifier) (class_body)))
+
+================================================================================
+attribute followed by a semicolon (Arma Reforger)
+================================================================================
+class Foo {
+
+	[Foo("", UIWidgets.EditBox, "Preset name")];
+	protected string m_sName;
+}
+--------------------------------------------------------------------------------
+(compilation_unit
+	(decl_class
+		typename: (identifier)
+		body: (class_body
+			(decl_field
+				(attribute_list (invokation
+					invoked: (identifier)
+					(actual_parameters
+						(actual_parameter (literal_string))
+						(actual_parameter (member_access accessed: (identifier) member: (identifier)))
+						(actual_parameter (literal_string)))))
+				(field_modifier)
+				type: (type_string)
+				name: (identifier)))))

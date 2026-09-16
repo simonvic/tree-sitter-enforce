@@ -250,7 +250,8 @@ export default grammar({
       '[',
       $._expression,
       repeat(seq(',', $._expression)),
-      ']'
+      ']',
+      optional(';'), // see quirk 9
     ),
 
     decl_class: $ => seq(
@@ -659,5 +660,8 @@ export default grammar({
  * a "wrong number of template parameters" compile error
  *
  * 8. Attributes can be empty
+ *
+ * 9. (Reforger) A stray semicolon after an attribute list is tolerated
+ *    `[Attribute("", UIWidgets.EditBox, "...")];`
  *
  */
